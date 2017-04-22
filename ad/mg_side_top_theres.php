@@ -1,0 +1,1 @@
+<a href="https://directlink.jp/tracking/af/89760/5iTU0VFf/" target="_blank"><img border="0" width="300" height="250" alt="いつ会社をクビになっても平気" src="https://www.theresponse.jp/image/affilibanner/TWS36_300-250.jpg"></a>

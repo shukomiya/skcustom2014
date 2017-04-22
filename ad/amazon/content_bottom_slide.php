@@ -1,0 +1,3 @@
+<div style="margin-top: 48px; margin-bottom: 48px; margin-right: auto; margin-left: auto;">
+<SCRIPT charset="utf-8" type="text/javascript" src="https://ws-fe.amazon-adsystem.com/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=JP&ID=V20070822%2FJP%2Fmissionmarket-22%2F8001%2F8cf10e24-8958-43a8-a1b1-0886dc702eb5"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="https://ws-fe.amazon-adsystem.com/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=JP&ID=V20070822%2FJP%2Fmissionmarket-22%2F8001%2F8cf10e24-8958-43a8-a1b1-0886dc702eb5&Operation=NoScript">Amazon.co.jp ウィジェット</A></NOSCRIPT>
+</div>

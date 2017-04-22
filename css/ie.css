@@ -1,0 +1,275 @@
+/*
+Styles for older IE versions (previous to IE9). for skcustom2014
+*/
+
+.footer-w-area after {
+	clear: both;
+}
+
+body {
+	font-size: 16px;
+	font-size: 1.1428574rem;
+}
+.site {
+	margin: 0 auto;
+}
+.site-header h1 {
+	font-size: 30px;
+	font-size: 2.1428571rem;
+	line-height: 1.846153846;
+	margin-bottom: 0;
+}
+.site-header h2 {
+	font-weight: normal;
+	font-size: 16px;
+	font-size: 1.1428571rem;
+	line-height: 1.846153846;
+	color: #757575;
+}
+.nav-menu {
+_margin: 0;
+_padding: 0;
+_width: 100%;
+_background-color: #804040;
+}
+.nav-menu li {
+_margin: 0 40px 0 0;
+_padding: 0;
+_float: left;
+}
+.current_page_item, .page_item {
+_margin: 0;
+_padding: 0;
+_float: left;
+_font-weight:900;
+}
+.nav-menu ul {
+_display: inline-block;
+}
+.main-navigation ul.nav-menu,     /* グローバルナビの表示設定 */
+.main-navigation div.nav-menu > ul {
+	/* border-bottom: 1px solid #ededed; */
+	/* border-top: 1px solid #ededed; */
+	display: inline-block !important;
+	text-align: left;
+	width: 100%;
+	background-color: #804040;
+}
+.main-navigation ul {
+	margin: 0;
+	padding-left: 14px;
+	padding-left: 1rem;
+	position: relative;
+       		-moz-border-radius:3.5px;
+        	-webkit-border-radius:3.5px;
+        	-khtml-border-radius:3.5px;
+        	border-radius:3.5px;
+        	-moz-border-radius:0.25rem;
+        	-webkit-border-radius:0.25rem;
+        	-khtml-border-radius:0.25rem;
+	border-radius:0.25rem;
+	text-indent: 0;
+}
+.main-navigation li {
+	margin: 0 40px 0 0;
+	margin: 0 2.857142857rem 0 0;
+	position: relative;
+	font-size: 14px;
+	font-size: 1rem;
+}
+.main-navigation li a,
+.main-navigation li {
+	display: inline-block;
+	text-decoration: none;
+	color: white;
+}
+.main-navigation li a:hover {  /* マウスオーバー時の文字色/背景色の設定 */
+	color: white;
+	text-decoration: underline;
+}
+.main-navigation .current-menu-item > a,
+.main-navigation .current-menu-ancestor > a,
+.main-navigation .current_page_item > a,
+.main-navigation .current_page_ancestor > a {
+	color: white;
+	font-weight: 900;
+}
+.main-navigation li ul li a {
+	background-color: #B56A6A;
+	border-bottom: 1px solid #ededed;
+	display: block;
+	font-size: 14px;
+	font-size: 1rem;
+	line-height: 2.181818182;
+	padding: 8px 10px;
+	padding: 0.571428571rem 0.714285714rem;
+	width: 180px;
+	width: 12.85714286rem;
+	white-space: normal;
+}
+.main-navigation li ul li a:hover {
+	color: white;
+	background-color: #B56A6A;
+}
+.menu-toggle {
+	display: none;
+}
+.entry-header .entry-title {
+	font-size: 24px;
+	font-size: 1.7142857rem;
+	font-weight: 900;
+}
+.entry-content h1,
+.comment-content h1 {
+    font-size: 24px;
+    font-size: 1.7142857rem;
+    line-height: 1.5;
+    /* 追記 */
+    padding: 5px 0 5px 15px;
+    padding: 0.3571428571428571rem 0 0.3571428571428571rem 1.071428571428571rem;
+    border-left: 8px solid;
+    border-left: 0.5714285714285714rem solid;
+    border-bottom: 1px solid;
+    border-bottom: 0.0714285714285714rem solid;
+    font-weight: bold;
+/*   color: #515151;
+    border-color: #21759b; */
+    border-color: #804040;
+}
+.entry-content h2,
+.comment-content h2,
+.mu_register h2 {
+	font-size: 22px;
+	font-size: 1.5714285rem;
+	margin: 48px 0 36px 0px;
+	margin: 3.4285714rem 0 2.5714285rem 0;
+	line-height: 1.6;
+	padding: 5px 0 5px 15px;
+	padding: 0.3571428571428571rem 0 0.3571428571428571rem 1.071428571428571rem;
+	border-left: 8px solid;
+	border-left: 0.5714285714285714rem solid;
+	border-bottom: 1px solid;
+	border-bottom: 0.0714285714285714rem solid;
+	font-weight: bold;
+    border-color: #804040;
+}
+.entry-content h3,
+.comment-content h3 {
+    font-size: 20px;
+	font-size: 1.4285714rem;
+	line-height: 1.846153846;
+	margin: 40px 0 30px 0;
+	margin: 2.8571428rem 0 2.1428571rem;
+	padding: 3px 0 3px 15px;
+	padding: 0.2142857142857143rem 0 0.2142857142857143rem 1.071428571428571rem;
+	border-left: 8px solid;
+	border-left: 0.5714285714285714rem solid;
+	border-bottom: 1px dotted;
+	border-bottom: 0.0714285714285714rem dotted;
+	font-weight: bold;
+	color: #515151;
+	border-color: #AC5959;
+}
+.entry-content h4,
+.comment-content h4 {
+    font-size: 17.5px;
+	font-size: 1.25rem;
+	line-height: 1.846153846;
+	padding: 3px 0 3px 15px;
+	padding: 0.2142857142857143rem 0 0.2142857142857143rem 1.071428571428571rem;
+	border-left: 8px solid;
+	border-left: 0.5714285714285714rem solid;
+	font-weight: bold;
+	color: #515151;
+	border-color: #C48888;
+}
+.entry-content h5,
+.comment-content h5 {
+	font-size: 14px;
+	font-size: 1rem;
+	line-height: 1.846153846;
+	padding: 2px 0 2px 15px;
+	padding: 0.1428571428571429rem 0 0.1428571428571429rem 1.071428571428571rem;
+	border-left: 8px solid;
+	border-left: 0.5714285714285714rem solid;
+	font-weight: bold;
+	color: #515151;
+	border-color: #D9B3B3;
+}
+.entry-content h6,
+.comment-content h6 {
+	font-size: 12px;
+	font-size: 0.8571428rem;
+	line-height: 1.846153846;
+	padding: 2px 0 2px 15px;
+	padding: 0.1428571428571429rem 0 0.1428571428571429rem 1.071428571428571rem;
+	border-left: 8px solid;
+	border-left: 0.5714285714285714rem solid;
+	font-weight: bold;
+	color: #515151;
+	border-color: #EDDCDC;
+/*	border-color: #FAF5F5;*/
+}
+.entry-content blockquote,
+.comment-content blockquote {
+	margin: 20px 10px 30px 10px;
+	margin: 1.428571428571429rem 0.7142857142857143rem 2.142857142857143rem 0.7142857142857143rem;
+	padding: 24px;
+	padding: 1.714285714rem;
+	border-left: 5px solid;
+	border-left: 0.3571428571428571rem solid;
+/*	color: #778899;*/
+	border-color: #DCBABA;
+	background-color: #FAF3F3;
+}
+.full-width .wrapper {
+	margin: 0 auto;
+	width: 640px;
+}
+
+.site-content {
+	float: left;
+	width: 63.6574%;
+}
+.widget-area {
+	float: right;
+	width: 300px;
+	width: 21.428571rem;
+}
+.footer-w-area {
+	width: 960px;
+	overflow: hidden;
+}
+
+/* Two Footer Widget Areas */
+.footer-w-area .two .widget-area-footer {
+    text-align:left;
+    float: left;
+    margin-right: 2%;
+    width: 48%;
+    max-width: 440px;
+}
+  
+/* Three Footer Widget Areas */
+.footer-w-area .three .widget-area-footer {
+    text-align:left;
+    float: left;
+    margin-right: 2.5%;
+    width: 31%;
+	max-width: 280px
+}
+  
+/* Four Footer Widget Areas */
+.footer-w-area .four .widget-area-footer {
+    text-align:left;
+    float: left;
+	margin-right: 3%;
+	width: 22.5%;
+    max-width: 200px;
+}
+  
+.footer-w-area .two .widget-area-footer + .widget-area-footer,
+.footer-w-area .three .widget-area-footer + .widget-area-footer + .widget-area-footer,
+.footer-w-area .four .widget-area-footer + .widget-area-footer + .widget-area-footer + .widget-area-footer {
+    margin-right: 0;
+}
