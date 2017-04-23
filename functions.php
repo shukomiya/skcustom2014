@@ -9,13 +9,16 @@ $blog_title = get_bloginfo('name');
 if ( $blog_title == '店長養成講座' ) {
 	$analy_g_acount = 'UA-4079996-8';
 	$domain_name = 'komish.com';
+	$is_category_nav = false;
 } else if ( $blog_title == '店長養成講座＋' ) {
 	$analy_g_acount = 'UA-4079996-23';
 	$domain_name = 'members.komish.com';
+	$is_category_nav = true;
 } else {
 	if ( $is_localhost ) {
 		$analy_g_acount = 'UA-4079996-8';
 		$domain_name = 'komish.com';
+		$is_category_nav = false;
 	}
 }
 
