@@ -28,6 +28,86 @@ $ad_enabled = $domain_name == 'komish.com';
 // for debug
 //$ad_enabled = true;
 
+function amp_template($file, $type, $post) {
+    if ( 'single' === $type ) {
+        $file = get_stylesheet_directory().'/amp/single.php';
+    }
+    if ( 'style' === $type ) {
+        $file = get_stylesheet_directory().'/amp/style.php';
+    }
+    if ( 'meta-author' === $type ) {
+            $file = get_stylesheet_directory().'/amp/meta-author.php';
+    }
+    if ( 'meta-taxonomy' === $type ) {
+            $file = get_stylesheet_directory().'/amp/meta-taxonomy.php';
+    }
+    if ( 'meta-time' === $type ) {
+            $file = get_stylesheet_directory().'/amp/meta-time.php';
+    }
+    return $file;
+}
+add_filter('amp_post_template_file','amp_template', 10, 3 );
+
+add_filter( 'amp_post_template_metadata', 'sk_amp_modify_json_metadata', 10, 2 );
+
+function sk_amp_modify_json_metadata( $metadata, $post ) {
+    $metadata['@type'] = 'NewsArticle';
+ 
+/*
+    $metadata['publisher']['logo'] = array(
+        '@type' => 'ImageObject',
+        'url' => get_stylesheet_directory_uri() . '/images/logo2.png',
+        'height' => 512,
+        'width' => 512
+    );
+*/
+
+    if ( !has_post_thumbnail() ) {
+	    $metadata['image'] = array(
+	        '@type' => 'ImageObject',
+	        'url' => get_stylesheet_directory_uri() . '/images/logo2.png',
+	        'height' => 505,
+	        'width' => 504
+	    );
+    }
+
+    return $metadata;
+}
+
+add_filter( 'amp_post_template_analytics', 'sk_amp_add_custom_analytics' );
+
+function sk_amp_add_custom_analytics( $analytics ) {
+	global $is_localhost, $analy_g_acount;
+	
+	if ( $is_localhost )
+		return;
+		
+    if ( ! is_array( $analytics ) ) {
+        $analytics = array();
+    }
+ 
+    // https://developers.google.com/analytics/devguides/collection/amp-analytics/
+    $analytics['sk-googleanalytics'] = array(
+        'type' => 'googleanalytics',
+        'attributes' => array(
+            // 'data-credentials' => 'include',
+        ),
+        'config_data' => array(
+            'vars' => array(
+                'account' => $analy_g_acount
+            ),
+            'triggers' => array(
+                'trackPageview' => array(
+                    'on' => 'visible',
+                    'request' => 'pageview',
+                ),
+            ),
+        ),
+    );
+
+    return $analytics;
+}
+
 function sk_dequeue_fonts() {
 	wp_dequeue_style( 'twentytwelve-fonts' );
 	wp_dequeue_style( 'wprmenu-font' );
