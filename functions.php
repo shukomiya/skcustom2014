@@ -218,47 +218,59 @@ endif;
 // 上記の関数を、親テーマの読み込みより後に読み込んでもらう
 add_action( 'after_setup_theme', 'child_theme_setup' );
 
+function is_modified_content() {
+	$mtime = get_the_modified_time('Ymd');
+	$ptime = get_the_time('Ymd');
+	if ($ptime > $mtime) {
+		return false;
+	} elseif ($ptime === $mtime) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
 function twentytwelve_entry_meta() {
-    // Translators: used between list items, there is a space after the comma.
-    $categories_list = get_the_category_list( __( ', ', 'twentytwelve' ) );
+	// Translators: used between list items, there is a space after the comma.
+	$categories_list = get_the_category_list( __( ', ', 'twentytwelve' ) );
+	 
+	// Translators: used between list items, there is a space after the comma.
+	$tag_list = get_the_tag_list( '', __( ', ', 'twentytwelve' ) );
  
-    // Translators: used between list items, there is a space after the comma.
-    $tag_list = get_the_tag_list( '', __( ', ', 'twentytwelve' ) );
+ 	if  ( !is_modified_content() ) {
+		$date = sprintf( '<time class="entry-date date published" datetime="%1$s">%2$s</time>',
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+			);
+	} else {
+		$date = sprintf( '<time class="entry-date date published" datetime="%1$s">%2$s</time><time class="entry-date date updated" datetime="%3$s">(%4$s更新)</time>',
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_time('c')  ),
+			esc_html( get_the_modified_date() )
+			);
+	}
  
-    $date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date updated" datetime="%3$s">%4$s</time></a>',
-        esc_url( get_permalink() ),
-        esc_attr( get_the_time() ),
-        esc_attr( get_the_date( 'c' ) ),
-        esc_html( get_the_date() )
-    );
- 
-    $author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-        esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-        esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
-        get_the_author()
-    );
-    $modifieddate = sprintf( '<time class="updated" datetime="%1$s">%2$s</time>',
-        esc_attr( get_the_modified_date( 'c' ) ),
-        esc_html( get_the_modified_date() )
-    );
+	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+		 esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		 esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
+		 get_the_author()
+	 );
  
     // Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name 5 is the modified date.
-    if ( $tag_list ) {
-        $utility_text ='<span class="genericon genericon-month" style="font-size: 22px;margin-top:1px;"></span>%3$s&nbsp;&nbsp;&nbsp;<span class="genericon genericon-category" style="font-size: 22px;margin-top:1px;"></span>%1$s&nbsp;&nbsp;&nbsp;<span class="genericon genericon-tag" style="font-size: 22px;margin-top:0px;"></span>%2$s&nbsp;&nbsp;&nbsp;<span class="by-author">%4$s&nbsp;&nbsp;&nbsp;</span>' ;
-    } elseif ( $categories_list ) {
-        $utility_text = '<span class="genericon genericon-month" style="font-size: 22px;margin-top:1px;"></span>&nbsp;%3$s&nbsp;&nbsp;&nbsp;<span class="genericon genericon-category" style="font-size: 22px;margin-top:1px;"></span>&nbsp;%1$s&nbsp;&nbsp;&nbsp<span class="by-author">&nbsp;%4$s&nbsp;&nbsp;</span>' ;
-    } else {
-        $utility_text = '<span class="by-updated">最終更新日:%5$s</span><span class="by-author"> by %4$s&nbsp;&nbsp;</span>';
-    }
+	 if ( $tag_list ) {
+		$utility_text ='<span class="genericon genericon-month" style="font-size: 22px;margin-top:1px;"></span>%3$s&nbsp;&nbsp;&nbsp;<span class="genericon genericon-category" style="font-size: 22px;margin-top:1px;"></span>%1$s&nbsp;&nbsp;&nbsp;<span class="genericon genericon-tag" style="font-size: 22px;margin-top:0px;"></span>%2$s&nbsp;&nbsp;&nbsp;<span class="by-author">%4$s&nbsp;&nbsp;&nbsp;</span>' ;
+	} elseif ( $categories_list ) {
+		$utility_text = '<span class="genericon genericon-month" style="font-size: 22px;margin-top:1px;"></span>&nbsp;%3$s&nbsp;&nbsp;&nbsp;<span class="genericon genericon-category" style="font-size: 22px;margin-top:1px;"></span>&nbsp;%1$s&nbsp;&nbsp;&nbsp<span class="by-author">&nbsp;%4$s&nbsp;&nbsp;</span>' ;
+	}
  
-    printf(
-        $utility_text,
-        $categories_list,
-        $tag_list,
-        $date,
-        $author,
-        $modifieddate
-    );
+	printf(
+		$utility_text,
+		$categories_list,
+		$tag_list,
+		$date,
+		$author
+	);
 }
 
 function sk_widgets_init() {
