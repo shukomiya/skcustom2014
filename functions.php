@@ -430,17 +430,6 @@ function sk_get_access_analy_google() {
 	
 	if ( $domain_name == 'komish.com' ) {
 ?>
-<script type="text/javascript">jQuery(function() {  
-    jQuery("a").click(function(e) {        
-        var ahref = jQuery(this).attr('href');
-        if (ahref.indexOf("komish.com") != -1 || ahref.indexOf("http") == -1 ) {
-            ga('send', 'event', 'internal-link', 'click', ahref);} 
-        else { 
-            ga('send', 'event', 'external-link', 'click', ahref);}
-        });
-    });
-</script>
-
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -454,6 +443,16 @@ function sk_get_access_analy_google() {
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
 
+</script>
+<script type="text/javascript">jQuery(function() {  
+    jQuery("a").click(function(e) {        
+        var ahref = jQuery(this).attr('href');
+        if (ahref.indexOf("komish.com") != -1 || ahref.indexOf("http") == -1 ) {
+            ga('send', 'event', 'internal-link', 'click', ahref);} 
+        else { 
+            ga('send', 'event', 'external-link', 'click', ahref);}
+        });
+    });
 </script>
 <?php
 /*
@@ -474,16 +473,6 @@ function sk_get_access_analy_google() {
 
 	} else if ( $domain_name == 'members.komish.com' ) {
 ?>
-<script type="text/javascript">jQuery(function() {  
-    jQuery("a").click(function(e) {        
-        var ahref = jQuery(this).attr('href');
-        if (ahref.indexOf("members.komish.com") != -1) {
-            ga('send', 'event', 'internal-link', 'click', ahref);} 
-        else { 
-            ga('send', 'event', 'external-link', 'click', ahref);}
-        });
-    });
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -497,6 +486,16 @@ function sk_get_access_analy_google() {
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
 
+</script>
+<script type="text/javascript">jQuery(function() {  
+    jQuery("a").click(function(e) {        
+        var ahref = jQuery(this).attr('href');
+        if (ahref.indexOf("members.komish.com") != -1) {
+            ga('send', 'event', 'internal-link', 'click', ahref);} 
+        else { 
+            ga('send', 'event', 'external-link', 'click', ahref);}
+        });
+    });
 </script>
 <?php
 	}

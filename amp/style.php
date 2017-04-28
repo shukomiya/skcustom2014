@@ -395,3 +395,8 @@ amp-carousel > amp-img > img {
 	margin: 24px auto;
 }
 
+.yarpp-related li {
+	margin-left: 28px;
+	padding: 5px 0;
+}
+
