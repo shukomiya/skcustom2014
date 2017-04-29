@@ -10,23 +10,23 @@ if ( $blog_title == '店長養成講座' ) {
 	$analy_g_acount = 'UA-4079996-8';
 	$domain_name = 'komish.com';
 	$is_category_nav = false;
+	$ad_enabled = true;
 } else if ( $blog_title == '店長養成講座＋' ) {
 	$analy_g_acount = 'UA-4079996-23';
 	$domain_name = 'members.komish.com';
 	$is_category_nav = true;
+	$ad_enabled = false;
 } else {
 	if ( $is_localhost ) {
 		$analy_g_acount = 'UA-4079996-8';
 		$domain_name = 'komish.com';
 		$is_category_nav = false;
+		$ad_enabled = false;
 	}
 }
 
-//true: 広告を表示する
-$ad_enabled = $domain_name == 'komish.com';
-
 // for debug
-//$ad_enabled = true;
+//$ad_enabled = ture;
 
 function amp_template($file, $type, $post) {
     if ( 'single' === $type ) {

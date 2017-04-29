@@ -64,13 +64,19 @@ blockquote {
     box-shadow: none;
 }
 
-.site-header h1,
-.site-header h2 {
+.site-header h1 {
 	text-align: left;
+	font-size: 30px;
+	font-size: 2.1428571rem;
+	line-height: 1.846153846;
+	margin-bottom: 0;
+	font-weight: 900;
 }
 .site-header h2 {
+	font-weight: normal;
 	font-size: 16px;
 	font-size: 1.1428571rem;
+	line-height: 1.846153846;
 }
 
 .single-author .entry-meta .by-author {
@@ -137,8 +143,7 @@ blockquote {
 }
 
 .entry-header .entry-title {
-	font-size: 20px;
-	font-size: 1.428571429rem;
+	font-size: 24px;
 	line-height: 1.2;
 	font-weight: 900;
 }
@@ -175,7 +180,86 @@ border-left-color: navy;
 border-left-style: solid;
 border-left-width: 10px;
 }
- 
+
+.entry-content h1,
+.comment-content h1 {
+    font-size: 24px;
+    line-height: 1.5;
+    /* 追記 */
+    padding: 12px 0 8px 18px;
+    border: 1px #804040 solid;
+    border-left: 16px #804040 solid;
+    font-weight: bold;
+/*   color: #515151;
+    border-color: #21759b; */
+    border-color: #804040;
+}
+.entry-content h2,
+.comment-content h2,
+.mu_register h2 {
+	font-size: 22px;
+	margin: 48px 0 36px 0px;
+	line-height: 1.6;
+	padding: 12px 0 8px 16px;
+	border-left: 16px #804040 solid;
+	border-bottom: 1px #804040 solid;
+	font-weight: bold;
+}
+.entry-content h3,
+.comment-content h3 {
+	 font-size: 20px;
+	font-size: 1.4285714rem;
+	margin: 40px 0 30px 0;
+	padding: 12px 0 8px 16px;
+	border-left: 16px #804040 solid;
+	font-weight: bold;
+}
+.entry-content h4,
+.comment-content h4 {
+    font-size: 17.5px;
+	font-size: 1.25rem;
+	line-height: 1.846153846;
+	/*
+	padding: 3px 0 3px 15px;
+	padding: 0.2142857142857143rem 0 0.2142857142857143rem 1.071428571428571rem;
+	border-left: 8px solid;
+	border-left: 0.5714285714285714rem solid;
+	font-weight: bold;
+	color: #515151;
+	border-color: #C48888;
+	*/
+}
+.entry-content h5,
+.comment-content h5 {
+	font-size: 14px;
+	font-size: 1rem;
+	line-height: 1.846153846;
+	/*
+	padding: 2px 0 2px 15px;
+	padding: 0.1428571428571429rem 0 0.1428571428571429rem 1.071428571428571rem;
+	border-left: 8px solid;
+	border-left: 0.5714285714285714rem solid;
+	font-weight: bold;
+	color: #515151;
+	border-color: #D9B3B3;
+	*/
+}
+.entry-content h6,
+.comment-content h6 {
+	font-size: 12px;
+	font-size: 0.8571428rem;
+	line-height: 1.846153846;
+	/*
+	padding: 2px 0 2px 15px;
+	padding: 0.1428571428571429rem 0 0.1428571428571429rem 1.071428571428571rem;
+	border-left: 8px solid;
+	border-left: 0.5714285714285714rem solid;
+	font-weight: bold;
+	color: #515151;
+	border-color: #EDDCDC;
+	*/
+}
+
 .entry-content p,
 .entry-summary p,
 .comment-content p,
@@ -470,109 +554,6 @@ list-style-type:disc;
 	}
 	.menu-toggle {
 		display: none;
-	}
-	.entry-header .entry-title {
-		font-size: 24px;
-		font-size: 1.7142857rem;
-		font-weight: 900;
-	}
-	.entry-content h1,
-	.comment-content h1 {
-	    font-size: 24px;
-	    font-size: 1.7142857rem;
-	    line-height: 1.5;
-	    /* 追記 */
-	    padding: 5px 0 5px 15px;
-	    padding: 0.3571428571428571rem 0 0.3571428571428571rem 1.071428571428571rem;
-	    border-left: 8px solid;
-	    border-left: 0.5714285714285714rem solid;
-	    border-bottom: 1px solid;
-	    border-bottom: 0.0714285714285714rem solid;
-	    font-weight: bold;
-	/*   color: #515151;
-	    border-color: #21759b; */
-	    border-color: #804040;
-	}
-	.entry-content h2,
-	.comment-content h2,
-	.mu_register h2 {
-		font-size: 22px;
-		font-size: 1.5714285rem;
-		margin: 48px 0 36px 0px;
-		margin: 3.4285714rem 0 2.5714285rem 0;
-		line-height: 1.6;
-		padding: 5px 0 5px 15px;
-		padding: 0.3571428571428571rem 0 0.3571428571428571rem 1.071428571428571rem;
-		border-left: 8px solid;
-		border-left: 0.5714285714285714rem solid;
-		border-bottom: 1px solid;
-		border-bottom: 0.0714285714285714rem solid;
-		font-weight: bold;
-	    border-color: #804040;
-	}
-	.entry-content h3,
-	.comment-content h3 {
-	    font-size: 20px;
-		font-size: 1.4285714rem;
-		line-height: 1.846153846;
-		margin: 40px 0 30px 0;
-		margin: 2.8571428rem 0 2.1428571rem
-		padding: 3px 0 3px 15px;
-		padding: 0.2142857142857143rem 0 0.2142857142857143rem 1.071428571428571rem;
-		border-left: 8px solid;
-		border-left: 0.5714285714285714rem solid;
-/*
-		border-bottom: 1px dotted;
-		border-bottom: 0.0714285714285714rem dotted;
-*/
-		font-weight: bold;
-		color: #515151;
-		border-color: #AC5959;
-	}
-	.entry-content h4,
-	.comment-content h4 {
-	    font-size: 17.5px;
-		font-size: 1.25rem;
-		line-height: 1.846153846;
-		/*
-		padding: 3px 0 3px 15px;
-		padding: 0.2142857142857143rem 0 0.2142857142857143rem 1.071428571428571rem;
-		border-left: 8px solid;
-		border-left: 0.5714285714285714rem solid;
-		font-weight: bold;
-		color: #515151;
-		border-color: #C48888;
-		*/
-	}
-	.entry-content h5,
-	.comment-content h5 {
-		font-size: 14px;
-		font-size: 1rem;
-		line-height: 1.846153846;
-		/*
-		padding: 2px 0 2px 15px;
-		padding: 0.1428571428571429rem 0 0.1428571428571429rem 1.071428571428571rem;
-		border-left: 8px solid;
-		border-left: 0.5714285714285714rem solid;
-		font-weight: bold;
-		color: #515151;
-		border-color: #D9B3B3;
-		*/
-	}
-	.entry-content h6,
-	.comment-content h6 {
-		font-size: 12px;
-		font-size: 0.8571428rem;
-		line-height: 1.846153846;
-		/*
-		padding: 2px 0 2px 15px;
-		padding: 0.1428571428571429rem 0 0.1428571428571429rem 1.071428571428571rem;
-		border-left: 8px solid;
-		border-left: 0.5714285714285714rem solid;
-		font-weight: bold;
-		color: #515151;
-		border-color: #EDDCDC;
-		*/
 	}
 	.full-width .wrapper {
 		margin: 0 auto;
