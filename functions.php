@@ -240,7 +240,7 @@ function twentytwelve_entry_meta() {
 	$tag_list = get_the_tag_list( '', __( ', ', 'twentytwelve' ) );
  
  	if  ( !is_modified_content() ) {
-		$date = sprintf( '<time class="entry-date date published" datetime="%1$s">%2$s</time>',
+		$date = sprintf( '<time class="entry-date date published updated" datetime="%1$s">%2$s</time>',
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() )
 			);
