@@ -614,16 +614,6 @@ list-style-type:disc;
 		margin: 0 auto;
 		width: 720px;
 	}
-	.sales-letter .sales-letter-content h1 {
-		text-align: center;
-		border-bottom: 1px gray solid;
-	}
-	.sales-letter .sales-letter-content h2 {
-		text-align: center;
-	}
-	.sales-letter .sales-letter-content h3 {
-		text-align: left;
-	}
 }
 
 /* Minimum width of 960 pixels. */
