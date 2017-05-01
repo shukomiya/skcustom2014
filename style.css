@@ -79,12 +79,14 @@ blockquote {
 	line-height: 1.846153846;
 }
 
+/*
 .single-author .entry-meta .by-author {
 	display: none;
 }
 .single-author .entry-meta .by-updated {
 	display: none;
 }
+*/
 
 .sales-letter .entry-title {
 	display: none;

@@ -27,7 +27,7 @@
 			<?php endif; // is_single() ?>
 			<div class="entry-meta">
 			<?php twentytwelve_entry_meta(); ?>
-			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="genericon genericon-edit" style="font-size: 22px;"></span><span class="edit-link">', '</span></span>' ); ?></div>
+			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;<span class="edit-link">', '</span>' ); ?></div>
 		</header><!-- .entry-header -->
 
 	<!-- rakuten_ad_target_begin --> 

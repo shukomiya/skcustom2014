@@ -6,27 +6,27 @@ $is_localhost = $_SERVER["SERVER_NAME"] == 'localhost';
 
 $blog_title = get_bloginfo('name');
 
-if ( $blog_title == '店長養成講座' ) {
+if ( $is_localhost ) {
 	$analy_g_acount = 'UA-4079996-8';
 	$domain_name = 'komish.com';
 	$is_category_nav = false;
-	$ad_enabled = true;
-} else if ( $blog_title == '店長養成講座＋' ) {
-	$analy_g_acount = 'UA-4079996-23';
-	$domain_name = 'members.komish.com';
-	$is_category_nav = true;
 	$ad_enabled = false;
 } else {
-	if ( $is_localhost ) {
+	if ( $blog_title == '店長養成講座' ) {
 		$analy_g_acount = 'UA-4079996-8';
 		$domain_name = 'komish.com';
 		$is_category_nav = false;
+		$ad_enabled = true;
+	} else if ( $blog_title == '店長養成講座＋' ) {
+		$analy_g_acount = 'UA-4079996-23';
+		$domain_name = 'members.komish.com';
+		$is_category_nav = true;
 		$ad_enabled = false;
 	}
 }
 
 // for debug
-//$ad_enabled = ture;
+$ad_enabled = false;
 
 function amp_template($file, $type, $post) {
     if ( 'single' === $type ) {
@@ -187,11 +187,13 @@ add_action( 'wp_enqueue_scripts', 'sk_enqueue_styles' );
 function sk_enqueue_styles() {
 	global $wp_styles;
 
+/*
 	wp_enqueue_style( 'genericons', 
 		get_stylesheet_directory_uri() . '/fonts/genericons.css', 
 		array(),
 		date('YmdHis', filemtime(get_stylesheet_directory() . '/fonts/genericons.css'))
 		);
+*/
     wp_enqueue_style( 'twentytwelve', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'skcustom2014',
         get_stylesheet_directory_uri() . '/style.css',
@@ -243,7 +245,7 @@ function twentytwelve_entry_meta() {
 			esc_html( get_the_date() )
 			);
 	} else {
-		$date = sprintf( '<time class="entry-date date published" datetime="%1$s">%2$s</time><time class="entry-date date updated" datetime="%3$s">(%4$s更新)</time>',
+		$date = sprintf( '<time class="entry-date date published" datetime="%1$s">%2$s</time>&nbsp;&nbsp;&nbsp;<i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;<time class="entry-date date updated" datetime="%3$s">%4$s</time>',
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_time('c')  ),
@@ -251,17 +253,16 @@ function twentytwelve_entry_meta() {
 			);
 	}
  
-	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-		 esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		 esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
+	$author = sprintf( '<span class="author vcard">%1$s</span>',
 		 get_the_author()
 	 );
  
     // Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name 5 is the modified date.
+    //<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;
 	 if ( $tag_list ) {
-		$utility_text ='<span class="genericon genericon-month" style="font-size: 22px;margin-top:1px;"></span>%3$s&nbsp;&nbsp;&nbsp;<span class="genericon genericon-category" style="font-size: 22px;margin-top:1px;"></span>%1$s&nbsp;&nbsp;&nbsp;<span class="genericon genericon-tag" style="font-size: 22px;margin-top:0px;"></span>%2$s&nbsp;&nbsp;&nbsp;<span class="by-author">%4$s&nbsp;&nbsp;&nbsp;</span>' ;
+		$utility_text ='<i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;%3$s&nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;%1$s&nbsp;&nbsp;&nbsp;<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;%2$s&nbsp;&nbsp;&nbsp<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;%4$s&nbsp;&nbsp;&nbsp;' ;
 	} elseif ( $categories_list ) {
-		$utility_text = '<span class="genericon genericon-month" style="font-size: 22px;margin-top:1px;"></span>&nbsp;%3$s&nbsp;&nbsp;&nbsp;<span class="genericon genericon-category" style="font-size: 22px;margin-top:1px;"></span>&nbsp;%1$s&nbsp;&nbsp;&nbsp<span class="by-author">&nbsp;%4$s&nbsp;&nbsp;</span>' ;
+		$utility_text = '<i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;%3$s&nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;%1$s&nbsp;&nbsp;&nbsp<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;%4$s&nbsp;&nbsp;' ;
 	}
  
 	printf(
