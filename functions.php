@@ -257,7 +257,7 @@ function twentytwelve_entry_meta() {
 		 get_the_author()
 	 );
 	 
-	 if ( is_page()) {
+	 if ( !$categories_list ) {
 		echo $author;
 		return;
 	}
