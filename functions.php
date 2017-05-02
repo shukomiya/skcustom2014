@@ -257,7 +257,7 @@ function twentytwelve_entry_meta() {
 		 get_the_author()
 	 );
 	 
-	 if (!$category_list) {
+	 if (!is_single()) {
 		echo $author;
 		return;
 	}
