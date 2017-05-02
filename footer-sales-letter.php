@@ -26,8 +26,5 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-<?php if ( $_SERVER['SERVER_NAME'] == 'komish.com' ) : ?>
-<script type="text/javascript" src="https://komish.com/ra/script.php"></script><noscript><p><img src="https://komish.com/ra/track.php" alt="" width="1" height="1" /></p></noscript>
-<?php endif; ?>
 </body>
 </html>

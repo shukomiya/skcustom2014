@@ -92,11 +92,12 @@ blockquote {
 .page header  .entry-author {
 	display: none;
 }
-
+.sales-letter .site-header {
+	display: none;
+}
 .sales-letter .entry-title {
 	display: none;
 }
-
 
 /* Navigation Menu */
 

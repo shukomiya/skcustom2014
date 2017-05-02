@@ -2,7 +2,7 @@
 
 $is_localhost = $_SERVER["SERVER_NAME"] == 'localhost';
 // for debug
-//$is_localhost = false;
+$is_localhost = false;
 
 $blog_title = get_bloginfo('name');
 
