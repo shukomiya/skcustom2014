@@ -253,7 +253,7 @@ function twentytwelve_entry_meta() {
 	// Translators: used between list items, there is a space after the comma.
 	$tag_list = get_the_tag_list( '', __( ', ', 'twentytwelve' ) );
  
- 	$author = sprintf( '<span class="author vcard"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;%1$s&nbsp;&nbsp;&nbsp;</span>',
+ 	$author = sprintf( '<span class="author vcard"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;<span class="post-author">%1$s</span>&nbsp;&nbsp;&nbsp;</span>',
 		 get_the_author()
 	 );
 	 
