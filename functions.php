@@ -232,6 +232,20 @@ function is_modified_content() {
 	}
 }
 
+function entry_date() {
+	$date = sprintf( '<i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time class="entry-date date published updated" datetime="%1$s">%2$s</time>',
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+		);
+	if  ( is_modified_content() ) {
+		$date =  sprintf( '%1$s&nbsp;&nbsp;&nbsp;<i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;<time class="entry-date date updated" datetime="%2$s">%3$s</time>',
+			$date,
+			esc_attr( get_the_modified_time('c')  ),
+			esc_html( get_the_modified_date() )
+			);
+	}
+	echo ' <div class="entry-date">'. $date . '</div>';
+}
 function twentytwelve_entry_meta() {
 	// Translators: used between list items, there is a space after the comma.
 	$categories_list = get_the_category_list( __( ', ', 'twentytwelve' ) );
@@ -239,37 +253,27 @@ function twentytwelve_entry_meta() {
 	// Translators: used between list items, there is a space after the comma.
 	$tag_list = get_the_tag_list( '', __( ', ', 'twentytwelve' ) );
  
- 	if  ( !is_modified_content() ) {
-		$date = sprintf( '<time class="entry-date date published updated" datetime="%1$s">%2$s</time>',
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() )
-			);
-	} else {
-		$date = sprintf( '<time class="entry-date date published" datetime="%1$s">%2$s</time>&nbsp;&nbsp;&nbsp;<i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;<time class="entry-date date updated" datetime="%3$s">%4$s</time>',
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_time('c')  ),
-			esc_html( get_the_modified_date() )
-			);
-	}
- 
-	$author = sprintf( '<span class="author vcard">%1$s</span>',
+ 	$author = sprintf( '<span class="author vcard"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;%1$s&nbsp;&nbsp;&nbsp;</span>',
 		 get_the_author()
 	 );
+	 
+	 if (!$category_list) {
+		echo $author;
+		return;
+	}
  
     // Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name 5 is the modified date.
     //<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;
 	 if ( $tag_list ) {
-		$utility_text ='<i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;%3$s&nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;%1$s&nbsp;&nbsp;&nbsp;<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;%2$s&nbsp;&nbsp;&nbsp<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;%4$s&nbsp;&nbsp;&nbsp;' ;
+		$utility_text ='<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;%1$s&nbsp;&nbsp;&nbsp;<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;%2$s&nbsp;&nbsp;&nbsp%3$s' ;
 	} elseif ( $categories_list ) {
-		$utility_text = '<i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;%3$s&nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;%1$s&nbsp;&nbsp;&nbsp<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;%4$s&nbsp;&nbsp;' ;
+		$utility_text = '<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;%1$s&nbsp;&nbsp;&nbsp%3$s' ;
 	}
  
 	printf(
 		$utility_text,
 		$categories_list,
 		$tag_list,
-		$date,
 		$author
 	);
 }
