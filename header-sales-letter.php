@@ -29,13 +29,8 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
-<?php sk_get_access_analy_google(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php if ( !is_noad() ) : ?>
-<script type="text/javascript">
-window.google_analytics_uacct = "UA-4079996-8";
-</script>
-<?php endif; ?>
+<?php sk_get_access_analy_google(); ?>
 <div id="page" class="hfeed site">
 	<div id="main" class="wrapper">
