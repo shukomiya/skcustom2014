@@ -244,7 +244,7 @@ function entry_date() {
 			esc_html( get_the_modified_date() )
 			);
 	}
-	echo ' <div class="entry-date">'. $date . '</div>';
+	echo ' <div class="header-date">'. $date . '</div>';
 }
 function twentytwelve_entry_meta() {
 	// Translators: used between list items, there is a space after the comma.

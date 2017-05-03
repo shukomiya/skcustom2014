@@ -86,7 +86,7 @@ blockquote {
 	display: none;
 }
 
-.page header  .entry-date {
+.page header  .header-date {
 	display: none;
 }
 .page header  .author {
@@ -156,7 +156,7 @@ blockquote {
 	font-weight: 900;
 }
 
-header .entry-date {
+header .header-date {
 	margin-bottom: 4px;
 	font-size: 13px;
 	line-height: 1.846153846;
