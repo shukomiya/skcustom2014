@@ -262,19 +262,32 @@ function twentytwelve_entry_meta() {
 		return;
 	}
  
+	$date = sprintf( '<i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time class="entry-date date published updated" datetime="%1$s">%2$s</time>&nbsp;&nbsp;&nbsp;',
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+		);
+	if  ( is_modified_content() ) {
+		$date =  sprintf( '%1$s<i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;<time class="entry-date date updated" datetime="%2$s">%3$s</time>&nbsp;&nbsp;&nbsp;',
+			$date,
+			esc_attr( get_the_modified_time('c')  ),
+			esc_html( get_the_modified_date() )
+			);
+	}
+
     // Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name 5 is the modified date.
     //<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;
 	 if ( $tag_list ) {
-		$utility_text ='<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;%1$s&nbsp;&nbsp;&nbsp;<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;%2$s&nbsp;&nbsp;&nbsp;%3$s' ;
+		$utility_text ='%4$s%3$s<br /><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;%1$s&nbsp;&nbsp;&nbsp;<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;%2$s&nbsp;&nbsp;&nbsp;' ;
 	} elseif ( $categories_list ) {
-		$utility_text = '<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;%1$s&nbsp;&nbsp;&nbsp;%3$s' ;
+		$utility_text = '%4$s%3$s<br /><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;%1$s&nbsp;&nbsp;&nbsp;' ;
 	}
  
 	printf(
 		$utility_text,
 		$categories_list,
 		$tag_list,
-		$author
+		$author,
+		$date
 	);
 }
 
