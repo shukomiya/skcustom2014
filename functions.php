@@ -265,9 +265,9 @@ function twentytwelve_entry_meta() {
     // Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name 5 is the modified date.
     //<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;
 	 if ( $tag_list ) {
-		$utility_text ='<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;%1$s&nbsp;&nbsp;&nbsp;<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;%2$s&nbsp;&nbsp;&nbsp%3$s' ;
+		$utility_text ='<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;%1$s&nbsp;&nbsp;&nbsp;<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;%2$s&nbsp;&nbsp;&nbsp;%3$s' ;
 	} elseif ( $categories_list ) {
-		$utility_text = '<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;%1$s&nbsp;&nbsp;&nbsp%3$s' ;
+		$utility_text = '<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;%1$s&nbsp;&nbsp;&nbsp;%3$s' ;
 	}
  
 	printf(
