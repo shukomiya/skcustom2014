@@ -12,10 +12,10 @@
 		<header class="entry-header">
 			<?php entry_date(); ?>
 			<h1 class="entry-title"><?php global $search_str; the_title(); if ( $search_str ) echo ':&nbsp;' . $search_str; ?></h1>
-			<footer class="entry-meta">
+			<div class="entry-meta">
 				<?php twentytwelve_entry_meta(); ?>
 				<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
-			</footer><!-- .entry-meta -->
+			</div><!-- .entry-meta -->
 		</header>
 
 		<div class="entry-content sales-letter-content">
