@@ -218,7 +218,7 @@ border-left-width: 10px;
 .comment-content h2,
 .mu_register h2 {
 	font-size: 22px;
-	margin: 0px 0 40px 0px;
+	margin: 40px 0 40px 0px;
 	line-height: 1.6;
 	padding: 8px 0 6px 16px;
 	border-left: 12px #804040 solid;
@@ -230,7 +230,7 @@ border-left-width: 10px;
 .entry-content h3,
 .comment-content h3 {
 	 font-size: 20px;
-	margin: 0px 0 40px 0;
+	margin: 40px 0 40px 0;
 	padding: 4px 0 2px 14px;
 	border-left: 12px #804040 solid;
 	font-weight: bold;
