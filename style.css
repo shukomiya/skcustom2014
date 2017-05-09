@@ -190,7 +190,6 @@ font-weight: 900;
 }
 .sales-letter .sales-letter-content h2 {
 	text-align: left;
-	margin: 0 0 30px 0;
 	padding: 0;
 	color: navy;
 	border-style: none;
@@ -585,6 +584,9 @@ list-style-type:disc;
 		width: 100%;
 	}
 	.sales-letter .sales-letter-content h1 {
+		text-align: center;
+	}
+	.sales-letter .sales-letter-content h2 {
 		text-align: center;
 	}
 	
