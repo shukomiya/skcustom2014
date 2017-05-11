@@ -837,6 +837,13 @@ add_shortcode('mag2form', 'sk_get_mag2form');
 function sk_get_checklist($atts, $content = null) {
 	return '<div class="widelist">'.$content.'</div>';
 }
-add_shortcode('widelist', 'sk_get_checklist')
+add_shortcode('widelist', 'sk_get_checklist');
+
+function sk_get_product_list($atts, $content = null) {
+	return '<ul>' . 
+		 wp_list_pages('child_of=900&depth=1&title_li=&sort_column=ID&sort_order=DESC') .
+		 '</ul>';
+}
+add_shortcode('products', 'sk_get_product_list');
 
 ?>
