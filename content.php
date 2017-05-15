@@ -108,7 +108,7 @@
 					$args = array(
 						'range' => 'weekly', // 週単位で集計
 						'post_type' => 'post', // ポストタイプを指定
-						'limit' => 7, // 表示件数を指定
+						'limit' => 5, // 表示件数を指定
 						'stats_views' => 0,
 						'pid' => "$post->ID",
 						'cat' => "$cat_id"
