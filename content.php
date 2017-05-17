@@ -87,6 +87,11 @@
 				echo '<h2>おすすめ記事</h2>';
 				sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 
+				if (function_exists('related_posts')){
+					echo '<h2>関連記事</h2>';
+					related_posts(); 
+				}
+				
 				if ( $ad_enabled ) {
 					if ( is_mobile() ) {
 						sk_get_the_ad('rakuten', 'content_bottom_300x250');
@@ -95,11 +100,6 @@
 					}
 				}
 			
-				if (function_exists('related_posts')){
-					echo '<h2>関連記事</h2>';
-					related_posts(); 
-				}
-				
 				if ( function_exists( 'wpp_get_mostpopular' ) ) {
 					echo '<h2>このカテゴリの１週間の人気記事</h2>';
 					echo '<style type="text/css">.wpp-list li { padding: 5px 0; } </style>';

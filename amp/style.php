@@ -400,3 +400,8 @@ amp-carousel > amp-img > img {
 	padding: 5px 0;
 }
 
+.wpp-list li {
+	margin-left: 28px;
+	padding: 5px 0;
+}
+    

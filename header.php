@@ -40,6 +40,7 @@
 </script>
 <?php endif; ?>
 <script src="https://use.fontawesome.com/9b0c8d6824.js"></script>
+<style type="text/css">.wpp-list li { padding: 5px 0; } </style>
 </head>
 <body <?php body_class(); ?>>
 <?php sk_get_access_analy_google(); ?>
