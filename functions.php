@@ -26,7 +26,7 @@ if ( $is_localhost ) {
 }
 
 // for debug
-//$ad_enabled = false;
+$ad_enabled = true;
 
 function amp_template($file, $type, $post) {
     if ( 'single' === $type ) {
@@ -742,6 +742,15 @@ function sk_get_campaign_param($postpos) {
 
 	return array($begin, $end);
 }
+
+function sk_is_campaign_in( $now, $open, $close ) {
+    if ( strtotime($open) <= strtotime($now)  && strtotime($now) < strtotime($close) ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 
 function sk_get_campaign_in( $atts, $content = null ) {
     extract( shortcode_atts( array(
