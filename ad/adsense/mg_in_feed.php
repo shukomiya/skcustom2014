@@ -3,7 +3,7 @@
      style="display:block"
      data-ad-format="fluid"
      data-ad-layout="image-middle"
-     data-ad-layout-key="-6w+2b-fv+co+q0"
+     data-ad-layout-key="-76+2b-fv+co+q0"
      data-ad-client="ca-pub-7935009294964527"
      data-ad-slot="8098197285"></ins>
 <script>

@@ -144,4 +144,14 @@
 				</div><!-- .author-info -->
 			<?php endif; ?>
 		</footer><!-- .entry-meta -->
+				<?php
+				global $index_ad_count;
+				
+				if ( !is_single() ) {
+					if ( $index_ad_count == 0|| $index_ad_count == 4 || $index_ad_count == 9) {
+						sk_get_the_ad('adsense', 'mg_in_feed');
+					}
+					$index_ad_count++;
+				}
+				?>
 	</article><!-- #post -->
