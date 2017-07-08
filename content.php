@@ -53,6 +53,7 @@
 					} else {
 						sk_get_the_ad('adsense', 'mg_single_content_top');
 					}
+				/*
 				} else {
 					if ( $index_ad_count == 0 ) {
 						if ( is_mobile() ) {
@@ -62,6 +63,7 @@
 						}
 						$index_ad_count++;
 					}
+				}*/
 				}
 			?>
 			<?php the_content( '続きを読む...' ); ?>
