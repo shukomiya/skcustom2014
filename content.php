@@ -45,8 +45,7 @@
 			endif; ?>
 
 			<?php 
-/*
-				global $ad_enabled, $index_ad_count;
+				global $index_ad_count;
 				
 				if ( is_single() ) {
 					if ( is_mobile() ) {
@@ -64,7 +63,6 @@
 						$index_ad_count++;
 					}
 				}
-*/
 			?>
 			<?php the_content( '続きを読む...' ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-link-title">' . __( 'Pages:', 'twentytwelve' ) . '</span>', 'after' => '</div>',

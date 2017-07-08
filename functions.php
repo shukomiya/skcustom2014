@@ -536,6 +536,16 @@ function sk_get_johnson_box( $atts, $content = null ) {
 }
 add_shortcode('johnson', 'sk_get_johnson_box');
 
+// http://www.mag2.com/m/0000279189.html
+function sk_get_mag2form( $atts ) {
+	$str = <<<EOD
+<p><a href="http://www.mag2.com/m/0000279189.html">店長養成講座メールマガジンを購読するには、こちらで登録してください。</a></p>
+EOD;
+
+	return $str;
+}
+add_shortcode('mag2form', 'sk_get_mag2form');
+
 function sk_get_admlmg() {
 	return '<p>メルマガ読者の方は合わせてお読み下さい。</p><p>今日のメルマガ配信は終わっているため、今登録してもこの記事を読むことはできません。</p><p><a href="/malmag?bmg=' . get_the_date('ymd') . '&amp;p=c">それでも次回のメルマガ専用記事を読みたい人はこちらから登録して下さい。</a></p>';
 }
@@ -607,8 +617,7 @@ function sk_remove_more_jump_link($link) {
 add_filter('the_content_more_link', 'sk_remove_more_jump_link');
 
 //本文中の<!--more-->タグをアドセンスに置換
-
-
+/*
 function replace_more_tag($the_content){
     //広告（AdSense）タグを記入
     if ( !is_noad() ) {
@@ -618,14 +627,7 @@ function replace_more_tag($the_content){
 	return $the_content;
 }
 add_filter('the_content', 'replace_more_tag');
-
-function no_self_ping( &$links ) {
-    $home = get_option( 'home' );
-    foreach ( $links as $l => $link )
-        if ( 0 === strpos( $link, $home ) )
-            unset($links[$l]);
-}
-add_action( 'pre_ping', 'no_self_ping' );
+*/
 
 add_theme_support('automatic-feed-links');
 
@@ -817,28 +819,6 @@ function sk_get_campaign_out( $atts, $content = null ) {
 	}
 }
 add_shortcode('campout', 'sk_get_campaign_out');
-
-function sk_get_mag2form( $atts ) {
-    extract( shortcode_atts( array(
-    	'label' => 'malmag'
-        ), $atts ));
-
-	$str = <<<EOD
-<div style="margin: 0 auto; width:240px;">
-<div style="height:13px;background:url(https://kamogawa.mag2.com/editor/pub-form/small_o_left_top.gif) no-repeat left top;"><div style="height:13px;background:url(https://kamogawa.mag2.com/editor/pub-form/small_o_right_top.gif) no-repeat right top;"><div style="margin:0 5px;padding-left:8px; height:13px; color:#fff; background:#ff7200 url(https://kamogawa.mag2.com/editor/pub-form/small_o_tit.gif) no-repeat left top; font-size:10px;">メルマガ購読・解除</div></div></div>
-<div style="background:#ffe8c7 url(https://kamogawa.mag2.com/editor/pub-form/small_o_bg.gif) repeat-x; text-align:center; font-size:12px;">
-<div style="padding:7px 7px 0; font-size:14px; text-align:left;"><a href="https://www.mag2.com/m/0000279189.html" style="color:#000; font-weight:bold;">店長養成講座 - 売れる店作り１０２４の方法</a></div>
-<form name="mag2-form" action="https://regist.mag2.com/reader/Magrdop" method="POST" style="margin:8px 0 0;" onsubmit="ga('send', 'event', 'mag2form', 'submit', '$label', 1);"><input type="hidden" name="magid" value="279189" /><input type="hidden" name="reg" value="hakkou" /><label><input type="radio" name="op" value="reg" title="購読" checked="checked" />購読</label>&emsp;<label><input type="radio" name="op" value="unreg" title="解除" />解除</label>
-<input type="text" name="rdemail" value="" size="19" title="メールアドレス" /><br /><a href="https://www.mag2.com/read/index.html" style="color:#000; font-size:10px;">読者購読規約</a>&emsp;<input type="submit" value="送信" title="送信" /></form>
-<div style="margin:0 7px; padding:6px 0 2px; height:13px; position:relative; text-align:left;">&gt;&gt;&nbsp;<a href="https://archives.mag2.com/0000279189/index.html" style="color:#000;">バックナンバー</a></div><div style="margin:5px 7px 0; display:block; color:#e07e00; font-size:10px; text-align:right;">powered by <a href="https://www.mag2.com/" target="_blank" style="color:#e07e00;">まぐまぐ！</a></div>
-</div>
-<div style="height:4px;background:url(https://kamogawa.mag2.com/editor/pub-form/small_o_left_bot.gif) no-repeat left top;"><div style="background:url(https://kamogawa.mag2.com/editor/pub-form/small_o_right_bot.gif) no-repeat right top;"><div style="margin:0 5px;padding-left:8px; height:4px; background-color:#ffe8c7; font-size:1px;">&nbsp;</div></div></div>
-</div>
-EOD;
-
-	return $str;
-}
-add_shortcode('mag2form', 'sk_get_mag2form');
 
 function sk_get_checklist($atts, $content = null) {
 	return '<div class="widelist">'.$content.'</div>';
