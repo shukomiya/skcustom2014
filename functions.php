@@ -26,7 +26,7 @@ if ( $is_localhost ) {
 }
 
 // for debug
-$ad_enabled = true;
+//$ad_enabled = true;
 
 function amp_template($file, $type, $post) {
     if ( 'single' === $type ) {
