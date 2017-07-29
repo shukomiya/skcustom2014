@@ -148,10 +148,12 @@
 				global $index_ad_count;
 				
 				if ( !is_single() ) {
-					if ( $index_ad_count == 0|| $index_ad_count == 4 || $index_ad_count == 9) {
-						sk_get_the_ad('adsense', 'mg_in_feed');
+					if ( !is_noad() ) {
+						if ( $index_ad_count == 0|| $index_ad_count == 4 || $index_ad_count == 9) {
+							sk_get_the_ad('adsense', 'mg_in_feed');
+						}
+						$index_ad_count++;
 					}
-					$index_ad_count++;
 				}
 				?>
 	</article><!-- #post -->
