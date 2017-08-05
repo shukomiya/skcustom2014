@@ -86,10 +86,10 @@
 //				echo '<h2>この記事を共有する</h2>';
 //				sk_the_social_original_buttons(true);
 				
-				echo '<h2>おすすめ記事</h2>';
-				sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
-
 				if ( $ad_enabled ) {
+					echo '<h2>おすすめ記事</h2>';
+					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
+	
 					if ( is_mobile() ) {
 						sk_get_the_ad('rakuten', 'content_bottom_300x250');
 					} else {
