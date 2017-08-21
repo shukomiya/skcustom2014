@@ -30,6 +30,13 @@
 <![endif]-->
 <?php wp_head(); ?>
 <?php $index_ad_count = 0; ?>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7935009294964527",
+    enable_page_level_ads: true
+  });
+</script>
 <script src="https://use.fontawesome.com/9b0c8d6824.js"></script>
 <style type="text/css">.wpp-list li { padding: 5px 0; } </style>
 </head>
@@ -58,16 +65,17 @@
 		    	}
 		    ?>
 		</div>
-		<?php if ( sk_is_campaign_in( date('Y/m/d', time() ), '2017/06/30', '2017/07/11' ) ) : ?>
+		<?php //if ( sk_is_campaign_in( date('Y/m/d', time() ), '2017/06/30', '2017/07/11' ) ) : ?>
 		<?php if ( is_mobile() ) { ?>
 		<div style="margin-top: 48px;margin-bottom:12px;text-align: center; line-height: 1.5;">
-		<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=294&l=ur1&category=primeday2017&banner=0EPS4JBBWAGBZGW08HG2&f=ifr&linkID=fa6dc84ea0e2541e7252d9277bce272a&t=missionmarket-22&tracking_id=missionmarket-22" width="320" height="100" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+		<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=42&l=ur1&category=amazonsale&f=ifr&linkID=657a01789c0d63bde518aa5281ec595c&t=missionmarket-22&tracking_id=missionmarket-22" width="234" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
 		</div>
 		<?php } else { ?>
 		<div style="margin-top: 48px;margin-bottom:12px;text-align: center; line-height: 1.5;">
-		<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=48&l=ur1&category=primeday2017&banner=006JNFEE1THEZRHFYT02&f=ifr&linkID=f1019db2c1c6cd6bcb08c3d4afa14879&t=missionmarket-22&tracking_id=missionmarket-22" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe></div>
-			<?php } ?>
-		<?php endif; ?>
+		<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=13&l=ur1&category=amazonsale&f=ifr&linkID=c97903f8709c441999cb366a9df7f8ef&t=missionmarket-22&tracking_id=missionmarket-22" width="468" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+		</div>
+		<?php } ?>
+		<?php //endif; ?>
 	</header><!-- #masthead -->
 
 	<div id="main" class="wrapper">
