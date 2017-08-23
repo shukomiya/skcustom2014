@@ -107,13 +107,6 @@ add_action( 'wp_enqueue_scripts', 'sk_enqueue_styles' );
 function sk_enqueue_styles() {
 	global $wp_styles;
 
-/*
-	wp_enqueue_style( 'genericons', 
-		get_stylesheet_directory_uri() . '/fonts/genericons.css', 
-		array(),
-		date('YmdHis', filemtime(get_stylesheet_directory() . '/fonts/genericons.css'))
-		);
-*/
     wp_enqueue_style( 'twentytwelve', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'skcustom2014',
         get_stylesheet_directory_uri() . '/style.css',
