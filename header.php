@@ -29,6 +29,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
+<?php if ( $ad_enabled ) : ?>
 <?php $index_ad_count = 0; ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -37,10 +38,9 @@
     enable_page_level_ads: true
   });
 </script>
-<?php if ( $ad_enabled ) : ?>
+<?php endif; ?>
 <script src="https://use.fontawesome.com/9b0c8d6824.js"></script>
 <style type="text/css">.wpp-list li { padding: 5px 0; } </style>
-<?php endif; ?>
 </head>
 <body <?php body_class(); ?>>
 <?php sk_get_access_analy_google(); ?>
