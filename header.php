@@ -67,17 +67,6 @@
 		    	}
 		    ?>
 		</div>
-		<?php //if ( sk_is_campaign_in( date('Y/m/d', time() ), '2017/06/30', '2017/07/11' ) ) : ?>
-		<?php if ( is_mobile() ) { ?>
-		<div style="margin-top: 48px;margin-bottom:12px;text-align: center; line-height: 1.5;">
-		<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=42&l=ur1&category=amazonsale&f=ifr&linkID=657a01789c0d63bde518aa5281ec595c&t=missionmarket-22&tracking_id=missionmarket-22" width="234" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-		</div>
-		<?php } else { ?>
-		<div style="margin-top: 48px;margin-bottom:12px;text-align: center; line-height: 1.5;">
-		<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=13&l=ur1&category=amazonsale&f=ifr&linkID=c97903f8709c441999cb366a9df7f8ef&t=missionmarket-22&tracking_id=missionmarket-22" width="468" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-		</div>
-		<?php } ?>
-		<?php //endif; ?>
 	</header><!-- #masthead -->
 
 	<div id="main" class="wrapper">
