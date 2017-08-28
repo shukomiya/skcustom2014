@@ -101,22 +101,6 @@
 					echo '<h2>関連記事</h2>';
 					related_posts(); 
 				}
-				
-				if ( function_exists( 'wpp_get_mostpopular' ) ) {
-					echo '<h2>このカテゴリの１週間の人気記事</h2>';
-					echo '<style type="text/css">.wpp-list li { padding: 5px 0; } </style>';
-					$cat = get_the_category();
-					$cat_id = $cat[0]->cat_ID;
-					$args = array(
-						'range' => 'weekly', // 週単位で集計
-						'post_type' => 'post', // ポストタイプを指定
-						'limit' => 5, // 表示件数を指定
-						'stats_views' => 0,
-						'pid' => "$post->ID",
-						'cat' => "$cat_id"
-					);
-					wpp_get_mostpopular( $args );
-				}				
 			}
 			?>
 		</div><!-- .entry-content -->
