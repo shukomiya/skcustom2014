@@ -45,25 +45,12 @@
 			endif; ?>
 
 			<?php 
-				global $index_ad_count;
-				
 				if ( is_single() ) {
 					if ( is_mobile() ) {
-						sk_get_the_ad('adsense', 'mg_sp_single_content_top');
+						sk_get_the_ad('denno', 'mg_sp_single_content_top');
 					} else {
-						sk_get_the_ad('adsense', 'mg_single_content_top');
+						sk_get_the_ad('denno', 'mg_single_content_top');
 					}
-				/*
-				} else {
-					if ( $index_ad_count == 0 ) {
-						if ( is_mobile() ) {
-							sk_get_the_ad('adsense', 'mg_sp_index_content_top');
-						} else {
-							sk_get_the_ad('adsense', 'mg_index_content_top');
-						}
-						$index_ad_count++;
-					}
-				}*/
 				}
 			?>
 			<?php the_content( '続きを読む...' ); ?>

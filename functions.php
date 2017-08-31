@@ -26,7 +26,7 @@ if ( $is_localhost ) {
 }
 
 // for debug
-//$ad_enabled = true;
+$ad_enabled = true;
 
 function sk_dequeue_fonts() {
 	wp_dequeue_style( 'twentytwelve-fonts' );
@@ -339,16 +339,10 @@ function sk_get_ad( $ad_type, $ad_name = '') {
 
 	$filename = STYLESHEETPATH . DIRECTORY_SEPARATOR . 'ad'. DIRECTORY_SEPARATOR;
 	
-	if ( $ad_type == 'adsense' ) {
-		$filename .= 'adsense' . DIRECTORY_SEPARATOR;
-	} elseif ( $ad_type == 'rakuten' ) {
-		$filename .= 'rakuten' . DIRECTORY_SEPARATOR;
-	} elseif ( $ad_type == 'amazon' ) {
-		$filename .= 'amazon' . DIRECTORY_SEPARATOR;
+	if ( $ad_name == '' ) {
+		$filename .= 'ad';
 	} else {
-		if ( $ad_name == '' ) {
-			$filename .= 'ad';
-		}
+		$filename .= $ad_type . DIRECTORY_SEPARATOR;
 	}
 
 	$filename .= $ad_name . '.php';
