@@ -26,11 +26,11 @@ if ( $is_localhost ) {
 }
 
 // for debug
-$ad_enabled = true;
+//$ad_enabled = true;
 
 function sk_dequeue_fonts() {
 	wp_dequeue_style( 'twentytwelve-fonts' );
-	wp_dequeue_style( 'wprmenu-font' );
+//	wp_dequeue_style( 'wprmenu-font' );
 }
 add_action( 'wp_enqueue_scripts', 'sk_dequeue_fonts', 11 );
 

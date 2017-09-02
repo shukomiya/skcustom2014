@@ -17,7 +17,9 @@
 		</div>
 		<?php endif; ?>
 		<header class="entry-header">
-			<?php //the_post_thumbnail(); ?>
+			<?php if ( ! post_password_required() && ! is_attachment() ) :
+				the_post_thumbnail('post_thumbnail');
+			endif; ?>
 			<?php if ( is_single() ) : ?>
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php else : ?>
@@ -40,16 +42,12 @@
 		</div><!-- .entry-summary -->
 		<?php else : ?>
 		<div class="entry-content">
-			<?php if ( ! post_password_required() && ! is_attachment() ) :
-				the_post_thumbnail('post_thumbnail');
-			endif; ?>
-
 			<?php 
 				if ( is_single() ) {
 					if ( is_mobile() ) {
-						sk_get_the_ad('denno', 'mg_sp_single_content_top');
+						sk_get_the_ad('adsense', 'mg_sp_single_content_top');
 					} else {
-						sk_get_the_ad('denno', 'mg_single_content_top');
+						sk_get_the_ad('adsense', 'mg_single_content_top');
 					}
 				}
 			?>
