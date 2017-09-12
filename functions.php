@@ -727,10 +727,22 @@ function sk_get_campaign_out( $atts, $content = null ) {
 }
 add_shortcode('campout', 'sk_get_campaign_out');
 
-function sk_get_checklist($atts, $content = null) {
+function sk_set_widelist($atts, $content = null) {
 	return '<div class="widelist">'.$content.'</div>';
 }
-add_shortcode('widelist', 'sk_get_checklist');
+add_shortcode('widelist', 'sk_set_widelist');
+
+function sk_set_checklist($atts, $content = null) {
+    extract( shortcode_atts( array(
+    	'color' => 'blue'
+        ), $atts ));
+	if ( $color == 'red' )
+		return '<div class="checklist_red">'.$content.'</div>';
+	else
+		return '<div class="checklist_blue">'.$content.'</div>';
+	
+}
+add_shortcode('checklist', 'sk_set_checklist');
 
 function sk_get_product_list($atts, $content = null) {
 	return '<ul>' . 

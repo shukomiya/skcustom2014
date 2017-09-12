@@ -137,6 +137,26 @@ blockquote {
 	margin-bottom: 6px;
 }
 
+.checklist_red ul, .checklist_blue ul{
+list-style-type:none;
+}
+
+.checklist_red li, .checklist_blue li{
+	padding-bottom: 20px;
+	padding-left: 32px;
+	margin-left: 16px;
+}
+.checklist_red li{
+	background-image:url("https://komish.com/wp-content/uploads//2017/09/checkred.gif");
+	background-repeat:no-repeat;
+	background-position:0px 0px 4px 0px;
+}
+.checklist_blue li{
+	background-image:url("https://komish.com/wp-content/uploads//2017/09/checkblue.gif");
+	background-repeat:no-repeat;
+	background-position:0px 0px 4px 0px;
+}
+
 .widelist li {
 	padding-bottom: 20px;
 }
