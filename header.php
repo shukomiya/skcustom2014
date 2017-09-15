@@ -29,8 +29,8 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
-<?php if ( $ad_enabled ) : ?>
-<?php $index_ad_count = 0; ?>
+<?php global $ad_enabled; if ( $ad_enabled ) : ?>
+<?php global $index_ad_count; $index_ad_count = 0; ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
