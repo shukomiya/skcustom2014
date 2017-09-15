@@ -68,9 +68,6 @@
 					}
 				}
 				
-//				echo '<h2>この記事を共有する</h2>';
-//				sk_the_social_original_buttons(true);
-				
 				if ( $ad_enabled ) {
 					echo '<h2>おすすめ記事</h2>';
 					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');

@@ -381,16 +381,6 @@ function sk_get_access_analy_google() {
   ga('send', 'pageview');
 
 </script>
-<script type="text/javascript">jQuery(function() {  
-    jQuery("a").click(function(e) {        
-        var ahref = jQuery(this).attr('href');
-        if (ahref.indexOf("komish.com") != -1 || ahref.indexOf("http") == -1 ) {
-            ga('send', 'event', 'internal-link', 'click', ahref);} 
-        else { 
-            ga('send', 'event', 'external-link', 'click', ahref);}
-        });
-    });
-</script>
 <?php
 /*
 セカンダリ用
@@ -751,4 +741,20 @@ function sk_get_product_list($atts, $content = null) {
 }
 add_shortcode('products', 'sk_get_product_list');
 
+if(!is_admin()){
+	function queue_cdn_jquery() {
+		
+		wp_deregister_script('jquery');
+		wp_deregister_script('jquery-core');
+		wp_deregister_script('jquery-migrate');
+		
+		wp_register_script('jquery', false, array('jquery-core', 'jquery-migrate'), '1.12.4', true);
+		wp_enqueue_script('jquery');
+		wp_enqueue_script('jquery-core', '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array(), '1.12.4', true);
+		wp_enqueue_script('jquery-migrate', '//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js', array(), '1.4.1', true);
+	}
+	add_action( 'wp_enqueue_scripts', 'queue_cdn_jquery' );
+}
+
 ?>
+
