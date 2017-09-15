@@ -564,6 +564,7 @@ function twentytwelve_footer_widget_class() {
         echo $class;
 }
 
+/*
 function my_theme_deregister_plugin_assets_header() {
   wp_dequeue_style('yarppWidgetCss');
   wp_deregister_style('yarppRelatedCss');
@@ -574,6 +575,7 @@ function my_theme_deregister_plugin_assets_footer() {
   wp_dequeue_style('yarppRelatedCss');
 }
 add_action( 'wp_footer', 'my_theme_deregister_plugin_assets_footer' );
+*/
 
 
 // Add CSS class by filter
@@ -740,21 +742,6 @@ function sk_get_product_list($atts, $content = null) {
 		 '</ul>';
 }
 add_shortcode('products', 'sk_get_product_list');
-
-if(!is_admin()){
-	function queue_cdn_jquery() {
-		
-		wp_deregister_script('jquery');
-		wp_deregister_script('jquery-core');
-		wp_deregister_script('jquery-migrate');
-		
-		wp_register_script('jquery', false, array('jquery-core', 'jquery-migrate'), '1.12.4', true);
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('jquery-core', '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array(), '1.12.4', true);
-		wp_enqueue_script('jquery-migrate', '//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js', array(), '1.4.1', true);
-	}
-	add_action( 'wp_enqueue_scripts', 'queue_cdn_jquery' );
-}
 
 ?>
 
