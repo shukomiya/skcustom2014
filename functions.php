@@ -577,7 +577,6 @@ function my_theme_deregister_plugin_assets_footer() {
 add_action( 'wp_footer', 'my_theme_deregister_plugin_assets_footer' );
 */
 
-
 // Add CSS class by filter
 add_filter('body_class','twentytwelvechild_body_class_adapt',20);
 
