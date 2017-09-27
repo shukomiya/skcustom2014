@@ -28,7 +28,7 @@
 
 <?php wp_footer(); ?>
 <script src="https://use.fontawesome.com/9b0c8d6824.js"></script>
-<script async type="text/javascript">jQuery(function() {  
+<script type="text/javascript">jQuery(function() {  
     jQuery("a").click(function(e) {        
         var ahref = jQuery(this).attr('href');
         if (ahref.indexOf("komish.com") != -1 || ahref.indexOf("http") == -1 ) {
