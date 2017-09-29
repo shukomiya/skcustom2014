@@ -381,6 +381,16 @@ function sk_get_access_analy_google() {
   ga('send', 'pageview');
 
 </script>
+<script type="text/javascript">jQuery(function() {  
+    jQuery("a").click(function(e) {        
+        var ahref = jQuery(this).attr('href');
+        if (ahref.indexOf("komish.com") != -1 || ahref.indexOf("http") == -1 ) {
+            ga('send', 'event', 'internal-link', 'click', ahref);} 
+        else { 
+            ga('send', 'event', 'external-link', 'click', ahref);}
+        });
+    });
+</script>
 <?php
 /*
 セカンダリ用
