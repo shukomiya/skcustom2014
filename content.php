@@ -73,6 +73,8 @@
 	
 					if ( !is_mobile() ) {
 						sk_get_the_ad('rakuten', 'content_bottom_336x280');
+					} else {
+						sk_get_the_ad('rakuten', 'content_bottom_300x160');
 					}
 				}
 

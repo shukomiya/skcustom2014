@@ -419,7 +419,6 @@ function sk_get_access_analy_google() {
   ga('create', 'UA-4079996-23', 'auto', {'allowLinker': true});
   ga('require', 'linker');
   ga('linker:autoLink', ['infocart.jp'] );
-  ga('require', 'displayfeatures');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
 
