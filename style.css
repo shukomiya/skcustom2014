@@ -161,12 +161,6 @@ list-style-type:none;
 	padding-bottom: 20px;
 }
 
-.entry-content a,
-.comment-content a {
-	color: #1111cc;
-	text-decoration:underline;
-}
-
 .entry-content a:hover,
 .comment-content a:hover {
 	color: #1111cc;
@@ -222,6 +216,10 @@ font-weight: 900;
 border-left-color: navy;
 border-left-style: solid;
 border-left-width: 10px;
+}
+
+.sales-letter .sales-letter-content p {
+	text-indent: 1em;
 }
 
 .entry-content h1,
