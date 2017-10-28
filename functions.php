@@ -618,12 +618,55 @@ function sk_get_url_param($param) {
 
 	$val = (isset($_GET[$param]) && $_GET[$param] != "") ? $_GET[$param] : null;
 	if ( $val === null ) {
-		$val = htmlspecialchars($val, ENT_QUOTES);
-	} else {
 		$val = '';
+	} else {
+		$val = htmlspecialchars($val, ENT_QUOTES);
 	}
 	return $val;
 }
+
+function sk_get_message_in_url_param_with_campaign( $atts, $content ){
+	extract( shortcode_atts( array(
+		'key' => '',
+		'val' => '',
+		'incheck' => true
+		), $atts));
+		
+	$data = sk_get_url_param($key);
+	
+	if ( $val != '' && $val == $data ) {
+		if ( sk_is_campaign_in( 0, 0 ) ) {
+			return $content;
+		}
+	}
+	return '';
+}
+add_shortcode('urlcampin', 'sk_get_message_in_url_param_with_campaign');
+
+function sk_get_message_out_url_param_with_campaign( $atts, $content ){
+	extract( shortcode_atts( array(
+		'key' => '',
+		'val' => '',
+		'is_no_key_show' => 0
+		), $atts));
+		
+	$data = sk_get_url_param($key);
+	$is_in = sk_is_campaign_in( 0, 0 );
+	
+//	echo "<p>$is_in, $is_no_key_show</p>";
+	
+	if ( $data != '' && $val == $data ) {
+		if ( !$is_in ) {
+			return $content;
+		}
+	} else {
+		if ( $is_no_key_show ) {
+			return $content;
+		}
+	}
+	return '';
+}
+add_shortcode('urlcampout', 'sk_get_message_out_url_param_with_campaign');
 
 /*
 https://localhost/wordpress/archives/2924?ds=20160201&de=20160331
@@ -650,22 +693,7 @@ function sk_get_campaign_param($postpos) {
 	return array($begin, $end);
 }
 
-function sk_is_campaign_in( $now, $open, $close ) {
-    if ( strtotime($open) <= strtotime($now)  && strtotime($now) < strtotime($close) ) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-
-function sk_get_campaign_in( $atts, $content = null ) {
-    extract( shortcode_atts( array(
-    	'begin' => 0,
-    	'end' => 0,
-    	'pos' => 0
-        ), $atts ));
-
+function sk_is_campaign_in( $begin, $end, $pos=0  ) {
     if ( $begin == 0 || $end == 0 ) {
 		list ($begin, $end) = sk_get_campaign_param($pos);
 	}
@@ -687,6 +715,20 @@ function sk_get_campaign_in( $atts, $content = null ) {
 */
 
     if ( strtotime($open) <= strtotime($now)  && strtotime($now) < strtotime($close) ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function sk_get_campaign_in( $atts, $content = null ) {
+    extract( shortcode_atts( array(
+    	'begin' => 0,
+    	'end' => 0,
+    	'pos' => 0
+        ), $atts ));
+
+	if ( sk_is_campaign_in($begin, $end, $pos) ) {
 		return $content;
 	} else {
 		return '';
