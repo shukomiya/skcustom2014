@@ -15,12 +15,15 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
-
-				<nav class="nav-single">
-					<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
-					<span class="nav-previous"><?php global $is_cateogry_nav; previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title',  $is_cateogry_nav , '' ); ?></span>
-					<span class="nav-next"><?php  global $is_cateogry_nav; next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>', $is_cateogry_nav, '' ); ?></span>
-				</nav><!-- .nav-single -->
+				<nav class="single-page-navi entry-content">
+					<h2>前後の記事</h2>
+					<ul>
+						<li><strong>【前の記事】&nbsp;</strong>
+							<?php global $is_cateogry_nav; previous_post_link( '%link', '<span class="meta-nav">' . '</span> %title',  $is_cateogry_nav , '' ); ?></span></li>
+						<li><strong>【次の記事】&nbsp;</strong>
+							<?php  global $is_cateogry_nav; next_post_link( '%link', '%title <span class="meta-nav">' . '</span>', $is_cateogry_nav, '' ); ?></span></li>
+					</ul>
+				</nav>
 
 				<?php comments_template( '', true ); ?>
 
