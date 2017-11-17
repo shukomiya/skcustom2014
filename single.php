@@ -19,9 +19,9 @@ get_header(); ?>
 					<h2>前後の記事</h2>
 					<ul>
 						<li><strong>【前の記事】&nbsp;</strong>
-							<?php global $is_cateogry_nav; previous_post_link( '%link', '<span class="meta-nav">' . '</span> %title',  $is_cateogry_nav , '' ); ?></span></li>
+							<?php global $is_category_nav; previous_post_link( '%link', '<span class="meta-nav">' . '</span> %title',  $is_category_nav , '' ); ?></span></li>
 						<li><strong>【次の記事】&nbsp;</strong>
-							<?php  global $is_cateogry_nav; next_post_link( '%link', '%title <span class="meta-nav">' . '</span>', $is_cateogry_nav, '' ); ?></span></li>
+							<?php  global $is_category_nav; next_post_link( '%link', '%title <span class="meta-nav">' . '</span>', $is_category_nav, '' ); ?></span></li>
 					</ul>
 				</nav>
 
