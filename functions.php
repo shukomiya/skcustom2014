@@ -354,6 +354,17 @@ function sk_widgets_init() {
 	    'before_title' => '<h3 class="widget-title">',
 	    'after_title' => '</h3>',
 	    ) );
+
+	register_sidebar( array(
+		'name' => __( 'Sales Letter Sidebar', 'twentytwelve' ),
+		'id' => 'sidebar-10',
+		'description' => __( 'Appears on posts and pages except the optional Front Page template, which has its own widgets', 'twentytwelve' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
 }
 
 function twentytwelve_content_nav( $html_id ) {
@@ -873,5 +884,44 @@ function sk_get_product_list($atts, $content = null) {
 		 '</ul>';
 }
 add_shortcode('products', 'sk_get_product_list');
+
+function sk_single_page_custom_menu($atts, $content = null) {
+    extract(shortcode_atts(array(  
+        'menu'            => '', 
+        'container'       => 'div', 
+        'container_class' => '', 
+        'container_id'    => '', 
+        'menu_class'      => 'menu', 
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'depth'           => 0,
+        'walker'          => '',
+        'theme_location'  => ''), 
+        $atts));
+  
+  
+    return wp_nav_menu( array( 
+        'menu'            => $menu, 
+        'container'       => $container, 
+        'container_class' => $container_class, 
+        'container_id'    => $container_id, 
+        'menu_class'      => $menu_class, 
+        'menu_id'         => $menu_id,
+        'echo'            => false,
+        'fallback_cb'     => $fallback_cb,
+        'before'          => $before,
+        'after'           => $after,
+        'link_before'     => $link_before,
+        'link_after'      => $link_after,
+        'depth'           => $depth,
+        'walker'          => $walker,
+        'theme_location'  => $theme_location));
+}
+add_shortcode("cmenu", "sk_single_page_custom_menu");
 
 ?>

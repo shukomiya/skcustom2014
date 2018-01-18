@@ -26,4 +26,6 @@ get_header( 'sales-letter' ); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
+<?php get_sidebar( 'sales-letter' ) ?>
+
 <?php get_footer( 'sales-letter' ) ?>
