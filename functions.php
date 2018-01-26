@@ -418,7 +418,10 @@ add_shortcode('attr', 'attr_func');
 function is_noad() {
 	global $ad_enabled;
 	
-	return !$ad_enabled || is_page('product') || is_page('law') || is_page('malmag') ||  is_404() || is_page_template('page-templates/full-width.php') || is_page_template('page-templates/sales-letter.php');
+	return !$ad_enabled || is_page('product') || is_page('law') || is_page('malmag') ||  is_404() 
+		|| is_page_template('page-templates/full-width.php') 
+		|| is_page_template('page-templates/law.php') 
+		|| is_page_template('page-templates/sales-letter.php');
 }
 
 function sk_get_ad( $ad_type, $ad_name = '') {
@@ -685,6 +688,10 @@ function twentytwelvechild_body_class_adapt( $classes ) {
 	// Apply 'sales-letter' class to form_page.php body
 	if ( is_page_template( 'page-templates/sales-letter.php' ) )
 		$classes[] = 'sales-letter';
+		
+	if ( is_page_template( 'page-templates/law.php' ) )
+		$classes[] = 'law';
+	
 	return $classes;
 }
 

@@ -80,6 +80,14 @@ blockquote {
 	font-weight: 900;
 }
 
+.law .site-header h1 {
+	text-align: left;
+	font-size: 18px;
+	line-height: 1.846153846;
+	margin-bottom: 0;
+	font-weight: 900;
+}
+
 .site-header h2 {
 	font-weight: normal;
 	font-size: 14px;
@@ -104,6 +112,13 @@ blockquote {
 	display: none;
 }
 .sales-letter .site-header {
+	padding: 24px 0 0px 0;
+	border-bottom: 1px #000 dotted;
+}
+.law .entry-title {
+	display: none;
+}
+.law .site-header {
 	padding: 24px 0 0px 0;
 	border-bottom: 1px #000 dotted;
 }
@@ -501,11 +516,10 @@ list-style-type:disc;
 		width: 100%;
 /*		width: 41.97764%;*/
 	}
-/*
-	body.sales-letter .site-content {
+
+	body.law .site-content {
 		width: 100%; 
 	}
-*/
 	.breadcrumbs {
 		font-size: 14px;
 	}
@@ -599,12 +613,10 @@ list-style-type:disc;
 		margin: 0 auto;
 		width: 100%;
 	}
-/*
-	.sales-letter .wrapper {
+	.law .wrapper {
 		margin: 0 auto;
 		width: 100%;
 	}
-*/
 	.sales-letter .sales-letter-content h1 {
 		text-align: center;
 	}
@@ -657,12 +669,10 @@ list-style-type:disc;
 		margin: 0 auto;
 		width: 720px;
 	}
-/*
-	.sales-letter .wrapper {
+	.law .wrapper {
 		margin: 0 auto;
 		width: 720px; 
 	}
-*/
 }
 
 /* Minimum width of 960 pixels. */
@@ -700,6 +710,10 @@ list-style-type:disc;
 	.sales-letter .wrapper {
 		margin: 0 auto;
 /*		width: 720px;*/
+	}
+	.law .wrapper {
+		margin: 0 auto;
+		width: 720px;
 	}
 	.entry-content p,
 	.entry-summary p,
