@@ -1,6 +1,7 @@
 <?php
 
-$is_localhost = $_SERVER["SERVER_NAME"] == 'localhost';
+$domain_name = $_SERVER["SERVER_NAME"];
+$is_localhost = $domain_name == 'localhost';
 // for debug
 //$is_localhost = false;
 
@@ -12,14 +13,12 @@ if ( $is_localhost ) {
 	$is_category_nav = false;
 	$ad_enabled = false;
 } else {
-	if ( $blog_title == '店長養成講座' ) {
+	if ( $domain_name == 'komish.com' ) {
 		$analy_g_acount = 'UA-4079996-8';
-		$domain_name = 'komish.com';
 		$is_category_nav = false;
 		$ad_enabled = true;
-	} else if ( $blog_title == '店長養成講座＋' ) {
+	} else if ( $domain_name = 'members.komish.com' ) {
 		$analy_g_acount = 'UA-4079996-23';
-		$domain_name = 'members.komish.com';
 		$is_category_nav = true;
 		$ad_enabled = false;
 	}
