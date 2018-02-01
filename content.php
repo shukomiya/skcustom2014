@@ -56,10 +56,10 @@
 	<!-- google_ad_section_end -->
 	<!-- rakuten_ad_target_end --> 
 			<?php 
-			global $ad_enabled, $post;
+			global $g_ad_enabled, $post;
 			
 			if ( is_single() ) {
-				if ( $ad_enabled ) {
+				if ( $g_ad_enabled ) {
 					if ( !is_mobile() ) {
 						sk_get_the_ad('adsense', 'mg_single_content_bottom'); 
 					} else {
@@ -67,7 +67,7 @@
 					}
 				}
 				
-				if ( $ad_enabled ) {
+				if ( $g_ad_enabled ) {
 					echo '<h2>おすすめ記事</h2>';
 					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 	
@@ -88,14 +88,14 @@
 		<?php endif; ?>
 
 		<?php
-		global $index_ad_count;
+		global $g_index_ad_count;
 		
 		if ( !is_single() ) {
 			if ( !is_noad() ) {
-				if ( $index_ad_count == 0|| $index_ad_count == 4 || $index_ad_count == 9) {
+				if ( $g_index_ad_count == 0|| $g_index_ad_count == 4 || $g_index_ad_count == 9) {
 					sk_get_the_ad('adsense', 'mg_in_feed');
 				}
-				$index_ad_count++;
+				$g_index_ad_count++;
 			}
 		}
 		?>

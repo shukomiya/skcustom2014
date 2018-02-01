@@ -5,27 +5,25 @@ $is_localhost = $domain_name == 'localhost';
 // for debug
 //$is_localhost = false;
 
-$blog_title = get_bloginfo('name');
-
 if ( $is_localhost ) {
 	$analy_g_acount = 'UA-4079996-8';
 	$domain_name = 'komish.com';
-	$is_category_nav = false;
-	$ad_enabled = false;
+	$g_category_nav = false;
+	$g_ad_enabled = false;
 } else {
 	if ( $domain_name == 'komish.com' ) {
 		$analy_g_acount = 'UA-4079996-8';
-		$is_category_nav = false;
-		$ad_enabled = true;
+		$g_category_nav = false;
+		$g_ad_enabled = true;
 	} else if ( $domain_name = 'members.komish.com' ) {
 		$analy_g_acount = 'UA-4079996-23';
-		$is_category_nav = true;
-		$ad_enabled = false;
+		$g_category_nav = true;
+		$g_ad_enabled = false;
 	}
 }
 
 // for debug
-//$ad_enabled = true;
+//$g_ad_enabled = true;
 
 function amp_template($file, $type, $post) {
     if ( 'single' === $type ) {
@@ -415,9 +413,9 @@ add_shortcode('attr', 'attr_func');
 /*************************************************************/
 
 function is_noad() {
-	global $ad_enabled;
+	global $g_ad_enabled;
 	
-	return !$ad_enabled || is_page('product') || is_page('law') || is_page('malmag') ||  is_404() 
+	return !$g_ad_enabled || is_page('product') || is_page('law') || is_page('malmag') ||  is_404() 
 		|| is_page_template('page-templates/full-width.php') 
 		|| is_page_template('page-templates/law.php') 
 		|| is_page_template('page-templates/sales-letter.php');
