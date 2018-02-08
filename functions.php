@@ -535,14 +535,6 @@ function sk_get_johnson_box( $atts, $content = null ) {
 add_shortcode('johnson', 'sk_get_johnson_box');
 
 // http://www.mag2.com/m/0000279189.html
-function sk_get_mag2form( $atts ) {
-	$str = <<<EOD
-<p><a href="http://www.mag2.com/m/0000279189.html">店長養成講座メールマガジンを購読するには、こちらで登録してください。</a></p>
-EOD;
-
-	return $str;
-}
-add_shortcode('mag2form', 'sk_get_mag2form');
 
 function sk_get_admlmg() {
 	return '<p>メルマガ読者の方は合わせてお読み下さい。</p><p>今日のメルマガ配信は終わっているため、今登録してもこの記事を読むことはできません。</p><p><a href="/malmag?bmg=' . get_the_date('ymd') . '&amp;p=c">それでも次回のメルマガ専用記事を読みたい人はこちらから登録して下さい。</a></p>';
