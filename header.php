@@ -32,7 +32,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
-<?php global $g_ad_enabled; if ( $g_ad_enabled ) : ?>
+<?php if ( !is_noad() ) : ?>
 <?php global $g_index_ad_count; $g_index_ad_count = 0; ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
