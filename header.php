@@ -34,7 +34,6 @@
 <?php wp_head(); ?>
 <?php global $g_ad_enabled; if ( $g_ad_enabled ) : ?>
 <?php global $g_index_ad_count; $g_index_ad_count = 0; ?>
-<?php if ( !is_page('product') && !is_page('malmag') && !is_page('law') ): ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({
@@ -42,7 +41,6 @@
           enable_page_level_ads: true
      });
 </script>
-<?php endif; ?>
 <?php endif; ?>
 <style type="text/css">.wpp-list li { padding: 5px 0; } </style>
 </head>
