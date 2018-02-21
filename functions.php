@@ -421,6 +421,13 @@ function is_noad() {
 		|| is_page_template('page-templates/sales-letter.php');
 }
 
+function is_no_ad_page() {
+	return is_page('law') || is_page('malmag') ||  is_404() 
+		|| is_page_template('page-templates/full-width.php') 
+		|| is_page_template('page-templates/law.php') 
+		|| is_page_template('page-templates/sales-letter.php')
+}
+
 function sk_get_ad( $ad_type, $ad_name = '') {
 //	if ( $ad_type == 'adsense' )
 //		return;

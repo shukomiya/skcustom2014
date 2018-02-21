@@ -32,8 +32,9 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
-<?php if ( !is_noad() ) : ?>
+<?php global $g_ad_enabled; if ( $g_ad_enabled ) : ?>
 <?php global $g_index_ad_count; $g_index_ad_count = 0; ?>
+<?php if ( !is_no_ad_page() ) : ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({
@@ -41,6 +42,7 @@
           enable_page_level_ads: true
      });
 </script>
+<?php endif; ?>
 <?php endif; ?>
 <style type="text/css">.wpp-list li { padding: 5px 0; } </style>
 </head>
