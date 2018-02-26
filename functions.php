@@ -712,62 +712,14 @@ function sk_get_url_param($param) {
 	return $val;
 }
 
-function sk_get_message_in_url_param_with_campaign( $atts, $content ){
-	extract( shortcode_atts( array(
-		'key' => '',
-		'val' => '',
-		'incheck' => true
-		), $atts));
-		
-	$data = sk_get_url_param($key);
-	
-	if ( $val != '' && $val == $data ) {
-		if ( sk_is_campaign_in( 0, 0 ) ) {
-			return $content;
-		}
-	}
-	return '';
-}
-add_shortcode('urlcampin', 'sk_get_message_in_url_param_with_campaign');
-
-function sk_get_message_out_url_param_with_campaign( $atts, $content ){
-	extract( shortcode_atts( array(
-		'key' => '',
-		'val' => '',
-		'is_no_key_show' => 0
-		), $atts));
-		
-	$data = sk_get_url_param($key);
-	$is_in = sk_is_campaign_in( 0, 0 );
-	
-//	echo "<p>$is_in, $is_no_key_show</p>";
-	
-	if ( $data != '' && $val == $data ) {
-		if ( !$is_in ) {
-			return $content;
-		}
-	} else {
-		if ( $is_no_key_show ) {
-			return $content;
-		}
-	}
-	return '';
-}
-add_shortcode('urlcampout', 'sk_get_message_out_url_param_with_campaign');
-
 /*
 https://localhost/wordpress/archives/2924?ds=20160201&de=20160331
 */
 
-function sk_get_campaign_param($postpos) {
+function sk_get_campaign_param() {
 
-	if ($postpos == 0 ) {
-		$begin_val = "camp_begin";
-		$end_val = "camp_end";
-	} else {
-		$begin_val = "camp_begin$postpos";
-		$end_val = "camp_end$postpos";
-	}
+	$begin_val = "camp_begin";
+	$end_val = "camp_end";
 	
 /*
 	echo $begin_val . ';';
@@ -780,42 +732,156 @@ function sk_get_campaign_param($postpos) {
 	return array($begin, $end);
 }
 
-function sk_is_campaign_in( $begin, $end, $pos=0  ) {
-    if ( $begin == 0 || $end == 0 ) {
-		list ($begin, $end) = sk_get_campaign_param($pos);
-	}
-	
-	$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
-	$close = date( "Y/m/d H:i:s", strtotime( $end . ' +1 day' ) );
-	
-	date_default_timezone_set('Asia/Tokyo');
-    $now = date( "Y/m/d H:i:s" );
+function get_char2day($str) {
 
+	switch($str) {
+		case 'n':
+			return 1;
+			break;
+		case 'w':
+			return 2;
+			break;
+		case 'r':
+			return 3;
+			break;
+		case 'f':
+			return 4;
+			break;
+		case 'v':
+		  	return 5;
+			break;
+		case  'x';
+		 	return 6;
+			break;
+		case  'v':
+		 	return 7;
+			break;
+		case  't':
+		 	return 8;
+			break;
+		case  'n':
+		 	return 9;
+			break;
+		default:
+			return 0;
+			break;
+	}
+}
+
+function get_limit_date_value( $date_str ) {
+	if ( substr($date_str, 0, 2) == '20' ) {
+		$date_str = substr($date_str, 0, 8);
+	} else  {
+		$date_str = '20' . substr($date_str, 0, 6);
+	}
+
+	$stat = sk_get_url_param('tp');
+
+//echo "stat=$stat<br>";
+
+	if ( $stat == '' )
+		return -1;
+		
+	$day1_str = substr($stat, -1, 1);
+	$day2_str = substr($stat, -4, 1);
+	$limit_str = substr($stat, -2, 1);
+	
+	$day = get_char2day($day1_str) . get_char2day($day2_str);
+	
+//echo "day=$day<br>";
+
+	if ( $day != substr($date_str, -2, 2 )) 
+		return -1;
+	
+	return get_char2day($limit_str);
+}
+
+/*
+http://localhost/wordpress/product/basic-8?tp=xwww&dt=20180226
+*/
+function sk_is_campaign_in( $begin, $end ) {
 /*
 	echo "campin<br>";
 	echo $begin . '<br>';
 	echo $end . '<br>';
+*/
+
+	date_default_timezone_set('Asia/Tokyo');
+
+    if ( $begin == 0 || $end == 0 ) {
+		$date_str = sk_get_url_param('dt');
+
+//echo "date_str=$date_str<br>";
+			
+		if ( $date_str === '' ) {
+			list ($begin, $end) = sk_get_campaign_param();
+	
+			$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
+			$close = date( "Y/m/d H:i:s", strtotime( $end . ' +1 day' ) );
+		} else {
+			$pos = get_limit_date_value( $date_str );
+
+//echo "$pos<br>";
+
+			if ( $pos == -1 )
+				return false;
+			
+			$open = date( "Y/m/d H:i:s", strtotime( $date_str  ) );
+			$ad_date_str = " +$pos day";
+			$close = date( "Y/m/d H:i:s", strtotime( $date_str . $ad_date_str ) );
+		}
+	} else {
+		$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
+		$close = date( "Y/m/d H:i:s", strtotime( $end ) );
+	}
+	
+    $now = date( "Y/m/d H:i:s" );
+
+/*
 	echo date( "Y/m/d H:i:s;", strtotime($open) )  . '<br>';
 	echo date( "Y/m/d H:i:s;", strtotime($now) ) . '<br>';
 	echo date( "Y/m/d H:i:s;", strtotime($close) ) . '<br>';
 	echo "<br>";
 */
 
-    if ( strtotime($open) <= strtotime($now)  && strtotime($now) < strtotime($close) ) {
+    if ( strtotime($open) <= strtotime($now)  && strtotime($now) <= strtotime($close) ) {
 		return true;
 	} else {
 		return false;
 	}
 }
 
+function sk_get_campaign_end_date( $attrs, $content = null ){
+	$tp_str = sk_get_url_param('tp');
+	if ( $tp_str != '' ) {
+		$dt_str = sk_get_url_param('dt');
+		$pos = get_limit_date_value( $dt_str );
+
+		$open = date( "Y/m/d H:i:s", strtotime( $dt_str  ) );
+		$ad_date_str = " +$pos day";
+		$close = date( "Y/m/d H:i:s", strtotime( $dt_str . $ad_date_str ) );
+		
+	} else {
+		list ($begin, $end) = sk_get_campaign_param();
+
+		$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
+		$close = date( "Y/m/d H:i:s", strtotime( $end . ' +1 day' ) );
+	}
+	$s = date( 'n月j日', strtotime( $close ) );
+	return mb_convert_kana($s, 'A', "utf-8");
+	
+}
+add_shortcode('enddate', 'sk_get_campaign_end_date');
+
 function sk_get_campaign_in( $atts, $content = null ) {
     extract( shortcode_atts( array(
     	'begin' => 0,
-    	'end' => 0,
-    	'pos' => 0
-        ), $atts ));
+    	'end' => 0
+    	), $atts ));
+    	
+    $content = do_shortcode( $content );
 
-	if ( sk_is_campaign_in($begin, $end, $pos) ) {
+	if ( sk_is_campaign_in($begin, $end ) ) {
 		return $content;
 	} else {
 		return '';
@@ -826,12 +892,26 @@ add_shortcode('campin', 'sk_get_campaign_in');
 function sk_get_campaign_out( $atts, $content = null ) {
     extract( shortcode_atts( array(
     	'begin' => 0,
+    	'end' => 0
+    	), $atts ));
+
+    $content = do_shortcode( $content );
+
+	if ( !sk_is_campaign_in($begin, $end ) ) {
+		return $content;
+	} else {
+		return '';
+	}
+
+/*
+    extract( shortcode_atts( array(
+    	'begin' => 0,
     	'end' => 0,
     	'pos' => 0
         ), $atts ));
 
     if ( $begin == 0 || $end == 0 ) {
-		list ($begin, $end) = sk_get_campaign_param($pos);
+		list ($begin, $end) = sk_get_campaign_param();
 	}
 	
 	$open = date( "Y/m/d H:i:s", strtotime( $begin ) );
@@ -840,20 +920,19 @@ function sk_get_campaign_out( $atts, $content = null ) {
 	date_default_timezone_set('Asia/Tokyo');
     $now = date( "Y/m/d H:i:s" );
 
-/*
 	echo "campout $days<br>";
 	echo $begin . '<br>';
 	echo $end . '<br>';
 	echo date( "Y/m/d H:i:s;", strtotime($open) )  . '<br>';
 	echo date( "Y/m/d H:i:s;", strtotime($now) ) . '<br>';
 	echo date( "Y/m/d H:i:s;", strtotime($close) ) . '<br>';
-*/
 
 	if ( strtotime($now) < strtotime($open) || strtotime($close) <= strtotime($now) ){
 		return $content;
 	} else {
 		return '';
 	}
+*/
 }
 add_shortcode('campout', 'sk_get_campaign_out');
 
