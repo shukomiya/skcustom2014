@@ -712,6 +712,16 @@ function sk_get_url_param($param) {
 	return $val;
 }
 
+function sk_get_cookie_param($param) {
+	$val = (isset($_COOKIE[$param]) && $_COOKIE[$param] != "") ? $_COOKIE[$param] : null;
+	if ( $val === null ) {
+		$val = '';
+	} else {
+		$val = htmlspecialchars($val, ENT_QUOTES);
+	}
+	return $val;
+}
+
 /*
 https://localhost/wordpress/archives/2924?ds=20160201&de=20160331
 */
@@ -735,13 +745,15 @@ function sk_get_campaign_param() {
 function get_char2day($str) {
 
 	switch($str) {
+		case 'r':
+			return 0;
 		case 'n':
 			return 1;
 			break;
 		case 'w':
 			return 2;
 			break;
-		case 'r':
+		case 'h':
 			return 3;
 			break;
 		case 'f':
@@ -753,89 +765,46 @@ function get_char2day($str) {
 		case  'x';
 		 	return 6;
 			break;
-		case  'v':
+		case  's':
 		 	return 7;
 			break;
 		case  't':
 		 	return 8;
 			break;
-		case  'n':
+		case  'e':
 		 	return 9;
 			break;
 		default:
-			return 0;
+			return -1;
 			break;
 	}
 }
 
-function get_limit_date_value( $date_str ) {
-	if ( substr($date_str, 0, 2) == '20' ) {
-		$date_str = substr($date_str, 0, 8);
-	} else  {
-		$date_str = '20' . substr($date_str, 0, 6);
-	}
-
+function get_limit_date_value() {
 	$stat = sk_get_url_param('tp');
-
-//echo "stat=$stat<br>";
-
 	if ( $stat == '' )
 		return -1;
 		
-	$day1_str = substr($stat, -1, 1);
-	$day2_str = substr($stat, -4, 1);
 	$limit_str = substr($stat, -2, 1);
-	
-	$day = get_char2day($day1_str) . get_char2day($day2_str);
-	
-//echo "day=$day<br>";
-
-	if ( $day != substr($date_str, -2, 2 )) 
-		return -1;
 	
 	return get_char2day($limit_str);
 }
 
-/*
-http://localhost/wordpress/product/basic-8?tp=xwww&dt=20180226
-*/
 function sk_is_campaign_in( $begin, $end ) {
-/*
-	echo "campin<br>";
-	echo $begin . '<br>';
-	echo $end . '<br>';
-*/
-
 	date_default_timezone_set('Asia/Tokyo');
 
     if ( $begin == 0 || $end == 0 ) {
-		$date_str = sk_get_url_param('dt');
+		list ($begin, $end) = sk_get_campaign_param();
 
-//echo "date_str=$date_str<br>";
-			
-		if ( $date_str === '' ) {
-			list ($begin, $end) = sk_get_campaign_param();
-	
-			$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
-			$close = date( "Y/m/d H:i:s", strtotime( $end . ' +1 day' ) );
-		} else {
-			$pos = get_limit_date_value( $date_str );
-
-//echo "$pos<br>";
-
-			if ( $pos == -1 )
-				return false;
-			
-			$open = date( "Y/m/d H:i:s", strtotime( $date_str  ) );
-			$ad_date_str = " +$pos day";
-			$close = date( "Y/m/d H:i:s", strtotime( $date_str . $ad_date_str ) );
-		}
+		$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
+		$close = date( "Y/m/d H:i:s", strtotime( $end . ' +1 day' ) );
 	} else {
 		$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
 		$close = date( "Y/m/d H:i:s", strtotime( $end ) );
 	}
 	
     $now = date( "Y/m/d H:i:s" );
+
 
 /*
 	echo date( "Y/m/d H:i:s;", strtotime($open) )  . '<br>';
@@ -852,36 +821,24 @@ function sk_is_campaign_in( $begin, $end ) {
 }
 
 function sk_get_campaign_end_date( $attrs, $content = null ){
-	$tp_str = sk_get_url_param('tp');
-	if ( $tp_str != '' ) {
-		$dt_str = sk_get_url_param('dt');
-		$pos = get_limit_date_value( $dt_str );
+	list ($begin, $end) = sk_get_campaign_param();
 
-		$open = date( "Y/m/d H:i:s", strtotime( $dt_str  ) );
-		$ad_date_str = " +$pos day";
-		$close = date( "Y/m/d H:i:s", strtotime( $dt_str . $ad_date_str ) );
-		
-	} else {
-		list ($begin, $end) = sk_get_campaign_param();
-
-		$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
-		$close = date( "Y/m/d H:i:s", strtotime( $end . ' +1 day' ) );
-	}
+	$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
+	$close = date( "Y/m/d H:i:s", strtotime( $end ) );
 	$s = date( 'n月j日', strtotime( $close ) );
 	return mb_convert_kana($s, 'A', "utf-8");
 	
 }
-add_shortcode('enddate', 'sk_get_campaign_end_date');
+add_shortcode('camplastdate', 'sk_get_campaign_end_date');
 
 function sk_get_campaign_in( $atts, $content = null ) {
     extract( shortcode_atts( array(
     	'begin' => 0,
     	'end' => 0
     	), $atts ));
-    	
-    $content = do_shortcode( $content );
 
 	if ( sk_is_campaign_in($begin, $end ) ) {
+		$content = do_shortcode( $content );
 		return $content;
 	} else {
 		return '';
@@ -895,46 +852,15 @@ function sk_get_campaign_out( $atts, $content = null ) {
     	'end' => 0
     	), $atts ));
 
-    $content = do_shortcode( $content );
-
 	if ( !sk_is_campaign_in($begin, $end ) ) {
+	    $content = do_shortcode( $content );
 		return $content;
 	} else {
 		return '';
 	}
-
-/*
-    extract( shortcode_atts( array(
-    	'begin' => 0,
-    	'end' => 0,
-    	'pos' => 0
-        ), $atts ));
-
-    if ( $begin == 0 || $end == 0 ) {
-		list ($begin, $end) = sk_get_campaign_param();
-	}
-	
-	$open = date( "Y/m/d H:i:s", strtotime( $begin ) );
-	$close = date( "Y/m/d H:i:s", strtotime( $end . ' +1 day' ) );
-	
-	date_default_timezone_set('Asia/Tokyo');
-    $now = date( "Y/m/d H:i:s" );
-
-	echo "campout $days<br>";
-	echo $begin . '<br>';
-	echo $end . '<br>';
-	echo date( "Y/m/d H:i:s;", strtotime($open) )  . '<br>';
-	echo date( "Y/m/d H:i:s;", strtotime($now) ) . '<br>';
-	echo date( "Y/m/d H:i:s;", strtotime($close) ) . '<br>';
-
-	if ( strtotime($now) < strtotime($open) || strtotime($close) <= strtotime($now) ){
-		return $content;
-	} else {
-		return '';
-	}
-*/
 }
 add_shortcode('campout', 'sk_get_campaign_out');
+
 
 function sk_set_widelist($atts, $content = null) {
 	return '<div class="widelist">'.$content.'</div>';
