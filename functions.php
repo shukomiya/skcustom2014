@@ -404,7 +404,9 @@ function attr_func( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 		'class' => 'default',
 	), $atts ) );
-	
+
+	$content = do_shortcode( $content);
+		
 	return '<span class="' . $class. '">' . $content . '</span>';
 }
 add_shortcode('attr', 'attr_func');
@@ -530,6 +532,7 @@ function sk_get_access_analy_google() {
 }
 
 function sk_get_johnson_box( $atts, $content = null ) {
+	$content = do_shortcode( $content );
 	return '<div class="johnson-box">' . $content . '</div>';
 }
 add_shortcode('johnson', 'sk_get_johnson_box');
@@ -550,6 +553,7 @@ function sk_get_pccontent( $atts, $content = null ) {
 	if ( is_mobile() || is_sk_ktai() ) {
 		return "";
 	} else {
+		$content = do_shortcode( $content );
 		return $content;
 	}
 }
@@ -557,6 +561,7 @@ add_shortcode('pccontent', 'sk_get_pccontent');
 
 function sk_get_ktaicontent( $atts, $content = null ) {
 	if ( is_mobile() ||  is_sk_ktai() ) {
+		$content = do_shortcode( $content );
 		return $content;
 	} else {
 		return "";
@@ -863,6 +868,7 @@ add_shortcode('campout', 'sk_get_campaign_out');
 
 
 function sk_set_widelist($atts, $content = null) {
+	$content = do_shortcode( $content );
 	return '<div class="widelist">'.$content.'</div>';
 }
 add_shortcode('widelist', 'sk_set_widelist');
@@ -871,6 +877,9 @@ function sk_set_checklist($atts, $content = null) {
     extract( shortcode_atts( array(
     	'color' => 'blue'
         ), $atts ));
+
+	$content = do_shortcode( $content );
+
 	if ( $color == 'red' )
 		return '<div class="checklist_red">'.$content.'</div>';
 	else
