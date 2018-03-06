@@ -42,6 +42,7 @@
      });
 </script>
 <?php endif; ?>
+<?php endif; ?>
 <style type="text/css">.wpp-list li { padding: 5px 0; } </style>
 </head>
 <body <?php body_class(); ?>>
