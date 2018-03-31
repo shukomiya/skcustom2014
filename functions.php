@@ -532,8 +532,8 @@ function sk_get_access_analy_google() {
 }
 
 function sk_get_johnson_box( $atts, $content = null ) {
-	$content = do_shortcode( $content );
 	return '<div class="johnson-box">' . $content . '</div>';
+	$content = do_shortcode( $content );
 }
 add_shortcode('johnson', 'sk_get_johnson_box');
 
