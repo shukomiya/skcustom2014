@@ -826,9 +826,8 @@ function sk_is_campaign_in( $begin, $end ) {
 }
 
 function sk_get_campaign_end_date( $attrs, $content = null ){
-	list ($begin, $end) = sk_get_campaign_param();
+	$end = sk_get_custom_field('camp_end');
 
-	$open = date( "Y/m/d H:i:s", strtotime( $begin  ) );
 	$close = date( "Y/m/d H:i:s", strtotime( $end ) );
 	$s = date( 'n月j日', strtotime( $close ) );
 	return mb_convert_kana($s, 'A', "utf-8");
