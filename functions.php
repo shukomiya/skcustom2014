@@ -826,14 +826,30 @@ function sk_is_campaign_in( $begin, $end ) {
 }
 
 function sk_get_campaign_end_date( $attrs, $content = null ){
-	$end = sk_get_custom_field('camp_end');
+	$end = get_post_meta(get_the_ID(), 'camp_end', true);
 
+	if ( empty( $end) )
+		return '';
+		
 	$close = date( "Y/m/d H:i:s", strtotime( $end ) );
 	$s = date( 'n月j日', strtotime( $close ) );
 	return mb_convert_kana($s, 'A', "utf-8");
 	
 }
 add_shortcode('camplastdate', 'sk_get_campaign_end_date');
+
+function sk_get_campaign_end_date2( $attrs, $content = null ){
+	$end = get_post_meta(get_the_ID(), 'camp_end2', true);
+
+	if ( empty( $end) )
+		return '';
+		
+	$close = date( "Y/m/d H:i:s", strtotime( $end ) );
+	$s = date( 'n月j日', strtotime( $close ) );
+	return mb_convert_kana($s, 'A', "utf-8");
+	
+}
+add_shortcode('camplastdate2', 'sk_get_campaign_end_date2');
 
 function sk_get_campaign_in( $atts, $content = null ) {
     extract( shortcode_atts( array(
