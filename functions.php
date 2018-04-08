@@ -949,4 +949,18 @@ function sk_single_page_custom_menu($atts, $content = null) {
 }
 add_shortcode("cmenu", "sk_single_page_custom_menu");
 
+add_filter('protected_title_format', 'remove_protected');
+function remove_protected($title) {
+       return '%s';
+}
+
+function my_password_form() {
+  return
+    '<p>この記事を読むにはパスワードが必要です。<a href="/malmag?frm=pw">パスワードはこちらのメルマガに書いてあります。</a><p>
+    <form class="post_password" action="' . home_url() . '/wp-login.php?action=postpass" method="post">
+    <input name="post_password" type="password" size="24" />
+    <input type="submit" name="Submit" value="' . esc_attr__("パスワード送信") . '" />
+    </form>';
+}
+add_filter('the_password_form', 'my_password_form');
 ?>
