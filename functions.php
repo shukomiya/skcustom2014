@@ -111,13 +111,6 @@ function sk_dequeue_fonts() {
 }
 add_action( 'wp_enqueue_scripts', 'sk_dequeue_fonts', 11 );
 
-function search_filter($query) {
-	if ( !is_admin() && $query->is_main_query() && $query->is_search() ) {
-		$query->set( 'post_type', 'post' );
-	}
-}
-add_action( 'pre_get_posts','search_filter' );
-
 // add to move the comment text field to the bottom in WordPress 4.4 12/12/2015
 function wp34731_move_comment_field_to_bottom( $fields ) {
 	$comment_field = $fields['comment'];
