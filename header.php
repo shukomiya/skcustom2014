@@ -39,7 +39,6 @@
      });
 </script>
 <?php endif; ?>
-<style type="text/css">.wpp-list li { padding: 5px 0; } </style>
 </head>
 <body <?php body_class(); ?>>
 <?php sk_get_access_analy_google(); ?>
@@ -48,6 +47,7 @@
 		<hgroup>
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+			<?php get_search_form() ?>
 		</hgroup>
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="menu-toggle"><?php _e( 'Menu', 'twentytwelve' ); ?></button>

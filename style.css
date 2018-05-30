@@ -208,6 +208,10 @@ header .entry-meta {
 	color: #757575;
 }
 
+.searchform div {
+	margin:12px 0 0 0;
+	text-align: right;
+}
 .sales-letter .sales-letter-content h1 {
 	border-style: none;
 }
@@ -669,6 +673,9 @@ list-style-type:disc;
 		margin: 0 auto;
 		width: 720px; 
 	}
+	.template-front-page .site-content article {
+		margin: 0 17% 0 17%;
+	}
 }
 
 /* Minimum width of 960 pixels. */
@@ -717,6 +724,7 @@ list-style-type:disc;
 	.mu_register p {
 		line-height: 2.2;
 	}
+	
 }
 
 
