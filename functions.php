@@ -964,4 +964,5 @@ function custom_search( $search ) {
 	return $search;
 }
 add_filter( 'posts_search', 'custom_search' );
+
 ?>

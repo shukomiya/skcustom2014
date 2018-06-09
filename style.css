@@ -667,15 +667,21 @@ list-style-type:disc;
 	}
 	.full-width .wrapper {
 		margin: 0 auto;
-		width: 720px;
+		width: 660px;
 	}
 	.law .wrapper {
 		margin: 0 auto;
 		width: 720px; 
 	}
+	.template-front-page .wrapper {
+		margin: 0 auto;
+		width: 660px; 
+	}
+/*
 	.template-front-page .site-content article {
 		margin: 0 17% 0 17%;
 	}
+*/
 }
 
 /* Minimum width of 960 pixels. */
@@ -708,7 +714,7 @@ list-style-type:disc;
 	}
 	.full-width .wrapper {
 		margin: 0 auto;
-		width: 720px;
+		width: 660px;
 	}
 	.sales-letter .wrapper {
 		margin: 0 auto;
@@ -717,6 +723,10 @@ list-style-type:disc;
 	.law .wrapper {
 		margin: 0 auto;
 		width: 720px;
+	}
+	.template-front-page .wrapper {
+		margin: 0 auto;
+		width: 660px; 
 	}
 	.entry-content p,
 	.entry-summary p,
