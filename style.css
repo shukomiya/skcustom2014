@@ -491,6 +491,26 @@ list-style-type:disc;
 	/**/
 }
 
+input#a-button {
+    position: relative;
+    display: inline-block;
+    padding: 18px 18px;
+    text-decoration: none;
+    font-size: 100%;
+	font-weight: bold;
+    color: #fff;
+    background: #fd9535;/*色*/
+}
+
+input#a-button:hover {
+    text-decoration: underline;
+	border: solid 1px gray;
+}
+
+input#a-button:active {
+    border: solid 2px #d27d00;/*線色*/
+}
+
 /* Minimum width of 320 pixels. */
 @media screen and (max-width: 480px) {
 	.site {
@@ -674,7 +694,7 @@ list-style-type:disc;
 		width: 720px; 
 	}
 	.template-front-page .site-content article {
-		margin: 0 17% 0 17%;
+		margin: 0 15% 0 15%;
 	}
 }
 
