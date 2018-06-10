@@ -533,12 +533,12 @@ add_shortcode('johnson', 'sk_get_johnson_box');
 // http://www.mag2.com/m/0000279189.html
 
 function sk_get_admlmg() {
-	return '<p>メルマガ読者の方は合わせてお読み下さい。</p><p>今日のメルマガ配信は終わっているため、今登録してもこの記事を読むことはできません。</p><p><a href="/malmag?bmg=' . get_the_date('ymd') . '&amp;p=c">それでも次回のメルマガ専用記事を読みたい人はこちらから登録して下さい。</a></p>';
+	return '<p>メルマガ読者の方は合わせてお読み下さい。</p><p>今日のメルマガ配信は終わっているため、今登録してもこの記事を読むことはできません。</p><p><a href="/checklist-detail?bmg=' . get_the_date('ymd') . '&amp;p=c">それでも次回のメルマガ専用記事を読みたい人はこちらから登録して下さい。</a></p>';
 }
 add_shortcode('admlmg', 'sk_get_admlmg');
 
 function sk_get_my_malmag_info() {
-	return '<p><strong><a href="/malmag?bmg=' . get_the_date('ymd') . '&amp;p=c">メールマガジンの登録がまだの方はこちらから登録して下さい。</a></strong></p>';
+	return '<p><strong><a href="/checklist-detail?bmg=' . get_the_date('ymd') . '&amp;p=c">メールマガジンの登録がまだの方はこちらから登録して下さい。</a></strong></p>';
 }
 add_shortcode('malmag', 'sk_get_my_malmag_info');
 
