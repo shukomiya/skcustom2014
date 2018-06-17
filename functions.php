@@ -740,42 +740,55 @@ function sk_get_campaign_param() {
 	return array($begin, $end);
 }
 
-function get_char2day($str) {
+function char2digit($str) {
 
-	switch($str) {
-		case 'r':
-			return 0;
-		case 'n':
-			return 1;
-			break;
-		case 'w':
-			return 2;
-			break;
-		case 'h':
-			return 3;
-			break;
-		case 'f':
-			return 4;
-			break;
-		case 'v':
-		  	return 5;
-			break;
-		case  'x';
-		 	return 6;
-			break;
-		case  's':
-		 	return 7;
-			break;
-		case  't':
-		 	return 8;
-			break;
-		case  'e':
-		 	return 9;
-			break;
-		default:
-			return -1;
-			break;
+	$one_char2digit = function($ch) {
+
+		switch($ch) {
+			case 'r':
+				return 0;
+				break;
+			case 'n':
+				return 1;
+				break;
+			case 'w':
+				return 2;
+				break;
+			case 'h':
+				return 3;
+				break;
+			case 'f':
+				return 4;
+				break;
+			case 'v':
+			  	return 5;
+				break;
+			case  'x';
+			 	return 6;
+				break;
+			case  's':
+			 	return 7;
+				break;
+			case  'g':
+			 	return 8;
+				break;
+			case  'e':
+			 	return 9;
+				break;
+			default:
+				return -1;
+				break;
+		}
+	};
+		
+	$v = '';
+	
+	for ($i = 0; $i < strlen($str); $i++) {
+		$ch = $str[$i];
+		$v = $v . $one_char2digit($ch);
 	}
+			
+	return intval($v);
 }
 
 function get_limit_date_value() {
@@ -785,7 +798,7 @@ function get_limit_date_value() {
 		
 	$limit_str = substr($stat, -2, 1);
 	
-	return get_char2day($limit_str);
+	return char2digi($limit_str);
 }
 
 function sk_is_campaign_in( $begin, $end ) {
