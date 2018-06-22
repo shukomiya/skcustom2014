@@ -984,11 +984,14 @@ function my_password_form() {
 add_filter('the_password_form', 'my_password_form');
 
 function custom_search( $search ) {
-	if ( $domain_name = 'komish.com' ) {
+	global $domain_name;
+	
+	if ( $domain_name === 'komish.com' ) {
 		if ( is_search() && ! is_admin() ) {
 			$search .= " AND post_type = 'post'";
 		}
-	}return $search;
+	}
+	return $search;
 }
 
 add_filter( 'posts_search', 'custom_search' );
