@@ -511,6 +511,27 @@ input#a-button:active {
     border: solid 2px #d27d00;/*線色*/
 }
 
+.education nav {
+	margin: 48px 0;
+}
+
+.education .alignleft{
+	float: left;
+	width: 33%;
+}
+.education .aligncenter{
+	text-align: center;
+float: left;
+width: 33%;
+}
+.education .alignright{
+width: 33%;
+text-align: right;
+float: left;
+}
+
+
+
 /* Minimum width of 320 pixels. */
 @media screen and (max-width: 480px) {
 	.site {
@@ -633,8 +654,18 @@ input#a-button:active {
 		margin: 0 auto;
 		width: 100%;
 	}
+	.education .wrapper {
+		margin: 0 auto;
+		width: 100%;
+	}
 	.law .wrapper {
 		margin: 0 auto;
+		width: 100%;
+	}
+	body.template-front-page .site-content,
+	body.attachment .site-content,
+	body.full-width .site-content,
+	body.education .site-content {
 		width: 100%;
 	}
 	.sales-letter .sales-letter-content h1 {
@@ -687,7 +718,11 @@ input#a-button:active {
 	}
 	.full-width .wrapper {
 		margin: 0 auto;
-		width: 720px;
+		width: 660px;
+	}
+	.education .wrapper {
+		margin: 0 auto;
+		width: 720px; 
 	}
 	.law .wrapper {
 		margin: 0 auto;
@@ -727,6 +762,10 @@ input#a-button:active {
 		width: 63.6574%;
 	}
 	.full-width .wrapper {
+		margin: 0 auto;
+		width: 660px;
+	}
+	.education .wrapper {
 		margin: 0 auto;
 		width: 660px;
 	}

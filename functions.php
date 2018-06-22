@@ -679,6 +679,9 @@ function twentytwelvechild_body_class_adapt( $classes ) {
 	if ( is_page_template( 'page-templates/law.php' ) )
 		$classes[] = 'law';
 	
+	if ( is_page_template( 'page-templates/education.php' ) )
+		$classes[] = 'education';
+	
 	return $classes;
 }
 
@@ -916,6 +919,16 @@ function sk_get_product_list($atts, $content = null) {
 }
 add_shortcode('products', 'sk_get_product_list');
 
+function sk_get_page_list($atts, $content = null) {
+	global $post;
+	
+	return '<ul>' . 
+		 wp_list_pages('child_of=' . $post->ID . '&title_li=&post_type=page&page_status=publish&sort_column=menu_order&sort_order=ASC') .
+		 '</ul>';
+}	
+add_shortcode('pagelist', 'sk_get_page_list');
+
+
 function sk_single_page_custom_menu($atts, $content = null) {
     extract(shortcode_atts(array(  
         'menu'            => '', 
@@ -978,4 +991,72 @@ function custom_search( $search ) {
 }
 add_filter( 'posts_search', 'custom_search' );
 
+function getPrevNext(){
+	global $post;
+	
+	$parent_id = $post->post_parent;
+	
+	if ($parent_id == -1)
+		return;
+	
+	$pagelist = get_pages('sort_column=menu_order&sort_order=asc&hierarchical=0&parent=' . $parent_id);
+	$pages = array();
+	foreach ($pagelist as $page) {
+	   $pages[] += $page->ID;
+	}
+
+	$current = array_search(get_the_ID(), $pages);
+	if ( $current - 1 >= 0 ) {
+		$prevID = $pages[$current-1];
+	} else {
+		$prevID = -1;
+	}
+	
+	if ( $current + 1 < count($pages) ) {
+		$nextID = $pages[$current+1];
+	} else {
+		$nextID = -1;
+	}
+	
+	echo '<nav class="education">';
+	
+	echo '<div class="alignleft">';
+	if ($prevID != -1) {
+		echo '<a href="';
+		echo get_permalink($prevID);
+		echo '"';
+		echo 'title="';
+		echo get_the_title($prevID); 
+		echo'">';
+	}
+	echo '前へ';
+	if ($prevID != -1) {
+		'</a>';
+	}
+	echo "</div>";
+
+	echo '<div class="aligncenter">';
+		echo '<a href="';
+		echo get_permalink($parent_id);
+		echo '"';
+		echo 'title="';
+		echo get_the_title($parent_id); 
+		echo'">目次へ</a>';
+	echo '</div>';
+	
+	echo '<div class="alignright">';
+	if ($nextID != -1) {
+		echo '<a href="';
+		echo get_permalink($nextID);
+		echo '"';
+		echo 'title="';
+		echo get_the_title($nextID); 
+		echo'">';
+	}
+	echo '次へ';
+	if ($nextID != -1) {
+		echo '</a>';
+	}
+	echo "</div></nav>";		
+}	
 ?>
