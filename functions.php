@@ -912,18 +912,24 @@ function sk_set_checklist($atts, $content = null) {
 }
 add_shortcode('checklist', 'sk_set_checklist');
 
+/*
 function sk_get_product_list($atts, $content = null) {
 	return '<ul>' . 
 		 wp_list_pages('child_of=900&depth=1&title_li=&sort_column=ID&sort_order=DESC') .
 		 '</ul>';
 }
 add_shortcode('products', 'sk_get_product_list');
+*/
 
 function sk_get_page_list($atts, $content = null) {
+    extract( shortcode_atts( array(
+    	'depth' => '0'
+        ), $atts ));
+
 	global $post;
-	
+
 	return '<ul>' . 
-		 wp_list_pages('child_of=' . $post->ID . '&title_li=&post_type=page&page_status=publish&sort_column=menu_order&sort_order=ASC') .
+		 wp_list_pages('depth=' . $depth . '&child_of=' . $post->ID . '&title_li=&post_type=page&page_status=publish&sort_column=menu_order&sort_order=ASC') .
 		 '</ul>';
 }	
 add_shortcode('pagelist', 'sk_get_page_list');
