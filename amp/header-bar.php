@@ -1,3 +1,4 @@
+<amp-auto-ads type="adsense" data-ad-client="ca-pub-7935009294964527"></amp-auto-ads>
 <header id="#top" class="amp-wp-header">
 	<div>
 		<a href="<?php echo esc_url( $this->get( 'home_url' ) ); ?>">
