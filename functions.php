@@ -23,7 +23,22 @@ if ( $is_localhost ) {
 }
 
 // for debug
-//$g_ad_enabled = true;
+$g_ad_enabled = true;
+
+function is_amp(){
+  //AMPチェック
+	$is_amp = false;
+	if ( empty($_GET['amp']) ) {
+		return false;
+	}
+ 
+  //ampのパラメーターが1かつ投稿ページの
+  //かつsingleページのみ$is_ampをtrueにする
+	if(is_single() && $_GET['amp'] === '1'){
+		$is_amp = true;
+	}
+	return $is_amp;
+}
 
 function amp_template($file, $type, $post) {
     if ( 'single' === $type ) {
@@ -713,6 +728,17 @@ function sk_get_url_param($param) {
 	return $val;
 }
 
+function sk_get_post_param($param) {
+
+	$val = (isset($_POST[$param]) && $_POST[$param] != "") ? $_POST[$param] : null;
+	if ( $val === null ) {
+		$val = '';
+	} else {
+		$val = htmlspecialchars($val, ENT_QUOTES);
+	}
+	return $val;
+}
+
 function sk_generate_password( $length = 12, $special_chars = true, $extra_special_chars = false ) {
 	$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 	if ( $special_chars )
@@ -916,7 +942,6 @@ function sk_get_campaign_out( $atts, $content = null ) {
 	}
 }
 add_shortcode('campout', 'sk_get_campaign_out');
-
 
 function sk_set_widelist($atts, $content = null) {
 	$content = do_shortcode( $content );

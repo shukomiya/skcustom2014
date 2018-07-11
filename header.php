@@ -39,6 +39,11 @@
      });
 </script>
 <?php endif; ?>
+<?php if ( is_amp() ) : ?>
+<script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+<?php endif; ?>
 </head>
 <body <?php body_class(); ?>>
 <?php sk_get_access_analy_google(); ?>
