@@ -19,6 +19,10 @@ if ( $is_localhost ) {
 		$analy_g_acount = 'UA-4079996-23';
 		$g_category_nav = true;
 		$g_ad_enabled = false;
+	} else if ( $domain_name = 'plus.komish.com' ) {
+		$analy_g_acount = 'UA-4079996-23';
+		$g_category_nav = true;
+		$g_ad_enabled = false;
 	}
 }
 

@@ -8,6 +8,15 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
+?>
+<?php
+	global $domain_name;
+	
+	if ($domain_name === 'plus.komish.com') {
+		if (!is_user_logged_in()) {
+			auth_redirect();
+		}
+	}
 ?><!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
@@ -37,11 +46,6 @@
           google_ad_client: "ca-pub-7935009294964527",
           enable_page_level_ads: true
      });
-</script>
-<?php endif; ?>
-<?php if ( is_amp() ) : ?>
-<script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
 </script>
 <?php endif; ?>
 </head>
