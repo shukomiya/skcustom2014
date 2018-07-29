@@ -8,21 +8,7 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-?>
-<?php
-/*
-	if (!isset($_COOKIE['sk_tp'])) {
-		$limit = get_limit_date_value();
-		if ( $limit != -1 ) {
-			date_default_timezone_set('Asia/Tokyo');
-			$ad_date_str = " +$limit day";
-			$date_str =  date( "Y/m/d", strtotime( date( "Y/m/d" ) . $ad_date_str ) );
-			setcookie('sk_sdt', $date_str, strtotime('+30 day'));
-		}
-    }
-*/
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
 <![endif]-->

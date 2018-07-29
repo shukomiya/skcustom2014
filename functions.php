@@ -11,15 +11,15 @@ if ( $is_localhost ) {
 	$g_category_nav = false;
 	$g_ad_enabled = false;
 } else {
-	if ( $domain_name == 'komish.com' ) {
+	if ( $domain_name === 'komish.com' ) {
 		$analy_g_acount = 'UA-4079996-8';
 		$g_category_nav = false;
 		$g_ad_enabled = true;
-	} else if ( $domain_name = 'members.komish.com' ) {
+	} else if ( $domain_name === 'members.komish.com' ) {
 		$analy_g_acount = 'UA-4079996-23';
 		$g_category_nav = true;
 		$g_ad_enabled = false;
-	} else if ( $domain_name = 'plus.komish.com' ) {
+	} else if ( $domain_name === 'plus.komish.com' ) {
 		$analy_g_acount = 'UA-4079996-23';
 		$g_category_nav = true;
 		$g_ad_enabled = false;
@@ -91,7 +91,6 @@ function sk_amp_modify_json_metadata( $metadata, $post ) {
 }
 
 add_filter( 'amp_post_template_analytics', 'sk_amp_add_custom_analytics' );
-
 function sk_amp_add_custom_analytics( $analytics ) {
 	global $is_localhost, $analy_g_acount;
 	
@@ -122,6 +121,16 @@ function sk_amp_add_custom_analytics( $analytics ) {
     );
 
     return $analytics;
+}
+
+//Adsense-JS追加
+add_action( 'amp_post_template_head', 'sk_amp_add_tag_adsense_js' );
+function sk_amp_add_tag_adsense_js() {
+?>
+<!-- AMP Ad -->
+<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+<script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+<?php
 }
 
 function sk_dequeue_fonts() {
@@ -758,10 +767,16 @@ function sk_generate_password( $length = 12, $special_chars = true, $extra_speci
 	return $password;
 }
 
-function sk_reg_user(){
+function sk_reg_user( $atts, $content = null ) {
+    extract( shortcode_atts( array(
+    	'begin' => 0,
+    	'end' => 0
+    	), $atts ));
+
 	if ( sk_get_url_param('ango') === 'ango' ) {
 		$email = sk_get_url_param('email');
 		if ($email !== null){
+			$content = str_replace('[[email]]', $email, $content);
 			$password = sk_generate_password();
 			
 			wp_create_user( $email, $password, $email );

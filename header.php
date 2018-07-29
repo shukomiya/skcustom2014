@@ -8,15 +8,6 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-?>
-<?php
-	global $domain_name;
-	
-	if ($domain_name === 'plus.komish.com') {
-		if (!is_user_logged_in()) {
-			auth_redirect();
-		}
-	}
 ?><!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
