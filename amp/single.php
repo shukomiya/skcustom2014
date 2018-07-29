@@ -34,16 +34,6 @@
 		</amp-ad>
 		</div>
 		<?php echo $this->get( 'post_amp_content' ); // amphtml content; no kses ?>
-		<div class="ad-bottom">
-		<amp-ad
-			layout="responsive"
-		 	type="adsense"
-		 	data-ad-client="ca-pub-7935009294964527"
-		 	data-ad-slot="5406783285"
-		 	width="300"
-		 	height="250">
-		</amp-ad>
-		</div>
 		<h2>おすすめ記事</h2>
 		<div class="ad-bottom2">
 		<amp-ad
