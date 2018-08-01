@@ -421,11 +421,11 @@ list-style-type:disc;
 	width: 240px;
 }
 /* contact  form 7*/
-.wpcf7-form input[type=text],
-.wpcf7-form input[type=email]
+.userinfoform input[type=text],
+.userinfoform input[type=email]
  {width: 80% !important;}  /*名前orメールor題名*/
-.wpcf7-form textarea{width: 90% !important;} /*本文*/
-.wpcf7-form .wpcf7-submit{width: 80px !important;} /*送信ボタン*/
+.userinfoform textarea{width: 90% !important;} /*本文*/
+.userinfoform .wpcf7-submit{width: 80px !important;} /*送信ボタン*/
 
 
 /********************************
@@ -531,6 +531,10 @@ float: left;
 }
 
 
+.field{
+	padding:45px;
+	margin: 36px;
+}
 
 /* Minimum width of 320 pixels. */
 @media screen and (max-width: 480px) {
