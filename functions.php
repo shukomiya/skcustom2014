@@ -710,6 +710,9 @@ function twentytwelvechild_body_class_adapt( $classes ) {
 	if ( is_page_template( 'page-templates/education.php' ) )
 		$classes[] = 'education';
 	
+	if ( is_page_template( 'page-templates/user-info.php' ) )
+		$classes[] = 'user-info';
+	
 	return $classes;
 }
 
@@ -751,39 +754,6 @@ function sk_get_post_param($param) {
 	}
 	return $val;
 }
-
-function sk_generate_password( $length = 12, $special_chars = true, $extra_special_chars = false ) {
-	$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-	if ( $special_chars )
-		$chars .= '!@#$%^&*()';
-	if ( $extra_special_chars )
-		$chars .= '-_ []{}<>~`+=,.;:/?|';
-
-	$password = '';
-	for ( $i = 0; $i < $length; $i++ ) {
-		$password .= substr($chars, wp_rand(0, strlen($chars) - 1), 1);
-	}
-
-	return $password;
-}
-
-function sk_reg_user( $atts, $content = null ) {
-    extract( shortcode_atts( array(
-    	'begin' => 0,
-    	'end' => 0
-    	), $atts ));
-
-	if ( sk_get_url_param('ango') === 'ango' ) {
-		$email = sk_get_url_param('email');
-		if ($email !== null){
-			$content = str_replace('[[email]]', $email, $content);
-			$password = sk_generate_password();
-			
-			wp_create_user( $email, $password, $email );
-		}
-	}
-}
-add_shortcode('reg_user', 'sk_reg_user');
 
 function sk_get_cookie_param($param) {
 	$val = (isset($_COOKIE[$param]) && $_COOKIE[$param] != "") ? $_COOKIE[$param] : null;
