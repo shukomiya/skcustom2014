@@ -534,6 +534,10 @@ float: left;
 .field{
 	margin-bottom: 32px;
 }
+.info_msg{
+	font-weight: 900;
+	font-size: 20px;
+}
 
 /* Minimum width of 320 pixels. */
 @media screen and (max-width: 480px) {

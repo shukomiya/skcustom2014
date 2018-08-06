@@ -6,15 +6,20 @@
 function check_inputdata($user_info) {
 	$err_mes = array();
 
-	if ($user_info["nickname"] === null){
-		$err_mes[] = '※名前を入力してください';
+	if ($user_info["nickname"] === $user_info["email"]){
+		$err_mes[] = '名前がメールアドレスのままです。変更してください';
 	}
 
-	if ($user_info["password"] !== null && $user_info["password2"] !== null){
+	if (empty($user_info["nickname"])){
+		$err_mes[] = '名前を入力してください';
+	}
+
+	if (!empty($user_info["password"])){
 		if ($user_info["password"] !== $user_info["password2"]){
 			$err_mes[] = '※パスワードが異なっています';
 		}
 	}
+	return $err_mes;
 }
 
 //操作アクションを取得
@@ -22,6 +27,7 @@ $act = isset($_POST["act"]) ? intval($_POST["act"]) : 1;
 
 if ($act == 1) {
 	// セッションデータクリア
+	$info_msg = '';
 	$user_info = array();
 	// 初期値セット
 	$err_msg = array();
@@ -42,8 +48,11 @@ if ($act == 1) {
 
 		if (empty($password)){
 			$user_id = wp_update_user( array( 'ID' => $user_id, 'display_name' => $nickname ));
+			$info_msg = '登録しました';
 		} else {
 			$user_id = wp_update_user( array( 'ID' => $user_id, 'password' => $password, 'display_name' => $nickname ));
+			header('Location: ' . home_url() . '/wp-login.php?action=login');
+			exit;
 		}
 	} else {
 	 	$email = isset($user_info["email"]) ? $user_info["email"] : "";
@@ -82,24 +91,30 @@ get_header(); ?>
 							<?php } ?>
 						</ul>
 					</div>
+					<?php } else if (!empty($info_msg )) { ?>
+					<p>登録しました</p>
 					<?php } ?>
 				
-					<p class="mb30">以下を入力し確認するボタンを押してください。<span class="red">*</span>は入力必須です。</p>
 					<div class="userinfo">
 					<form name="userinfoform" role="form" method="post" action="" novalidate>
 						<div class="field">
 							<label>ＩＤ／メールアドレス:</label><br>
-							<input type="field" readonly name="user_info[field]" value="<?php echo htmlspecialchars($email); ?>">
+							<input type="text" readonly name="user_info[email]" value="<?php echo htmlspecialchars($email); ?>"><br>
+							※変更できません<br>
 						</div>
 			
 						<div class="field">
 						<label>名前:</label><br>
-						<input type="text" name="user_info[nickname]" value="<?php echo htmlspecialchars($nickname); ?>">
+						<input type="text" name="user_info[nickname]" value="<?php echo htmlspecialchars($nickname); ?>"><br>
+						※ネットコンサルで質問するときにこの名前を表示します。<br>
+						姓か、名かのどちらかを、漢字、ひらがな、カタカナ、ローマ字で入力してください。<br>
 						</div>
+
+						<p>※以下の項目は、パスワードを変更したいときだけ入力してください。</p>
 
 						<div class="field">
 						<label>パスワード:</label><br>
-						<input type="password" name="user_info[password]" value="">
+						<input type="password" name="user_info[password]" value=""><br>
 						</div>
 			
 						<div class="field">
@@ -108,7 +123,7 @@ get_header(); ?>
 						</div>
 			
 					<div class="btn-area">
-						<button type="submit" class="btn btn-success">送信する<i class="fa fa-envelope-o"></i></button>
+						<button type="submit" class="btn btn-success">変更する</button>
 						<input type="hidden" name="act" value="2">
 					</div>
 				</form>
