@@ -92,7 +92,7 @@ get_header(); ?>
 						</ul>
 					</div>
 					<?php } else if (!empty($info_msg )) { ?>
-					<p>登録しました</p>
+					<p><strong>※変更しました</strong></p>
 					<?php } ?>
 				
 					<div class="userinfo">
