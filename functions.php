@@ -522,7 +522,7 @@ function sk_get_access_analy_google() {
 </script>
 */
 
-	} else if ( $domain_name == 'members.komish.com' ) {
+	} else if ( $domain_name === 'plus.komish.com' || $domain_name === 'members.komish.com' ) {
 ?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
