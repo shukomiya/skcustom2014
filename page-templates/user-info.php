@@ -98,9 +98,8 @@ get_header(); ?>
 					<div class="userinfo">
 					<form name="userinfoform" role="form" method="post" action="" novalidate>
 						<div class="field">
-							<label>ＩＤ／メールアドレス:</label><br>
+							<label>ＩＤ／メールアドレス:（※変更できません）</label><br>
 							<input type="text" readonly name="user_info[email]" value="<?php echo htmlspecialchars($email); ?>"><br>
-							※変更できません<br>
 						</div>
 			
 						<div class="field">
