@@ -1022,7 +1022,7 @@ function remove_protected($title) {
 
 function my_password_form() {
   return
-    '<p>この記事を読むにはパスワードが必要です。<a href="/malmag?frm=pw">パスワードはこちらのメルマガに書いてあります。</a><p>
+    '<p>この記事を読むにはパスワードが必要です。<p>
     <form class="post_password" action="' . home_url() . '/wp-login.php?action=postpass" method="post">
     <input name="post_password" type="password" size="24" />
     <input type="submit" name="Submit" value="' . esc_attr__("パスワード送信") . '" />
