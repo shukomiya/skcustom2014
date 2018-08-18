@@ -41,11 +41,6 @@
 		</div><!-- .entry-summary -->
 		<?php else : ?>
 		<div class="entry-content">
-			<?php 
-				if ( is_single() ) {
-					sk_get_the_ad('adsense', 'mg_single_content_top_link_res');
-				}
-			?>
 			<?php the_content( '続きを読む...' ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-link-title">' . __( 'Pages:', 'twentytwelve' ) . '</span>', 'after' => '</div>',
 				'link_before' => '<span class="page-link-item">', 'link_after'  => '</span>' ) ) ; ?>
