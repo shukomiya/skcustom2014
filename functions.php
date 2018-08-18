@@ -1020,6 +1020,7 @@ function remove_protected($title) {
        return '%s';
 }
 
+/*
 function my_password_form() {
   return
     '<p>この記事を読むにはパスワードが必要です。<p>
@@ -1029,6 +1030,7 @@ function my_password_form() {
     </form>';
 }
 add_filter('the_password_form', 'my_password_form');
+*/
 
 function custom_search( $search ) {
 	global $domain_name;

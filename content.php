@@ -43,11 +43,7 @@
 		<div class="entry-content">
 			<?php 
 				if ( is_single() ) {
-					if ( is_mobile() ) {
-						sk_get_the_ad('adsense', 'mg_sp_single_content_top');
-					} else {
-						sk_get_the_ad('adsense', 'mg_single_content_top');
-					}
+					sk_get_the_ad('adsense', 'mg_single_content_top_link_res');
 				}
 			?>
 			<?php the_content( '続きを読む...' ); ?>
