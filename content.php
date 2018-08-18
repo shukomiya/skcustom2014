@@ -56,14 +56,6 @@
 			
 			if ( is_single() ) {
 				if ( $g_ad_enabled ) {
-					if ( !is_mobile() ) {
-						sk_get_the_ad('adsense', 'mg_single_content_bottom'); 
-					} else {
-						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom'); 
-					}
-				}
-				
-				if ( $g_ad_enabled ) {
 					echo '<h2>おすすめ記事</h2>';
 					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 	
