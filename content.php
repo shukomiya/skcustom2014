@@ -42,9 +42,10 @@
 		<?php else : ?>
 		<div class="entry-content">
 			<?php global $g_ad_enabled;
-			
-				if ($g_ad_enabled){
-					sk_get_the_ad('adsense','mg_single_content_top_link_res');
+				if (is_single()){
+					if ($g_ad_enabled){
+						sk_get_the_ad('adsense','mg_single_content_top_link_res');
+					}
 				}
 			?>
 			<?php the_content( '続きを読む...' ); ?>
