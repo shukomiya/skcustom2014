@@ -1,4 +1,4 @@
-<div style="margin: 24px 0;">
+<div style="margin: 48px 0;">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mg_single_content_top_link_res -->
 <ins class="adsbygoogle"

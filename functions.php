@@ -633,17 +633,15 @@ function sk_remove_more_jump_link($link) {
 add_filter('the_content_more_link', 'sk_remove_more_jump_link');
 
 //本文中の<!--more-->タグをアドセンスに置換
-/*
 function replace_more_tag($the_content){
     //広告（AdSense）タグを記入
     if ( !is_noad() ) {
-		$ad = sk_get_ad('adsense', 'mg_in_content');
+		$ad = sk_get_ad('adsense', 'mg_single_content_in_res');
 		$the_content = preg_replace( '/(<p>)?<span id="more-([0-9]+?)"><\/span>(.*?)(<\/p>)?/i', "$ad$0", $the_content );
 	}
 	return $the_content;
 }
 add_filter('the_content', 'replace_more_tag');
-*/
 
 add_theme_support('automatic-feed-links');
 
