@@ -56,14 +56,12 @@
 			
 			if ( is_single() ) {
 				if ( $g_ad_enabled ) {
-					echo '<h2>おすすめ記事</h2>';
-					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
-	
 					if ( !is_mobile() ) {
 						sk_get_the_ad('rakuten', 'content_bottom_336x280');
 					} else {
 						sk_get_the_ad('rakuten', 'content_bottom_300x160');
 					}
+					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 				}
 
 				if (function_exists('related_posts')){
