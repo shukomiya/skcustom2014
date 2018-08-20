@@ -60,7 +60,11 @@
 			
 			if ( is_single() ) {
 				if ( $g_ad_enabled ) {
-					sk_get_the_ad('adsense', 'mg_single_content_bottom_res');
+					if ( !is_mobile() ) {
+						sk_get_the_ad('adsense', 'mg_single_content_bottom');
+					} else {
+						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
+					}
 				}
 				if (function_exists('related_posts')){
 					echo '<h2>関連記事</h2>';
