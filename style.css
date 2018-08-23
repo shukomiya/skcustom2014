@@ -22,7 +22,7 @@ blockquote {
      font-size: 100%;
      font-style: italic;
      font-weight: 300;
-     line-height: 1.5;
+     line-height: 1.9;
      margin-bottom: 0px;
      position:relative;
      padding:10px 10px 0px 10px;;
@@ -134,13 +134,12 @@ blockquote {
 .main-navigation li {
 	font-size: 14px;
 	font-size: 1rem;
-	line-height: 1.42857143;
 }
 
 .entry-content,
 .entry-summary,
 .mu_register {
-	line-height: 1.714285714;
+	line-height: 1.9;
 /*	padding-right: 10px;
 	padding-right: 0.714285714rem;
 	padding-left: 10px;
@@ -150,16 +149,18 @@ blockquote {
 .entry-content li {
 	margin-left: 32px;
 	margin-bottom: 6px;
+	line-height: 1.9;
 }
 
 .checklist_red ul, .checklist_blue ul{
-list-style-type:none;
+	list-style-type:none;
 }
 
 .checklist_red li, .checklist_blue li{
 	padding-bottom: 20px;
 	padding-left: 32px;
 	margin-left: 16px;
+	line-height: 1.9;
 }
 .checklist_red li{
 	background-image:url("https://komish.com/wp-content/uploads//2017/09/checkred.gif");
@@ -174,6 +175,7 @@ list-style-type:none;
 
 .widelist li {
 	padding-bottom: 20px;
+	line-height: 1.9;
 }
 
 .entry-content a:hover,
