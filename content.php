@@ -41,14 +41,17 @@
 		</div><!-- .entry-summary -->
 		<?php else : ?>
 		<div class="entry-content">
-			<?php /*
+			<?php 
 				global $g_ad_enabled;
 				if (is_single()){
 					if ($g_ad_enabled){
-						sk_get_the_ad('adsense','mg_single_content_top_link_res');
+						if(!is_mobile()){
+							sk_get_the_ad('adsense','mg_single_content_top');
+						}else{
+							sk_get_the_ad('adsense','mg_sp_single_content_top');
+						}
 					}
 				}
-				*/
 			?>
 			<?php the_content( '続きを読む...' ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-link-title">' . __( 'Pages:', 'twentytwelve' ) . '</span>', 'after' => '</div>',
@@ -61,7 +64,12 @@
 			if ( is_single() ) {
 				if ( $g_ad_enabled ) {
 					if ( !is_mobile() ) {
-						sk_get_the_ad('adsense', 'mg_single_content_bottom');
+						?>
+						<div style="margin: 48px 0;">
+						<div style="font-size: 87%; text-align: center">PR</div>
+						<?php
+						sk_get_the_ad('adsense', 'mg_single_content_bottom_left');
+						sk_get_the_ad('adsense', 'mg_single_content_bottom_right');
 					} else {
 						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 					}
@@ -71,13 +79,11 @@
 					related_posts(); 
 				}
 				if ( $g_ad_enabled ) {
-					/*
 					if ( !is_mobile() ) {
 						sk_get_the_ad('rakuten', 'content_bottom_336x280');
 					} else {
 						sk_get_the_ad('rakuten', 'content_bottom_300x160');
 					}
-					*/
 					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 				}
 

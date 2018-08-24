@@ -1,3 +1,4 @@
+<span style="float: left">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mg_single_content_bottom_left -->
 <ins class="adsbygoogle"
@@ -7,3 +8,4 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+</span>

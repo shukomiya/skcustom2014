@@ -27,7 +27,7 @@ if ( $is_localhost ) {
 }
 
 // for debug
-//$g_ad_enabled = true;
+$g_ad_enabled = true;
 
 function is_amp(){
   //AMPチェック
@@ -200,7 +200,7 @@ remove_action('wp_head','wp_oembed_add_host_js');
 remove_action('template_redirect', 'rest_output_link_header', 11 );
 
 add_action( 'after_setup_theme', 'child_theme_setup' );
- 
+
 add_action( 'wp_enqueue_scripts', 'sk_enqueue_styles' );
 function sk_enqueue_styles() {
 	global $wp_styles;
@@ -633,6 +633,7 @@ function sk_remove_more_jump_link($link) {
 add_filter('the_content_more_link', 'sk_remove_more_jump_link');
 
 //本文中の<!--more-->タグをアドセンスに置換
+/*
 function replace_more_tag($the_content){
     //広告（AdSense）タグを記入
     if ( !is_noad() ) {
@@ -642,8 +643,28 @@ function replace_more_tag($the_content){
 	return $the_content;
 }
 add_filter('the_content', 'replace_more_tag');
+*/
 
 add_theme_support('automatic-feed-links');
+add_theme_support( 'align-wide' );
+add_theme_support( 'editor-color-palette',
+    array(
+        'name' => 'Blue',
+        'color' => '#21759b',
+    ),
+    array(
+        'name' => 'Orange',
+        'color' => '#d54e21',
+    ),
+    array(
+        'name' => 'Gray',
+        'color' => '#464646',
+    ),
+    array(
+        'name' => 'White',
+        'color' => '#ffffff',
+    )
+);
 
 function twentytwelve_footer_widget_class() {
     $count = 0;
