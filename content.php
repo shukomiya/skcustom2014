@@ -70,6 +70,9 @@
 						<?php
 						sk_get_the_ad('adsense', 'mg_single_content_bottom_left');
 						sk_get_the_ad('adsense', 'mg_single_content_bottom_right');
+						?>
+						</div>
+						<?php
 					} else {
 						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 					}
