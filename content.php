@@ -64,15 +64,7 @@
 			if ( is_single() ) {
 				if ( $g_ad_enabled ) {
 					if ( !is_mobile() ) {
-						?>
-						<div style="margin: 48px 0;">
-						<div style="font-size: 87%; text-align: center">PR</div>
-						<?php
-						sk_get_the_ad('adsense', 'mg_single_content_bottom_left');
-						sk_get_the_ad('adsense', 'mg_single_content_bottom_right');
-						?>
-						</div>
-						<?php
+						sk_get_the_ad('adsense', 'mg_single_content_bottom_double');
 					} else {
 						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 					}
