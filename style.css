@@ -704,6 +704,13 @@ float: left;
 		margin: 0 auto;
 		width: 100%;
 	}
+/*
+	.sales-letter .wrapper{
+		margin: 0 auto;
+		width: 100%;
+	}
+*/
+	
 	.law .wrapper {
 		margin: 0 auto;
 		width: 100%;
@@ -714,6 +721,11 @@ float: left;
 	body.education .site-content {
 		width: 100%;
 	}
+/*
+	body.sales-letter .site-content {
+		width: 100%;
+	}
+*/
 	.sales-letter .sales-letter-content h1 {
 		text-align: center;
 	}
@@ -764,19 +776,23 @@ float: left;
 	}
 	.full-width .wrapper {
 		margin: 0 auto;
-		width: 660px;
 	}
 	.education .wrapper {
 		margin: 0 auto;
-		width: 720px; 
 	}
+/*
+	.sales-letter .wrapper {
+		margin: 0 auto;
+	}
+*/
 	.law .wrapper {
 		margin: 0 auto;
-		width: 720px; 
+/*		width: 720px;*/
 	}
-	.template-front-page .site-content article {
+/*	.template-front-page .site-content article {
 		margin: 0 15% 0 15%;
 	}
+*/
 }
 
 /* Minimum width of 960 pixels. */
@@ -809,19 +825,19 @@ float: left;
 	}
 	.full-width .wrapper {
 		margin: 0 auto;
-		width: 660px;
 	}
 	.education .wrapper {
 		margin: 0 auto;
-		width: 660px;
 	}
+/*	
 	.sales-letter .wrapper {
 		margin: 0 auto;
-/*		width: 720px;*/
+		width: 720px;
 	}
+*/
 	.law .wrapper {
 		margin: 0 auto;
-		width: 720px;
+/*		width: 720px;*/
 	}
 	.entry-content p,
 	.entry-summary p,
