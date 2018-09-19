@@ -45,11 +45,7 @@
 				global $g_ad_enabled;
 				if (is_single()){
 					if ($g_ad_enabled){
-						if(!is_mobile()){
-							sk_get_the_ad('adsense','mg_single_content_top');
-						}else{
-							sk_get_the_ad('adsense','mg_sp_single_content_top');
-						}
+						sk_get_the_ad('','mg_single_content_top');
 					}
 				}
 			?>
