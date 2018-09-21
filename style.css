@@ -80,6 +80,14 @@ blockquote {
 	font-weight: 900;
 }
 
+.sales-letter-full .site-header h1 {
+	text-align: left;
+	font-size: 18px;
+	line-height: 1.846153846;
+	margin-bottom: 0;
+	font-weight: 900;
+}
+
 .law .site-header h1 {
 	text-align: left;
 	font-size: 18px;
@@ -112,6 +120,13 @@ blockquote {
 	display: none;
 }
 .sales-letter .site-header {
+	padding: 24px 0 0px 0;
+	border-bottom: 1px #000 dotted;
+}
+.sales-letter-full .entry-title {
+	display: none;
+}
+.sales-letter-full .site-header {
 	padding: 24px 0 0px 0;
 	border-bottom: 1px #000 dotted;
 }
@@ -231,6 +246,31 @@ font-weight: 900;
 	font-weight: 900;
 }
 .sales-letter .sales-letter-content h3 {
+	text-align: left;
+color: navy;
+font-weight: 900;
+border-left-color: navy;
+border-left-style: solid;
+border-left-width: 10px;
+}
+
+.sales-letter-full .sales-letter-full-content h1 {
+	border-style: none;
+}
+.sales-letter-full .sales-letter-full-content h1 {
+	text-align: left;
+font-size: 30px;
+font-weight: 900;
+/*border-bottom: 1px gray solid;*/
+}
+.sales-letter-full .sales-letter-full-content h2 {
+	text-align: left;
+	padding: 0;
+	color: navy;
+	border-style: none;
+	font-weight: 900;
+}
+.sales-letter-full .sales-letter-full-content h3 {
 	text-align: left;
 color: navy;
 font-weight: 900;
@@ -710,6 +750,10 @@ float: left;
 		width: 100%;
 	}
 */
+	.sales-letter-full .wrapper{
+		margin: 0 auto;
+		width: 100%;
+	}
 	
 	.law .wrapper {
 		margin: 0 auto;
@@ -726,10 +770,19 @@ float: left;
 		width: 100%;
 	}
 */
+	body.sales-letter-full .site-content {
+		width: 100%;
+	}
 	.sales-letter .sales-letter-content h1 {
 		text-align: center;
 	}
 	.sales-letter .sales-letter-content h2 {
+		text-align: center;
+	}
+	.sales-letter-full .sales-letter-full-content h1 {
+		text-align: center;
+	}
+	.sales-letter-full .sales-letter-full-content h2 {
 		text-align: center;
 	}
 	
@@ -785,6 +838,9 @@ float: left;
 		margin: 0 auto;
 	}
 */
+	.sales-letter-full .wrapper {
+		margin: 0 auto;
+	}
 	.law .wrapper {
 		margin: 0 auto;
 /*		width: 720px;*/
@@ -835,6 +891,9 @@ float: left;
 		width: 720px;
 	}
 */
+	.sales-letter .wrapper {
+		margin: 0 auto;
+	}
 	.law .wrapper {
 		margin: 0 auto;
 /*		width: 720px;*/

@@ -441,6 +441,7 @@ function is_noad() {
 	return !$g_ad_enabled || is_page('product') || is_page('law') || is_page('malmag') ||  is_404() 
 		|| is_page_template('page-templates/full-width.php') 
 		|| is_page_template('page-templates/law.php') 
+		|| is_page_template('page-templates/sales-letter-full.php') 
 		|| is_page_template('page-templates/sales-letter.php');
 }
 
@@ -646,24 +647,33 @@ add_filter('the_content', 'replace_more_tag');
 */
 
 add_theme_support('automatic-feed-links');
-add_theme_support( 'align-wide' );
+add_theme_support('align-wide' );
+add_theme_support('disable-custom-colors');
+add_theme_support('wp-block-styles');
+
 add_theme_support( 'editor-color-palette',
-    array(
-        'name' => 'Blue',
-        'color' => '#21759b',
-    ),
-    array(
-        'name' => 'Orange',
-        'color' => '#d54e21',
-    ),
-    array(
-        'name' => 'Gray',
-        'color' => '#464646',
-    ),
-    array(
-        'name' => 'White',
-        'color' => '#ffffff',
-    )
+	array(
+		array(
+			'name' => 'Blue',
+			'slug' => 'my-blue',
+			'color' => '#21759b',
+		),
+		array(
+			'name' => 'Orange',
+			'slug' => 'my-orange',
+			'color' => '#d54e21',
+		),
+		array(
+			'name' => 'Gray',
+			'slug' => 'my-gray',
+			'color' => '#464646',
+		),
+		array(
+			'name' => 'White',
+			'slug' => 'my-white',
+			'color' => '#ffffff',
+		)
+	)
 );
 
 function twentytwelve_footer_widget_class() {
@@ -722,6 +732,9 @@ function twentytwelvechild_body_class_adapt( $classes ) {
 	// Apply 'sales-letter' class to form_page.php body
 	if ( is_page_template( 'page-templates/sales-letter.php' ) )
 		$classes[] = 'sales-letter';
+		
+	if ( is_page_template( 'page-templates/sales-letter-full.php' ) )
+		$classes[] = 'sales-letter-full';
 		
 	if ( is_page_template( 'page-templates/law.php' ) )
 		$classes[] = 'law';
