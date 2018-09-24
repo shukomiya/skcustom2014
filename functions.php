@@ -999,10 +999,8 @@ function sk_get_page_list($atts, $content = null) {
     	'depth' => '0'
         ), $atts ));
 
-	global $post;
-
 	return '<ul>' . 
-		 wp_list_pages('depth=' . $depth . '&child_of=' . $post->ID . '&title_li=&post_type=page&page_status=publish&sort_column=menu_order&sort_order=ASC') .
+		 wp_list_pages('depth=' . $depth . '&child_of=' . get_the_ID() . '&title_li=&echo=0&post_type=page&page_status=publish&sort_column=menu_order&sort_order=ASC') .
 		 '</ul>';
 }	
 add_shortcode('pagelist', 'sk_get_page_list');
