@@ -66,7 +66,7 @@
 					}
 				}
 				if (function_exists('related_posts')){
-					echo '<h2>関連記事</h2>';
+					echo '<h2 class="add-section-title">関連記事</h2>';
 					related_posts(); 
 				}
 				if ( $g_ad_enabled ) {
