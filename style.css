@@ -227,7 +227,13 @@ header .entry-meta {
 
 .searchform div {
 	margin:12px 0 0 0;
-	text-align: right;
+	text-align: center;
+}
+.up-5step-form {
+	border: 1px dotted gray;
+	padding: 8px;
+	margin: 5px;
+	width: 300px;
 }
 .sales-letter .sales-letter-content h1 {
 	border-style: none;
