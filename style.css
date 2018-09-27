@@ -225,9 +225,9 @@ header .entry-meta {
 	color: #757575;
 }
 
-.searchform div {
+header .searchform div {
 	margin:12px 0 0 0;
-	text-align: center;
+	text-align: right;
 }
 .up-5step-form {
 	border: 1px dotted gray;
