@@ -77,6 +77,7 @@
 					echo '<h2 class="add-section-title">関連記事</h2>';
 					related_posts(); 
 				}
+				/*
 				if ( $g_ad_enabled ) {
 					if ( !is_mobile() ) {
 						sk_get_the_ad('rakuten', 'content_bottom_336x280');
@@ -84,6 +85,7 @@
 						sk_get_the_ad('rakuten', 'content_bottom_300x160');
 					}
 				}
+				*/
 			}
 			?>
 		</div><!-- .entry-content -->
