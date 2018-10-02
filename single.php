@@ -32,5 +32,7 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
+<?php if (!is_mobile()) : ?>
 <?php get_sidebar(); ?>
+<?php endif; ?>
 <?php get_footer(); ?>
