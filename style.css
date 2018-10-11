@@ -167,6 +167,18 @@ blockquote {
 	line-height: 1.9;
 }
 
+.sales-letter .sales-letter-content dl {
+}
+
+.sales-letter .sales-letter-content dt {
+	font-weight: 900;
+	line-height: 1.9;
+}
+
+.sales-letter .sales-letter-content dd {
+	margin-left: 18px;
+	line-height: 1.9;
+}
 .checklist_red ul, .checklist_blue ul{
 	list-style-type:none;
 }
