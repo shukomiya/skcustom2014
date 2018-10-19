@@ -645,6 +645,15 @@ float: left;
     color: #ffffff;
 }
 
+.optin-left {
+	float: none;
+	margin: 8px;
+}
+.optin-right {
+	float: none;
+	margin: 8px;
+}
+
 /* Minimum width of 320 pixels. */
 @media screen and (max-width: 480px) {
 	.site {
@@ -872,7 +881,8 @@ float: left;
 		margin: 0 auto;
 /*		width: 720px;*/
 	}
-/*	.template-front-page .site-content article {
+/*	
+.template-front-page .site-content article {
 		margin: 0 15% 0 15%;
 	}
 */
@@ -930,6 +940,12 @@ float: left;
 	.comment-content p,
 	.mu_register p {
 		line-height: 2.2;
+	}
+	.optin-left {
+		float: left;
+	}
+	.optin-right {
+		float: right;
 	}
 	
 }
