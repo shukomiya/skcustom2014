@@ -15,7 +15,7 @@ if ( $is_localhost ) {
 		$analy_g_acount = 'UA-4079996-8';
 		$g_category_nav = false;
 		$g_ad_enabled = true;
-	} else if ( $domain_name === 'members.komish.com' ) {
+	} else if ( $domain_name === 'plus.komish.com' ) {
 		$analy_g_acount = 'UA-4079996-23';
 		$g_category_nav = true;
 		$g_ad_enabled = false;
@@ -491,7 +491,7 @@ function sk_get_access_analy_google() {
 	ga('create', 'UA-4079996-8', 'auto', {'allowLinker': true});
 	ga('create', 'UA-4079996-8', 'auto', {'useAmpClientId': true});
 	ga('require', 'linker');
-	ga('linker:autoLink', ['infocart.jp'] );
+	ga('linker:autoLink', ['www.infocart.jp', '17auto.biz/komish/'] );
 	ga('require', 'linkid', 'linkid.js');
 	ga('send', 'pageview');
 
@@ -523,7 +523,7 @@ function sk_get_access_analy_google() {
 </script>
 */
 
-	} else if ( $domain_name === 'plus.komish.com' || $domain_name === 'members.komish.com' ) {
+	} else if ( $domain_name === 'plus.komish.com' || $domain_name === 'plus.komish.com' ) {
 ?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -534,7 +534,7 @@ function sk_get_access_analy_google() {
 	ga('create', 'UA-4079996-23', 'auto', {'allowLinker': true});
 	ga('create', 'UA-4079996-23', 'auto', {'useAmpClientId': true});
 	ga('require', 'linker');
-	ga('linker:autoLink', ['infocart.jp'] );
+	ga('linker:autoLink', ['www.infocart.jp', '17auto.biz/komish/'] );
 	ga('require', 'linkid', 'linkid.js');
 	ga('send', 'pageview');
 
@@ -542,7 +542,7 @@ function sk_get_access_analy_google() {
 <script type="text/javascript">jQuery(function() {  
     jQuery("a").click(function(e) {        
         var ahref = jQuery(this).attr('href');
-        if (ahref.indexOf("members.komish.com") != -1) {
+        if (ahref.indexOf("plus.komish.com") != -1) {
             ga('send', 'event', 'internal-link', 'click', ahref);} 
         else { 
             ga('send', 'event', 'external-link', 'click', ahref);}
