@@ -426,9 +426,7 @@ function attr_func( $atts, $content = null ) {
 		'class' => 'default',
 	), $atts ) );
 
-	$content = do_shortcode( $content);
-		
-	return '<span class="' . $class. '">' . $content . '</span>';
+	return '<span class="' . $class. '">' . do_shortcode( $content) . '</span>';
 }
 add_shortcode('attr', 'attr_func');
 
@@ -554,8 +552,7 @@ function sk_get_access_analy_google() {
 }
 
 function sk_get_johnson_box( $atts, $content = null ) {
-	return '<div class="johnson-box">' . $content . '</div>';
-	$content = do_shortcode( $content );
+	return '<div class="johnson-box">' . do_shortcode( $content ) . '</div>';
 }
 add_shortcode('johnson', 'sk_get_johnson_box');
 
@@ -798,8 +795,7 @@ function sk_get_cookie_param($param) {
 }
 
 function sk_set_widelist($atts, $content = null) {
-	$content = do_shortcode( $content );
-	return '<div class="widelist">'.$content.'</div>';
+	return '<div class="widelist">'.do_shortcode( $content ).'</div>';
 }
 add_shortcode('widelist', 'sk_set_widelist');
 
@@ -808,12 +804,10 @@ function sk_set_checklist($atts, $content = null) {
     	'color' => 'blue'
         ), $atts ));
 
-	$content = do_shortcode( $content );
-
 	if ( $color == 'red' )
-		return '<div class="checklist_red">'.$content.'</div>';
+		return '<div class="checklist_red">'.do_shortcode( $content ) .'</div>';
 	else
-		return '<div class="checklist_blue">'.$content.'</div>';
+		return '<div class="checklist_blue">'.do_shortcode( $content ).'</div>';
 	
 }
 add_shortcode('checklist', 'sk_set_checklist');
