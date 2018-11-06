@@ -39,9 +39,9 @@
      });
 </script>
 <?php endif; ?>
+<?php sk_get_access_analy_google(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php sk_get_access_analy_google(); ?>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
