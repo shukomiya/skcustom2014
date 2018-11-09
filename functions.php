@@ -498,7 +498,7 @@ function sk_get_access_analy_google() {
 			 });
 		}else{ 
 			gtag('event', 'click', {
-			  'event_category' : 'external-link-link',
+			  'event_category' : 'external-link',
 			  'event_label' : ahref
 			 });
 		}
@@ -548,7 +548,7 @@ function sk_get_access_analy_google() {
 			 });
 		}else{ 
 			gtag('event', 'click', {
-			  'event_category' : 'external-link-link',
+			  'event_category' : 'external-link',
 			  'event_label' : ahref
 			 });
 		}
