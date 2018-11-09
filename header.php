@@ -41,7 +41,11 @@
 <?php endif; ?>
 <?php sk_get_access_analy_google(); ?>
 </head>
+<?php if ($_SERVER["SERVER_NAME"] === 'plus.komish.com') : ?>
+<body <?php body_class(); ?> oncopy="return false;">
+<?php else: ?>
 <body <?php body_class(); ?>>
+<?php endif; ?>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
