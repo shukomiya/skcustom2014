@@ -491,7 +491,7 @@ function sk_get_access_analy_google() {
 <script type="text/javascript">jQuery(function() {  
     jQuery("a").click(function(e) {        
         var ahref = jQuery(this).attr('href');
-        if (ahref.indexOf("komish.com") != -1) {
+		if (ahref.indexOf("komish.com") != -1 || ahref.indexOf("http") == -1 ) {
 			gtag('event', 'click', {
 			  'event_category' : 'internal-link',
 			  'event_label' : ahref
@@ -541,7 +541,7 @@ function sk_get_access_analy_google() {
 <script type="text/javascript">jQuery(function() {  
     jQuery("a").click(function(e) {        
         var ahref = jQuery(this).attr('href');
-        if (ahref.indexOf("plus.komish.com") != -1) {
+		if (ahref.indexOf("plus.komish.com") != -1 || ahref.indexOf("http") == -1 ) {
 			gtag('event', 'click', {
 			  'event_category' : 'internal-link',
 			  'event_label' : ahref
