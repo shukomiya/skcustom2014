@@ -473,7 +473,7 @@ function sk_get_access_analy_google() {
 		return;
 	}
 	
-	if ( $domain_name == 'komish.com' ) {
+	if ( $domain_name === 'komish.com' ) {
 ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $analy_g_acount;?>"></script>

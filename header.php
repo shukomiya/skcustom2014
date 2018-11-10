@@ -41,7 +41,7 @@
 <?php endif; ?>
 <?php sk_get_access_analy_google(); ?>
 </head>
-<?php if ($_SERVER["SERVER_NAME"] === 'plus.komish.com') : ?>
+<?php if ($_SERVER["SERVER_NAME"] === 'plus.komish.com' && !is_bbpress()) : ?>
 <body <?php body_class(); ?> oncopy="return false;">
 <?php else: ?>
 <body <?php body_class(); ?>>
