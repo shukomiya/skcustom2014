@@ -17,8 +17,8 @@
 		</div>
 		<?php endif; ?>
 		<header class="entry-header">
-			<?php if ( ! post_password_required() && ! is_attachment() ) :
-				the_post_thumbnail('post_thumbnail');
+			<?php if ( ! post_password_required() && ! is_attachment() && ! is_home() && ! is_archive() ) :
+					the_post_thumbnail('post_thumbnail');
 			endif; ?>
 			<?php if ( is_single() ) : ?>
 			<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -34,9 +34,10 @@
 
 	<!-- rakuten_ad_target_begin --> 
 	<!-- google_ad_section_start -->
-		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
+		<?php if ( is_search() || is_home() || is_archive() ) : // Only display Excerpts for Search ?>
 		<div class="entry-summary">
 			<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyeleven' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"></a>
+			<span class="alignleft"><div style="margin: 8px 16px 0 0;"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a></div></span>
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
