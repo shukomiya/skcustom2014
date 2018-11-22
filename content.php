@@ -17,10 +17,8 @@
 		</div>
 		<?php endif; ?>
 		<header class="entry-header">
-			<?php if ( ! post_password_required() && ! is_attachment() && ! is_home() && ! is_archive() ) :
-					the_post_thumbnail('post_thumbnail');
-			endif; ?>
 			<?php if ( is_single() ) : ?>
+			<?php the_post_thumbnail('post_thumbnail'); ?>
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php else : ?>
 			<h1 class="entry-title">
