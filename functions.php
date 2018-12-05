@@ -474,6 +474,20 @@ function sk_get_access_analy_google() {
 	}
 	
 	if ( $domain_name === 'komish.com' ) {
+/*
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4079996-8</script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', '<?php echo $analy_g_acount;?>', {
+		'linker': {
+		'domains': ['komish.com', 'plus.komish.com', 'www.infocart.jp', '17auto.biz/komish/', 'ex-pa.jp'] 
+		}
+	});
+</script>
+*/
 ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $analy_g_acount;?>"></script>
@@ -484,7 +498,7 @@ function sk_get_access_analy_google() {
 
 	gtag('config', '<?php echo $analy_g_acount;?>', {
 		'linker': {
-		'domains': ['komish.com', 'plus.komish.com', 'www.infocart.jp', '17auto.biz/komish/'] 
+		'domains': ['komish.com', 'plus.komish.com', 'www.infocart.jp', '17auto.biz/komish/', 'ex-pa.jp'] 
 		}
 	});
 </script>
