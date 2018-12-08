@@ -1,21 +1,21 @@
 <?php
 
-$domain_name = $_SERVER["SERVER_NAME"];
-$is_localhost = $domain_name == 'localhost';
+$g_domain_name = $_SERVER["SERVER_NAME"];
+$is_localhost = $g_domain_name == 'localhost';
 
 if ( $is_localhost ) {
-	$analy_g_acount = 'UA-4079996-8';
-	$domain_name = 'komish.com';
+	$g_analy_g_acount = 'UA-4079996-8';
+	$g_domain_name = 'komish.com';
 	$g_category_nav = false;
 	$g_ad_enabled = false;
 	$is_localhost = false;
 } else {
-	if ( $domain_name === 'komish.com' ) {
-		$analy_g_acount = 'UA-4079996-8';
+	if ( $g_domain_name === 'komish.com' ) {
+		$g_analy_g_acount = 'UA-4079996-8';
 		$g_category_nav = false;
 		$g_ad_enabled = true;
-	} else if ( $domain_name === 'plus.komish.com' ) {
-		$analy_g_acount = 'UA-4079996-23';
+	} else if ( $g_domain_name === 'plus.komish.com' ) {
+		$g_analy_g_acount = 'UA-4079996-23';
 		$g_category_nav = true;
 		$g_ad_enabled = false;
 	}
@@ -87,7 +87,7 @@ function sk_amp_modify_json_metadata( $metadata, $post ) {
 
 add_filter( 'amp_post_template_analytics', 'sk_amp_add_custom_analytics' );
 function sk_amp_add_custom_analytics( $analytics ) {
-	global $is_localhost, $analy_g_acount;
+	global $is_localhost, $g_analy_g_acount;
 	
 	if ( $is_localhost )
 		return;
@@ -104,7 +104,7 @@ function sk_amp_add_custom_analytics( $analytics ) {
         ),
         'config_data' => array(
             'vars' => array(
-                'account' => $analy_g_acount
+                'account' => $g_analy_g_acount
             ),
             'triggers' => array(
                 'trackPageview' => array(
@@ -133,39 +133,6 @@ function sk_dequeue_fonts() {
 //	wp_dequeue_style( 'wprmenu-font' );
 }
 add_action( 'wp_enqueue_scripts', 'sk_dequeue_fonts', 11 );
-
-// add to move the comment text field to the bottom in WordPress 4.4 12/12/2015
-function wp34731_move_comment_field_to_bottom( $fields ) {
-	$comment_field = $fields['comment'];
-	unset( $fields['comment'] );
-	$fields['comment'] = $comment_field;
-	
-	return $fields;
-}
-add_filter( 'comment_form_fields', 'wp34731_move_comment_field_to_bottom' );
-// End 12/12/2015
-
-// コメントからEmailとウェブサイトを削除
-function my_comment_form_remove($arg) {
-	$arg['url'] = '';
-	$arg['email'] = '';
-	return $arg;
-}
-add_filter('comment_form_default_fields', 'my_comment_form_remove');
- 
-// 「メールアドレスが公開されることはありません」を削除
-function my_comment_form_before( $defaults){
-	$defaults['comment_notes_before'] = '';
-	return $defaults;
-}
-add_filter( "comment_form_defaults", "my_comment_form_before");
- 
-// 「HTMLタグと属性が使えます…」を削除
-function my_comment_form_after($args){
-	$args['comment_notes_after'] = '';
-	return $args;
-}
-add_filter("comment_form_defaults","my_comment_form_after");
 
 function sk_disable_autosave() {
 	wp_deregister_script('autosave');
@@ -389,312 +356,6 @@ function twentytwelve_content_nav( $html_id ) {
 	) );
 }
 
-function close_page_comment( $open, $post_id ) {
-    $post = get_post( $post_id );
-    if ( $post && $post->post_type == 'page' ) {
-        return false;
-    }
-    return $open;
-}
-add_filter( 'comments_open', 'close_page_comment', 10, 2 );
-
-function is_mobile() {
-   return preg_match(
-	'{iPhone|iPod|(?:Android.+?Mobile)|BlackBerry9500|BlackBerry9530|BlackBerry9520|BlackBerry9550|BlackBerry9800|Windows Phone|webOS|(?:Firefox.+?Mobile)|Symbian|incognito|webmate|dream|CPUCAKE}', 
-   $_SERVER['HTTP_USER_AGENT']);
-}
-
-function is_sk_ktai() {
-	if ( function_exists('is_ktai') ) {
-		return is_ktai();
-	} else {
-		return false;
-	}
-}
-
-/*
-	for sales letter short code
-*/
-
-function attr_func( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-		'class' => 'default',
-	), $atts ) );
-
-	return '<span class="' . $class. '">' . do_shortcode( $content) . '</span>';
-}
-add_shortcode('attr', 'attr_func');
-
-
-/*************************************************************/
-
-function is_noad() {
-	global $g_ad_enabled;
-	
-	return !$g_ad_enabled || is_page('product') || is_page('law') || is_page('malmag') ||  is_404() 
-		|| is_page_template('page-templates/full-width.php') 
-		|| is_page_template('page-templates/law.php') 
-		|| is_page_template('page-templates/sales-letter-full.php') 
-		|| is_page_template('page-templates/sales-letter.php');
-}
-
-function sk_get_ad( $ad_type, $ad_name = '') {
-//	if ( $ad_type == 'adsense' )
-//		return;
-
-	if ( is_noad() )
-		return;
-
-	$filename = STYLESHEETPATH . DIRECTORY_SEPARATOR . 'ad'. DIRECTORY_SEPARATOR;
-	
-	if ( $ad_name == '' ) {
-		$filename .= 'ad';
-	} else {
-		$filename .= $ad_type . DIRECTORY_SEPARATOR;
-	}
-
-	$filename .= $ad_name . '.php';
-	if ( file_exists( $filename) ) {
-		$text = file_get_contents( $filename);
-	} else {
-		$text = '';
-	}
-	return $text;
-}
-
-function sk_get_the_ad( $ad_type, $ad_name = '') {
-	echo sk_get_ad( $ad_type, $ad_name );
-}
-
-function sk_get_access_analy_google() {
-	global $is_localhost, $domain_name, $analy_g_acount;
-	
-	if ( $is_localhost ) {
-		return;
-	}
-	
-	if ( $domain_name === 'komish.com' ) {
-/*
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4079996-8</script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', '<?php echo $analy_g_acount;?>', {
-		'linker': {
-		'domains': ['komish.com', 'plus.komish.com', 'www.infocart.jp', '17auto.biz/komish/', 'ex-pa.jp'] 
-		}
-	});
-</script>
-*/
-?>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $analy_g_acount;?>"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', '<?php echo $analy_g_acount;?>', {
-		'linker': {
-		'domains': ['komish.com', 'plus.komish.com', 'www.infocart.jp', '17auto.biz/komish/', 'ex-pa.jp'] 
-		}
-	});
-</script>
-<script type="text/javascript">jQuery(function() {  
-    jQuery("a").click(function(e) {        
-        var ahref = jQuery(this).attr('href');
-		if (ahref.indexOf("komish.com") != -1 || ahref.indexOf("http") == -1 ) {
-			gtag('event', 'click', {
-			  'event_category' : 'internal-link',
-			  'event_label' : ahref
-			 });
-		}else{ 
-			gtag('event', 'click', {
-			  'event_category' : 'external-link',
-			  'event_label' : ahref
-			 });
-		}
-	});
-});
-</script>
-<?php
-/*
-セカンダリ用
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4079996-8"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'UA-4079996-8', {
-		'linker': {
-		'accept_incoming': true
-		}
-	});
-</script>
-*/
-
-	} else if ( $domain_name === 'plus.komish.com') {
-?>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4079996-23"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'UA-4079996-23', {
-		'linker': {
-		'domains': ['komish.com', 'plus.komish.com', 'www.infocart.jp', '17auto.biz/komish/'] 
-		}
-	});
-</script>
-<script type="text/javascript">jQuery(function() {  
-    jQuery("a").click(function(e) {        
-        var ahref = jQuery(this).attr('href');
-		if (ahref.indexOf("plus.komish.com") != -1 || ahref.indexOf("http") == -1 ) {
-			gtag('event', 'click', {
-			  'event_category' : 'internal-link',
-			  'event_label' : ahref
-			 });
-		}else{ 
-			gtag('event', 'click', {
-			  'event_category' : 'external-link',
-			  'event_label' : ahref
-			 });
-		}
-	});
-});
-</script>
-<?php
-	}
-}
-
-function sk_get_johnson_box( $atts, $content = null ) {
-	return '<div class="johnson-box">' . do_shortcode( $content ) . '</div>';
-}
-add_shortcode('johnson', 'sk_get_johnson_box');
-
-// http://www.mag2.com/m/0000279189.html
-
-function sk_get_admlmg() {
-	return '<p>メルマガ読者の方は合わせてお読み下さい。</p><p>今日のメルマガ配信は終わっているため、今登録してもこの記事を読むことはできません。</p><p><a href="/checklist-detail?bmg=' . get_the_date('ymd') . '&amp;p=c">それでも次回のメルマガ専用記事を読みたい人はこちらから登録して下さい。</a></p>';
-}
-add_shortcode('admlmg', 'sk_get_admlmg');
-
-function sk_get_my_malmag_info() {
-	return '<p><strong><a href="/checklist-detail?bmg=' . get_the_date('ymd') . '&amp;p=c">メールマガジンの登録がまだの方はこちらから登録して下さい。</a></strong></p>';
-}
-add_shortcode('malmag', 'sk_get_my_malmag_info');
-
-function sk_get_pccontent( $atts, $content = null ) {
-	if ( is_mobile() || is_sk_ktai() ) {
-		return "";
-	} else {
-		$content = do_shortcode( $content );
-		return $content;
-	}
-}
-add_shortcode('pccontent', 'sk_get_pccontent');
-
-function sk_get_ktaicontent( $atts, $content = null ) {
-	if ( is_mobile() ||  is_sk_ktai() ) {
-		$content = do_shortcode( $content );
-		return $content;
-	} else {
-		return "";
-	}
-}
-add_shortcode('ktaicontent', 'sk_get_ktaicontent');
-
-function get_random_ad($fname) {
-	if ( $fname === null ) 
-		return;
-	$var_name = $fname . '_link';
-	$class_name = 'random_ad_'. $fname;
-
-	echo '<div id="' . $class_name . '"></div>';
-?>
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/ad/', $fname; ?>.ad" charset="utf-8"></script><script type="text/javascript" language="javascript">num = Math.floor( Math.random() * <? echo $var_name; ?>.length );document.getElementById("<?php echo $class_name; ?>").innerHTML = <? echo $var_name; ?>[num];</script>
-<?php
-}
-
-function get_random_ad2() {
-?>
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/ad_code.js" charset="utf-8"></script>
-<?php
-	echo '<div id="random_ad"></div>';
-?>
-<script type="text/javascript" language="javascript">
-num = Math.floor( Math.random() * ad_link.length );
-document.getElementById("random_ad").innerHTML = ad_link[num];
-</script>
-<?php
-}
-
-function sk_excerpt_more($more) {
-	return  '... <a href="'. esc_url( get_permalink() ) . '">続きを読む <span class="meta-nav">&rarr;</span></a>';
-}
-add_filter('excerpt_more', 'sk_excerpt_more');
-
-function sk_remove_more_jump_link($link) { 
-	$offset = strpos($link, '#more-');
-	if ($offset) {
-		$end = strpos($link, '"',$offset);
-	}
-	if ($end) {
-		$link = substr_replace($link, '', $offset, $end-$offset);
-	}
-	return $link;
-}
-add_filter('the_content_more_link', 'sk_remove_more_jump_link');
-
-//本文中の<!--more-->タグをアドセンスに置換
-/*
-function replace_more_tag($the_content){
-    //広告（AdSense）タグを記入
-    if ( !is_noad() ) {
-		$ad = sk_get_ad('adsense', 'mg_single_content_in_res');
-		$the_content = preg_replace( '/(<p>)?<span id="more-([0-9]+?)"><\/span>(.*?)(<\/p>)?/i', "$ad$0", $the_content );
-	}
-	return $the_content;
-}
-add_filter('the_content', 'replace_more_tag');
-*/
-
-add_theme_support('automatic-feed-links');
-add_theme_support('align-wide' );
-add_theme_support('disable-custom-colors');
-add_theme_support('wp-block-styles');
-
-add_theme_support( 'editor-color-palette',
-	array(
-		array(
-			'name' => 'Blue',
-			'slug' => 'my-blue',
-			'color' => '#21759b',
-		),
-		array(
-			'name' => 'Orange',
-			'slug' => 'my-orange',
-			'color' => '#d54e21',
-		),
-		array(
-			'name' => 'Gray',
-			'slug' => 'my-gray',
-			'color' => '#464646',
-		),
-		array(
-			'name' => 'White',
-			'slug' => 'my-white',
-			'color' => '#ffffff',
-		)
-	)
-);
-
 function twentytwelve_footer_widget_class() {
     $count = 0;
   
@@ -745,155 +406,6 @@ add_action( 'wp_footer', 'my_theme_deregister_plugin_assets_footer' );
 */
 
 // Add CSS class by filter
-add_filter('body_class','twentytwelvechild_body_class_adapt',20);
-
-function twentytwelvechild_body_class_adapt( $classes ) {
-	// Apply 'sales-letter' class to form_page.php body
-	if ( is_page_template( 'page-templates/sales-letter.php' ) )
-		$classes[] = 'sales-letter';
-		
-	if ( is_page_template( 'page-templates/sales-letter-full.php' ) )
-		$classes[] = 'sales-letter-full';
-		
-	if ( is_page_template( 'page-templates/law.php' ) )
-		$classes[] = 'law';
-	
-	if ( is_page_template( 'page-templates/education.php' ) )
-		$classes[] = 'education';
-	
-	if ( is_page_template( 'page-templates/user-info.php' ) )
-		$classes[] = 'user-info';
-	
-	return $classes;
-}
-
-function sk_get_custom_field( $atts ) {
-	extract( shortcode_atts( array(
-		'name' => '',
-		), $atts));
-
-	return get_post_meta(get_the_ID(), $name, true); 
-}
-add_shortcode('customval', 'sk_get_custom_field');
-
-function sk_get_custom_field_array( $atts ) {
-	extract( shortcode_atts( array(
-		'name' => '',
-		), $atts));
-
-	return get_post_meta(get_the_ID(), $name, false); 
-}
-
-function sk_get_url_param($param) {
-
-	$val = (isset($_GET[$param]) && $_GET[$param] != "") ? $_GET[$param] : null;
-	if ( $val === null ) {
-		$val = '';
-	} else {
-		$val = htmlspecialchars($val, ENT_QUOTES);
-	}
-	return $val;
-}
-
-function sk_get_post_param($param) {
-
-	$val = (isset($_POST[$param]) && $_POST[$param] != "") ? $_POST[$param] : null;
-	if ( $val === null ) {
-		$val = '';
-	} else {
-		$val = htmlspecialchars($val, ENT_QUOTES);
-	}
-	return $val;
-}
-
-function sk_get_cookie_param($param) {
-	$val = (isset($_COOKIE[$param]) && $_COOKIE[$param] != "") ? $_COOKIE[$param] : null;
-	if ( $val === null ) {
-		$val = '';
-	} else {
-		$val = htmlspecialchars($val, ENT_QUOTES);
-	}
-	return $val;
-}
-
-function sk_set_widelist($atts, $content = null) {
-	return '<div class="widelist">'.do_shortcode( $content ).'</div>';
-}
-add_shortcode('widelist', 'sk_set_widelist');
-
-function sk_set_checklist($atts, $content = null) {
-    extract( shortcode_atts( array(
-    	'color' => 'blue'
-        ), $atts ));
-
-	if ( $color == 'red' )
-		return '<div class="checklist_red">'.do_shortcode( $content ) .'</div>';
-	else
-		return '<div class="checklist_blue">'.do_shortcode( $content ).'</div>';
-	
-}
-add_shortcode('checklist', 'sk_set_checklist');
-
-/*
-function sk_get_product_list($atts, $content = null) {
-	return '<ul>' . 
-		 wp_list_pages('child_of=900&depth=1&title_li=&sort_column=ID&sort_order=DESC') .
-		 '</ul>';
-}
-add_shortcode('products', 'sk_get_product_list');
-*/
-
-function sk_get_page_list($atts, $content = null) {
-    extract( shortcode_atts( array(
-    	'depth' => '0'
-        ), $atts ));
-
-	return '<ul>' . 
-		 wp_list_pages('depth=' . $depth . '&child_of=' . get_the_ID() . '&title_li=&echo=0&post_type=page&page_status=publish&sort_column=menu_order&sort_order=ASC') .
-		 '</ul>';
-}	
-add_shortcode('pagelist', 'sk_get_page_list');
-
-
-function sk_single_page_custom_menu($atts, $content = null) {
-    extract(shortcode_atts(array(  
-        'menu'            => '', 
-        'container'       => 'div', 
-        'container_class' => '', 
-        'container_id'    => '', 
-        'menu_class'      => 'menu', 
-        'menu_id'         => '',
-        'echo'            => true,
-        'fallback_cb'     => 'wp_page_menu',
-        'before'          => '',
-        'after'           => '',
-        'link_before'     => '',
-        'link_after'      => '',
-        'depth'           => 0,
-        'walker'          => '',
-        'theme_location'  => ''), 
-        $atts));
-  
-  
-    return wp_nav_menu( array( 
-        'menu'            => $menu, 
-        'container'       => $container, 
-        'container_class' => $container_class, 
-        'container_id'    => $container_id, 
-        'menu_class'      => $menu_class, 
-        'menu_id'         => $menu_id,
-        'echo'            => false,
-        'fallback_cb'     => $fallback_cb,
-        'before'          => $before,
-        'after'           => $after,
-        'link_before'     => $link_before,
-        'link_after'      => $link_after,
-        'depth'           => $depth,
-        'walker'          => $walker,
-        'theme_location'  => $theme_location));
-}
-add_shortcode("cmenu", "sk_single_page_custom_menu");
-
 add_filter('protected_title_format', 'remove_protected');
 function remove_protected($title) {
        return '%s';
@@ -910,19 +422,6 @@ function my_password_form() {
 }
 add_filter('the_password_form', 'my_password_form');
 */
-
-function custom_search( $search ) {
-	global $domain_name;
-	
-	if ( $domain_name === 'komish.com' ) {
-		if ( is_search() && ! is_admin() ) {
-			$search .= " AND post_type = 'post'";
-		}
-	}
-	return $search;
-}
-
-add_filter( 'posts_search', 'custom_search' );
 
 function getPrevNext(){
 	global $post;
