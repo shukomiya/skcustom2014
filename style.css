@@ -489,14 +489,21 @@ list-style-type:disc;
 	display:inline-block;
 	width: 240px;
 }
-/* contact  form 7*/
+
 .userinfoform input[type=text],
 .userinfoform input[type=email]
  {width: 80% !important;}  /*名前orメールor題名*/
-.userinfoform textarea{width: 90% !important;} /*本文*/
+.userinfoform textarea{width: 100% !important;} /*本文*/
 .userinfoform .wpcf7-submit{width: 80px !important;} /*送信ボタン*/
 
 
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"]{
+    max-width: 80%;
+}
+.wpcf7 textarea{
+    max-width: 100%;
+}
 /********************************
 *	pagenavi
 ********************************/
