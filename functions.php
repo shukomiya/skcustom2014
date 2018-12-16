@@ -1,14 +1,14 @@
 <?php
 
 $g_domain_name = $_SERVER["SERVER_NAME"];
-$is_localhost = $g_domain_name == 'localhost';
+$g_is_localhost = $g_domain_name == 'localhost';
 
-if ( $is_localhost ) {
+if ( $g_g_is_localhost ) {
 	$g_analy_g_acount = 'UA-4079996-8';
 	$g_domain_name = 'komish.com';
 	$g_category_nav = false;
 	$g_ad_enabled = false;
-	$is_localhost = false;
+	$g_g_is_localhost = false;
 } else {
 	if ( $g_domain_name === 'komish.com' ) {
 		$g_analy_g_acount = 'UA-4079996-8';
@@ -87,9 +87,9 @@ function sk_amp_modify_json_metadata( $metadata, $post ) {
 
 add_filter( 'amp_post_template_analytics', 'sk_amp_add_custom_analytics' );
 function sk_amp_add_custom_analytics( $analytics ) {
-	global $is_localhost, $g_analy_g_acount;
+	global $g_g_is_localhost, $g_analy_g_acount;
 	
-	if ( $is_localhost )
+	if ( $g_g_is_localhost )
 		return;
 		
     if ( ! is_array( $analytics ) ) {
