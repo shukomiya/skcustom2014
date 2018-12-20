@@ -950,9 +950,9 @@ float: left;
 	}
 	.optin-left {
 		float: left;
+		width: 60%;
 	}
 	.optin-right {
-		float: right;
 	}
 	
 }
