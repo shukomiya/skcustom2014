@@ -44,7 +44,7 @@
 				global $g_ad_enabled;
 				if (is_single()){
 					if ($g_ad_enabled){
-						sk_get_the_ad('', 'mg_single_content_top_link_res');
+						sk_get_the_ad('adsense', 'mg_single_content_top_link_res');
 						/*
 						if ( !is_mobile() ) {
 							sk_get_the_ad('adsense', 'mg_single_content_top');
