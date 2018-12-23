@@ -44,12 +44,14 @@
 				global $g_ad_enabled;
 				if (is_single()){
 					if ($g_ad_enabled){
-//						sk_get_the_ad('', 'mg_single_content_top');
+						sk_get_the_ad('', 'mg_single_content_top_link_res');
+						/*
 						if ( !is_mobile() ) {
 							sk_get_the_ad('adsense', 'mg_single_content_top');
 						} else {
 							sk_get_the_ad('adsense', 'mg_sp_single_content_top');
 						}
+						*/
 					}
 				}
 			?>
@@ -68,12 +70,9 @@
 					} else {
 						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 					}
-				}
-				if (function_exists('related_posts')){
 					echo '<h2 class="add-section-title">関連記事</h2>';
-					related_posts(); 
+					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 				}
-
 				/*
 				if ( $g_ad_enabled ) {
 					if ( !is_mobile() ) {
@@ -81,8 +80,6 @@
 					} else {
 						sk_get_the_ad('rakuten', 'content_bottom_300x160');
 					}
-					echo '<h2 class="add-section-title">関連記事</h2>';
-					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 				}
 				*/
 			}
