@@ -41,9 +41,8 @@
 		<?php else : ?>
 		<div class="entry-content">
 			<?php 
-				global $g_ad_enabled;
 				if (is_single()){
-					if ($g_ad_enabled){
+					if (is_ad_enabled()){
 						if ( !is_mobile() ) {
 							sk_get_the_ad('adsense', 'mg_single_content_top');
 						} else {
@@ -58,10 +57,8 @@
 	<!-- google_ad_section_end -->
 	<!-- rakuten_ad_target_end --> 
 			<?php 
-			global $g_ad_enabled, $post;
-			
 			if ( is_single() ) {
-				if ( $g_ad_enabled ) {
+				if ( is_ad_enabled() ) {
 					if ( !is_mobile() ) {
 						sk_get_the_ad('adsense', 'mg_single_content_bottom');
 					} else {
@@ -71,7 +68,7 @@
 					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 				}
 				/*
-				if ( $g_ad_enabled ) {
+				if ( is_ad_enabled() ) {
 					if ( !is_mobile() ) {
 						sk_get_the_ad('rakuten', 'content_bottom_336x280');
 					} else {
@@ -88,7 +85,7 @@
 		global $g_index_ad_count;
 		
 		if ( !is_single() ) {
-			if ( !is_noad() ) {
+			if ( is_ad_enabled() ) {
 				if ( $g_index_ad_count == 0|| $g_index_ad_count == 4 || $g_index_ad_count == 9) {
 					sk_get_the_ad('adsense', 'mg_in_feed');
 				}

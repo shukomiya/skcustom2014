@@ -24,7 +24,7 @@ get_header(); ?>
 							<?php  global $g_category_nav; next_post_link( '%link', '%title <span class="meta-nav">' . '</span>', $g_category_nav, '' ); ?></span></li>
 					</ul>
 					<?php
-						if ($g_ad_enabled){
+						if (is_ad_enabled()){
 							sk_get_the_ad('adsense', 'mg_single_content_top_link_res');
 						}
 					?>
