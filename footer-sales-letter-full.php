@@ -13,6 +13,7 @@
 	<footer id="colophon" role="contentinfo">
 		<aside class="footmenu">
 			<ul class="footmenu">
+				<li><a href="<?php echo esc_url( home_url() ); ?>/law" target="_blank">特定商取引法に基づく表記</a>&nbsp;&nbsp;|</li>
 				<li><a href="<?php echo esc_url( home_url() ); ?>/privacy" target="_blank">プライバシーについて</a>&nbsp;&nbsp;|</li>
 				<li><a href="<?php echo esc_url( home_url() ); ?>/profile">プロフィール</a>&nbsp;&nbsp;|</li>
 				<li><a href="<?php echo esc_url( home_url() ); ?>/contact">問い合わせ</a></li>
