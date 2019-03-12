@@ -30,6 +30,9 @@
 <![endif]-->
 <?php wp_head(); ?>
 <?php if (is_ad_enabled()) : ?>
+<script type="text/javascript" language="javascript">
+    var vc_pid = "885698706";
+</script><script type="text/javascript" src="//aml.valuecommerce.com/vcdal.js" async></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({
