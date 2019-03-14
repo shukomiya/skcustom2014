@@ -57,10 +57,13 @@
 	<!-- google_ad_section_end -->
 	<!-- rakuten_ad_target_end --> 
 			<?php 
-			global $g_ad_enabled;
+			global $g_ad_enabled, $g_category_nav;
+				
 			
 			if ( is_single() ) {
-				echo '<center><div style="margin: 48px 0;"><a class="twitter-timeline" href="https://twitter.com/shukomiya?ref_src=twsrc%5Etfw" data-lang="ja" data-width="80%" data-height="600">Tweets by shukomiya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div></center>';
+				if (!$g_category_nav){
+					echo '<center><div style="margin: 48px 0;"><a class="twitter-timeline" href="https://twitter.com/shukomiya?ref_src=twsrc%5Etfw" data-lang="ja" data-width="80%" data-height="600">Tweets by shukomiya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div></center>';
+				}
 				if ( is_ad_enabled() ) {
 					if ( !is_mobile() ) {
 						sk_get_the_ad('adsense', 'mg_single_content_bottom');
