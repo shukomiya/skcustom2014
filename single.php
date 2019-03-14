@@ -23,11 +23,6 @@ get_header(); ?>
 						<li><strong>【次の記事】&nbsp;</strong>
 							<?php  global $g_category_nav; next_post_link( '%link', '%title <span class="meta-nav">' . '</span>', $g_category_nav, '' ); ?></span></li>
 					</ul>
-					<?php
-						if (is_ad_enabled()){
-							sk_get_the_ad('adsense', 'mg_single_content_top_link_res');
-						}
-					?>
 				</nav>
 
 				<?php comments_template( '', true ); ?>
