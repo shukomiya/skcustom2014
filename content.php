@@ -60,14 +60,15 @@
 			global $g_ad_enabled;
 			
 			if ( is_single() ) {
+				echo '<center><div style="margin: 48px 0;"><a class="twitter-timeline" href="https://twitter.com/shukomiya?ref_src=twsrc%5Etfw" data-lang="ja" data-width="80%" data-height="600">Tweets by shukomiya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div></center>';
 				if ( is_ad_enabled() ) {
 					if ( !is_mobile() ) {
 						sk_get_the_ad('adsense', 'mg_single_content_bottom');
 					} else {
 						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 					}
-//					echo '<h2 class="add-section-title">関連記事</h2>';
-//					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
+					echo '<h2 class="add-section-title">関連記事</h2>';
+					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 				}
 				if ( $g_ad_enabled && is_no_adsense() ) {
 					if ( !is_mobile() ) {
@@ -75,10 +76,6 @@
 					} else {
 						sk_get_the_ad('rakuten', 'content_bottom_300x160');
 					}
-				}
-				if( function_exists( 'wp_related_posts' ) ){
-					echo '<h2 class="add-section-title">関連記事</h2>';
-					wp_related_posts();
 				}
 			}
 			?>
