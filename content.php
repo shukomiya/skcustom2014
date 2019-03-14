@@ -57,6 +57,8 @@
 	<!-- google_ad_section_end -->
 	<!-- rakuten_ad_target_end --> 
 			<?php 
+			global $g_ad_enabled;
+			
 			if ( is_single() ) {
 				if ( is_ad_enabled() ) {
 					if ( !is_mobile() ) {
@@ -64,8 +66,8 @@
 					} else {
 						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 					}
-					echo '<h2 class="add-section-title">関連記事</h2>';
-					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
+//					echo '<h2 class="add-section-title">関連記事</h2>';
+//					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 				}
 				if ( $g_ad_enabled && is_no_adsense() ) {
 					if ( !is_mobile() ) {
@@ -73,6 +75,10 @@
 					} else {
 						sk_get_the_ad('rakuten', 'content_bottom_300x160');
 					}
+				}
+				if( function_exists( 'wp_related_posts' ) ){
+					echo '<h2 class="add-section-title">関連記事</h2>';
+					wp_related_posts();
 				}
 			}
 			?>
