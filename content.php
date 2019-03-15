@@ -25,9 +25,6 @@
 				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h1>
 			<?php endif; // is_single() ?>
-			<div class="entry-meta">
-			<?php twentytwelve_entry_meta(); ?>
-			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;<span class="edit-link">', '</span>' ); ?></div>
 		</header><!-- .entry-header -->
 
 	<!-- rakuten_ad_target_begin --> 
@@ -85,6 +82,12 @@
 			?>
 		</div><!-- .entry-content -->
 		<?php endif; ?>
+
+		<footer class="entry-meta">
+			<hr />
+			<?php twentytwelve_entry_meta(); ?>
+			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;<span class="edit-link">', '</span>' ); ?>
+		</footer><!-- .entry-meta -->
 
 		<?php
 		global $g_index_ad_count;
