@@ -15,15 +15,6 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
-				<nav class="single-page-navi entry-content">
-					<h2 class="add-section-title">前後の記事</h2>
-					<ul>
-						<li><strong>【前の記事】&nbsp;</strong>
-							<?php global $g_category_nav; previous_post_link( '%link', '<span class="meta-nav">' . '</span> %title',  $g_category_nav , '' ); ?></span></li>
-						<li><strong>【次の記事】&nbsp;</strong>
-							<?php  global $g_category_nav; next_post_link( '%link', '%title <span class="meta-nav">' . '</span>', $g_category_nav, '' ); ?></span></li>
-					</ul>
-				</nav>
 
 				<?php comments_template( '', true ); ?>
 

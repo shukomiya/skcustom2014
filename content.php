@@ -64,9 +64,6 @@
 						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 					}
 				}
-				if (!$g_category_nav){
-					echo '<center><div style="margin: 48px 0;"><a class="twitter-timeline" href="https://twitter.com/shukomiya?ref_src=twsrc%5Etfw" data-lang="ja" data-width="60%" data-height="400">Tweets by shukomiya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div></center>';
-				}
 				if ( is_ad_enabled() ) {
 					echo '<h2 class="add-section-title">おすすめの記事</h2>';
 					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
@@ -78,13 +75,26 @@
 						sk_get_the_ad('rakuten', 'content_bottom_300x160');
 					}
 				}
+				if (!$g_category_nav){
+					echo '<center><div style="margin: 48px 0;"><a class="twitter-timeline" href="https://twitter.com/shukomiya?ref_src=twsrc%5Etfw" data-lang="ja" data-width="60%" data-height="400">Tweets by shukomiya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div></center>';
+				}
+				?>
+				<nav class="single-page-navi entry-content">
+					<h2 class="add-section-title">前後の記事</h2>
+					<ul>
+						<li><strong>【前の記事】&nbsp;</strong>
+							<?php global $g_category_nav; previous_post_link( '%link', '<span class="meta-nav">' . '</span> %title',  $g_category_nav , '' ); ?></span></li>
+						<li><strong>【次の記事】&nbsp;</strong>
+							<?php  global $g_category_nav; next_post_link( '%link', '%title <span class="meta-nav">' . '</span>', $g_category_nav, '' ); ?></span></li>
+					</ul>
+				</nav>
+				<?php
 			}
+			
 			?>
 		</div><!-- .entry-content -->
 		<?php endif; ?>
-
 		<footer class="entry-meta">
-			<hr />
 			<?php twentytwelve_entry_meta(); ?>
 			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
