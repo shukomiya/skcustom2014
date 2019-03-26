@@ -68,8 +68,10 @@
 					echo '<h2 class="add-section-title">おすすめの記事</h2>';
 					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 				}else{
-					echo '<h2 class="add-section-title">おすすめの記事</h2>';
-					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel');
+					if (!$g_category_nav){
+						echo '<h2 class="add-section-title">おすすめの記事</h2>';
+						sk_get_the_ad('adsense', 'mg_single_content_bottom_rel');
+					}
 				}
 
 				if ( is_ad_enabled() && is_no_adsense() ) {
