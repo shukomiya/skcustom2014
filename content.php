@@ -57,13 +57,22 @@
 			global $g_ad_enabled, $g_category_nav;
 			
 			if ( is_single() ) {
-				if ( is_ad_enabled() ) {
-					if ( !is_mobile() ) {
-						sk_get_the_ad('adsense', 'mg_single_content_bottom');
-					} else {
-						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
+				if ( $g_ad_enabled ) {
+					if ( !is_no_adsense() ) {
+						if ( !is_mobile() ) {
+							sk_get_the_ad('adsense', 'mg_single_content_bottom');
+						} else {
+							sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
+						}
+					}else{
+						if ( !is_mobile() ) {
+							sk_get_the_ad('rakuten', 'content_bottom_336x280');
+						} else {
+							sk_get_the_ad('rakuten', 'content_bottom_300x160');
+						}
 					}
 				}
+
 				if ( is_ad_enabled() ) {
 					echo '<h2 class="add-section-title">おすすめの記事</h2>';
 					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
