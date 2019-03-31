@@ -138,6 +138,14 @@ blockquote {
 	border-bottom: 1px #000 dotted;
 }
 
+footer.entry-meta {
+	margin-top: 24px;
+	margin-bottom: 24px;
+	font-size: 13px;
+	line-height: 1.846153846;
+	color: #757575;
+}
+
 /* Navigation Menu */
 
 .main-navigation {
