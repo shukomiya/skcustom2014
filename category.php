@@ -52,7 +52,7 @@ if ( $sp_cat > 0) :
 					$args = array(
 					    'cat' => $cat,
 					    'order' => 'ASC',
-					    'orderby' => 'ID'
+					    'orderby' => 'date'
 					);
 					$query = new WP_Query( $args );
 					if ( $query ->have_posts() ) :
