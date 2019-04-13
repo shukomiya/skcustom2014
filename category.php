@@ -51,8 +51,7 @@ if ( $sp_cat > 0) :
 				<?php
 					$args = array(
 					    'cat' => $cat,
-					    'order' => 'ASC',
-					    'orderby' => 'date'
+					    'order' => 'ASC'
 					);
 					$query = new WP_Query( $args );
 					if ( $query ->have_posts() ) :
@@ -62,7 +61,7 @@ if ( $sp_cat > 0) :
 							<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
 						<?php endwhile; 
 					endif; 
-					wp_reset_query();
+					wp_reset_postdata();
 				?>
 			    </ul>
 			<?php endif; ?>
