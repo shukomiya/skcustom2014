@@ -48,8 +48,8 @@ if ( $sp_cat > 0) :
 			}else{
 				echo '<ul>';
 				$args = array(
-				    'cat' => $cat,
-				    'order' => 'DESC'
+				    'cat' => $parent,
+				    'order' => 'ASC'
 				);
 				$query = new WP_Query( $args );
 				if ( $query ->have_posts() ) {
