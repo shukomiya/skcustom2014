@@ -40,28 +40,10 @@ if ( $sp_cat > 0) :
 			$parent = $cat;
 			//現在のカテゴリが子カテゴリを持つかどうか判定する
 			$children = get_term_children($parent, 'category');
-			 
+
 			//子カテゴリを持つなら、子孫カテゴリのリンクリストを表示
 			if (!empty($children)) {
-				$parent_array = array();
-				array_push($parent_array, $parent);
-				$cats = get_categories('child_of=' . $parent);
-				echo '<ul>';
-				foreach ( $cats as $term ) {
-					if (end($parent_array) === $term->parent){
-						echo '</li>';
-					}else{
-						if (!in_array($term->parent, $parent_array, true)){
-							echo '<ul class="children">';
-							$parent_array[] = $term->parent;
-						}else{	
-							array_pop($parent_array);
-							echo '</ul>';
-						}
-					}
-					echo '<li><a href="' . get_term_link( $term->term_id, 'category' ) . '">' . $term->name .'</a>';
-				}
-				echo '</ul>';
+				get_category_tree($parent);
 			//子カテゴリを持たないなら、タイトルリンクを表示
 			}else{
 				echo '<ul>';
