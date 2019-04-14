@@ -11,16 +11,16 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); 
-
 $culUri = $_SERVER["REQUEST_URI"]; // Uri
 $culUriArr = explode("/",$culUri); // Uriを分解
 $culUriArr = array_filter($culUriArr); // 空要素を削除
 
 $sp_cat= in_array("toolkit",$culUriArr) || in_array("subtext",$culUriArr);
 
+get_header(); 
+
 if ( $sp_cat > 0) :
- //指定したカテゴリに属する場合の処理
+//指定したカテゴリに属する場合の処理
 ?>
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
@@ -35,42 +35,59 @@ if ( $sp_cat > 0) :
 			
 			<div class="entry-content">
 			<?php
-			
+			global $cat;
+				
+			$parent = $cat;
 			//現在のカテゴリが子カテゴリを持つかどうか判定する
-			$children = get_term_children($cat, 'category');
+			$children = get_term_children($parent, 'category');
 			 
 			//子カテゴリを持つなら、子孫カテゴリのリンクリストを表示
-			if (!empty($children)) : ?>
-			  <ul>
-			    <?php wp_list_categories('title_li=&order=ASC&orderby=name&child_of='.$cat); ?>
-			  </ul>
-			<?php 
+			if (!empty($children)) {
+				$parent_array = array();
+				array_push($parent_array, $parent);
+				$cats = get_categories('child_of=' . $parent);
+				echo '<ul>';
+				foreach ( $cats as $term ) {
+					if (end($parent_array) === $term->parent){
+						echo '</li>';
+					}else{
+						if (!in_array($term->parent, $parent_array, true)){
+							echo '<ul class="children">';
+							$parent_array[] = $term->parent;
+						}else{	
+							array_pop($parent_array);
+							echo '</ul>';
+						}
+					}
+					echo '<li><a href="' . get_term_link( $term->term_id, 'category' ) . '">' . $term->name .'</a>';
+				}
+				echo '</ul>';
 			//子カテゴリを持たないなら、タイトルリンクを表示
-			else: ?>
-			    <ul>
-				<?php
-					$args = array(
-					    'cat' => $cat,
-					    'order' => 'ASC'
-					);
-					$query = new WP_Query( $args );
-					if ( $query ->have_posts() ) :
-						while ( $query ->have_posts() ) : 
-							$query ->the_post();
-							?>
-							<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
-						<?php endwhile; 
-					endif; 
-					wp_reset_postdata();
-				?>
-			    </ul>
-			<?php endif; ?>
+			}else{
+				echo '<ul>';
+				$args = array(
+				    'cat' => $cat,
+				    'order' => 'DESC'
+				);
+				$query = new WP_Query( $args );
+				if ( $query ->have_posts() ) {
+					while ( $query ->have_posts() ) {
+						$query ->the_post(); ?>
+						<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+						<?php
+					}
+				}
+				wp_reset_postdata();
+				echo '</ul>';
+			}
+			?>
 			</div><!-- .entry-summary -->
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
 		</div><!-- #content -->
 	</section><!-- #primary -->
+
 <?php else: ?>
 
 	<section id="primary" class="site-content">
