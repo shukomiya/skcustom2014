@@ -176,6 +176,8 @@ function sk_enqueue_styles() {
 	wp_enqueue_style( 'skcustom2014-ie', 
 		get_stylesheet_directory_uri() . '/css/ie.css', array( 'twentytwelve-ie' ), '20121010' );
 	$wp_styles->add_data( 'skcustom2014-ie', 'conditional', 'lt IE 9' );
+	
+    wp_enqueue_style( 'fontello', get_stylesheet_directory_uri() . '/fontello/css/fontello.css' );
 }
 
 // 子テーマで上書きしたい設定を書く

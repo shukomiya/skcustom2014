@@ -51,6 +51,7 @@
 			<?php the_content( '続きを読む...' ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-link-title">' . __( 'Pages:', 'twentytwelve' ) . '</span>', 'after' => '</div>',
 				'link_before' => '<span class="page-link-item">', 'link_after'  => '</span>' ) ) ; ?>
+			<?php get_template_part( 'sns' ); ?>
 	<!-- google_ad_section_end -->
 	<!-- rakuten_ad_target_end --> 
 			<?php 
