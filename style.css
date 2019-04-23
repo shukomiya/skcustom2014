@@ -957,6 +957,10 @@ float: left;
 		width: 54.42176%;
 	}
 */	
+	.site-content article{
+		width: 100%;
+		margin: 0 auto;
+	}
 	.widget-area {
 		float: right;
 		width: 300px;
