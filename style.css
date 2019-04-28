@@ -595,6 +595,28 @@ input#a-button:active {
     border: solid 2px #d27d00;/*線色*/
 }
 
+.a-button {
+    position: relative;
+    display: inline-block;
+    padding: 18px 18px;
+    text-decoration: none;
+    font-size: 120%;
+	font-weight: bold;
+    color: #fff;
+    background: #fd9535;/*色*/
+}
+
+.a-button:hover {
+    text-decoration: underline;
+	border: solid 1px gray;
+    color: #fff;
+    background: #fd9535;/*色*/
+}
+
+.a-button:active {
+    border: solid 2px #d27d00;/*線色*/
+}
+
 .education nav {
 	margin: 48px 0;
 }
