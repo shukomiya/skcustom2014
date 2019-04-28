@@ -45,23 +45,23 @@ if ( $sp_cat > 0) :
 			if (!empty($children)) {
 				get_category_tree($parent);
 			//子カテゴリを持たないなら、タイトルリンクを表示
-			}else{
-				echo '<ul>';
-				$args = array(
-				    'cat' => $parent,
-				    'order' => 'ASC'
-				);
-				$query = new WP_Query( $args );
-				if ( $query ->have_posts() ) {
-					while ( $query ->have_posts() ) {
-						$query ->the_post(); ?>
-						<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-						<?php
-					}
-				}
-				wp_reset_postdata();
-				echo '</ul>';
 			}
+			
+			echo '<ul>';
+			$args = array(
+			    'order' => 'ASC',
+			    'category__in' => $parent
+			);
+			$query = new WP_Query( $args );
+			if ( $query ->have_posts() ) {
+				while ( $query ->have_posts() ) {
+					$query ->the_post(); ?>
+					<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+					<?php
+				}
+			}
+			wp_reset_postdata();
+			echo '</ul>';
 			?>
 			</div><!-- .entry-summary -->
 		<?php else : ?>
