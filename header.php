@@ -72,14 +72,10 @@
 		</div>
 		<div class="head-banner">
 		<?php
-		$atts = array('begin' => '2019/04/01', 'end' => '2019/04/10');
-		if ( is_limited_offer_campin($atts)){
-			if ( is_ad_enabled() ){
-				if ( !is_mobile() ){
-					sk_get_the_ad("amazon", "content_top");
-				}else{
-					sk_get_the_ad("amazon", "sp_content_top");
-				}
+		if ( is_ad_enabled() ){
+			$atts = array('end' => '2019/05/06');
+			if ( is_limited_offer_campin($atts)){
+				sk_get_the_ad("", "mg_head");
 			}
 		}
 		?>
