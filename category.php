@@ -11,15 +11,18 @@
  * @since Twenty Twelve 1.0
  */
 
-$culUri = $_SERVER["REQUEST_URI"]; // Uri
-$culUriArr = explode("/",$culUri); // Uriを分解
-$culUriArr = array_filter($culUriArr); // 空要素を削除
-
-$sp_cat= in_array("toolkit",$culUriArr) || in_array("subtext",$culUriArr);
+$special_category = 0;
+if ($g_category_nav){
+	$culUri = $_SERVER["REQUEST_URI"]; // Uri
+	$culUriArr = explode("/",$culUri); // Uriを分解
+	$culUriArr = array_filter($culUriArr); // 空要素を削除
+	
+	$special_category = in_array("toolkit",$culUriArr) || in_array("subtext",$culUriArr);
+}
 
 get_header(); 
 
-if ( $sp_cat > 0) :
+if ( $special_category > 0) :
 //指定したカテゴリに属する場合の処理
 ?>
 	<section id="primary" class="site-content">
@@ -44,16 +47,15 @@ if ( $sp_cat > 0) :
 			//子カテゴリを持つなら、子孫カテゴリのリンクリストを表示
 			if (!empty($children)) {
 				get_category_tree($parent);
-			//子カテゴリを持たないなら、タイトルリンクを表示
 			}
 			
-			echo '<ul>';
 			$args = array(
-			    'order' => 'ASC',
 			    'category__in' => $parent
 			);
 			$query = new WP_Query( $args );
 			if ( $query ->have_posts() ) {
+				echo '<h2>記事</h2>';
+				echo '<ul>';
 				while ( $query ->have_posts() ) {
 					$query ->the_post(); ?>
 					<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>

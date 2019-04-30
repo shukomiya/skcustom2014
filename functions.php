@@ -25,6 +25,19 @@ if ( $g_is_localhost ) {
 //$g_ad_enabled = true;
 //$g_category_nav = true;
 
+//記事の並び順
+if ($g_category_nav){
+function my_orderby_modified( $query ) {
+	global $special_category;
+	if( $query->is_main_query() ) {
+		if( $query->is_category() && $special_category) {
+			$query->set( 'order', 'ASC' );
+		}
+	}
+}
+add_action( 'pre_get_posts', 'my_orderby_modified' );
+}
+
 function is_amp(){
   //AMPチェック
 	$is_amp = false;
