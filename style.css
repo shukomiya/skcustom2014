@@ -285,12 +285,13 @@ border-left-width: 10px;
 }
 .sales-letter-full .sales-letter-full-content h1 {
 	text-align: left;
-font-size: 30px;
+font-size: 36px;
 font-weight: 900;
 /*border-bottom: 1px gray solid;*/
 }
 .sales-letter-full .sales-letter-full-content h2 {
 	text-align: left;
+	font-size: 32px;
 	padding: 0;
 	color: navy;
 	border-style: none;
@@ -298,6 +299,7 @@ font-weight: 900;
 }
 .sales-letter-full .sales-letter-full-content h3 {
 	text-align: left;
+	font-size: 24px;
 color: navy;
 font-weight: 900;
 border-left-color: navy;
@@ -934,6 +936,9 @@ float: left;
 	body.sales-letter-full .site-content {
 		width: 100%;
 	}
+	body.sales-letter-full .site-content article {
+		width: 90%;
+	}
 	.sales-letter .sales-letter-content h1 {
 		text-align: center;
 	}
@@ -1030,6 +1035,9 @@ float: left;
 */
 	.sales-letter-full .wrapper {
 		margin: 0 auto;
+	}
+	body.sales-letter-full .site-content article {
+		width: 75%;
 	}
 	.law .wrapper {
 		margin: 0 auto;
