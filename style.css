@@ -801,14 +801,6 @@ float: left;
 	.site-content {
 		float: none;
 		width: 100%;
-/*		width: 41.97764%;*/
-	}
-	.site-content article{
-		width: 90%;
-		margin: 0 auto;
-	}
-	body.law .site-content {
-		width: 100%; 
 	}
 	.breadcrumbs {
 		font-size: 14px;
@@ -907,12 +899,6 @@ float: left;
 		margin: 0 auto;
 		width: 100%;
 	}
-/*
-	.sales-letter .wrapper{
-		margin: 0 auto;
-		width: 100%;
-	}
-*/
 	.sales-letter-full .wrapper{
 		margin: 0 auto;
 		width: 100%;
@@ -928,16 +914,15 @@ float: left;
 	body.education .site-content {
 		width: 100%;
 	}
-/*
-	body.sales-letter .site-content {
-		width: 100%;
+	.template-front-page #content,
+	.sales-letter-full #content,
+	.full-width #content,
+	.education #content {
+		margin: 0 auto;
+		width: 90%;
 	}
-*/
 	body.sales-letter-full .site-content {
 		width: 100%;
-	}
-	body.sales-letter-full .site-content article {
-		width: 90%;
 	}
 	.sales-letter .sales-letter-content h1 {
 		text-align: center;
@@ -1036,18 +1021,17 @@ float: left;
 	.sales-letter-full .wrapper {
 		margin: 0 auto;
 	}
-	body.sales-letter-full .site-content article {
+	.template-front-page #content,
+	.sales-letter-full #content,
+	.full-width #content,
+	.education #content {
+		margin: 0 auto;
 		width: 75%;
 	}
+
 	.law .wrapper {
 		margin: 0 auto;
-/*		width: 720px;*/
 	}
-/*	
-.template-front-page .site-content article {
-		margin: 0 15% 0 15%;
-	}
-*/
 	.site-content {
 		float: left;
 		width: 63.6574%;
