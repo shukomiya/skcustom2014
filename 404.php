@@ -21,17 +21,6 @@ get_header(); ?>
 					<p>いつも当サイトをご覧頂きありがとうございます。大変申し訳ないのですが、あなたがアクセスしようとしたページは削除されたかURLが変更されています。お手数をおかけしますが、以下の方法からもう一度目的のページをお探し下さい。</p>
 					<h2>検索して見つける</h2>
 					<?php get_search_form(); ?>
-					<h2>人気の記事から見つける</h2>
-					<?php
-					 $wpp = array (
-					 'range' => 'monthly', /*集計期間の設定（daily,weekly,monthly）*/
-					 'limit' => 15, /*表示数はmax5記事*/
-					 'post_type' => 'post', /*投稿のみ指定（固定ページを除外）*/
-					 'title_length' => '70', /*タイトル文字数上限*/
-					 'stats_comments' => '0', /*コメント数は非表示*/
-					 'stats_views' => '0', /*閲覧数を表示させる*/
-					); ?>
-					<?php wpp_get_mostpopular($wpp); ?>					
 					<h2>最新の記事から見つける</h2>
 					<?php 
 						query_posts('showposts=10');
