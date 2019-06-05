@@ -66,7 +66,7 @@
 					}
 				}
 				if (!$g_category_nav){
-					echo '<center><div style="margin: 56px 0;"><a class="twitter-timeline" href="https://twitter.com/shukomiya?ref_src=twsrc%5Etfw" data-lang="ja" data-width="300" data-height="400">Tweets by shukomiya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div></center>';
+					echo '<center><a class="twitter-timeline" href="https://twitter.com/shukomiya?ref_src=twsrc%5Etfw" data-lang="ja" data-width="300" data-height="400">Tweets by shukomiya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>';
 				}
 				if ( is_ad_enabled() ) {
 					if ( is_no_adsense() ){
