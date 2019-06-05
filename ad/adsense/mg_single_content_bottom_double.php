@@ -1,5 +1,4 @@
 <div style="margin: 48px 0;">
-<div style="font-size: 87%; text-align: center">PR</div>
 <span style="float: left">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mg_single_content_bottom_left -->

@@ -1,5 +1,4 @@
-<div style="margin: 12px 0; padding: 12px 0;border-top: 1px silver solid;border-bottom: 1px silver solid; text-align: center;">
-<div style="font-size: 87%;">PR</div>
+<div style="margin: 12px 0; padding: 12px 0; text-align: center;">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mg_single_content_top_336x280 -->
 <ins class="adsbygoogle"

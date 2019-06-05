@@ -40,11 +40,7 @@
 			<?php 
 				if (is_single()){
 					if (is_ad_enabled()){
-						if ( !is_mobile() ) {
-							sk_get_the_ad('adsense', 'mg_single_content_top');
-						} else {
-							sk_get_the_ad('adsense', 'mg_sp_single_content_top');
-						}
+						sk_get_the_ad('adsense', 'mg_single_content_top_link');
 					}
 				}
 			?>
@@ -61,28 +57,26 @@
 				if ( $g_ad_enabled ) {
 					if ( !is_no_adsense() ) {
 						if ( !is_mobile() ) {
-							sk_get_the_ad('adsense', 'mg_single_content_bottom');
+							sk_get_the_ad('adsense', 'mg_single_content_bottom_double');
 						} else {
 							sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 						}
+						sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 					}
 				}
-
-				if ( is_ad_enabled() && !is_no_adsense() ) {
-					echo '<h2 class="add-section-title">おすすめの記事</h2>';
-					sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
-				}
-
-				if ( is_ad_enabled() && is_no_adsense() ) {
-					if ( !is_mobile() ) {
-						sk_get_the_ad('rakuten', 'content_bottom_336x280');
-					} else {
-						sk_get_the_ad('rakuten', 'content_bottom_300x160');
-					}
-				}
-
 				if (!$g_category_nav){
 					echo '<center><div style="margin: 48px 0;"><a class="twitter-timeline" href="https://twitter.com/shukomiya?ref_src=twsrc%5Etfw" data-lang="ja" data-width="300" data-height="400">Tweets by shukomiya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div></center>';
+				}
+				if ( $g_ad_enabled ) {
+					if ( !is_no_adsense() ){
+						sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
+					} else{
+						if ( !is_mobile() ) {
+							sk_get_the_ad('rakuten', 'content_bottom_336x280');
+						} else {
+							sk_get_the_ad('rakuten', 'content_bottom_300x160');
+						}
+					}
 				}
 			}
 			
