@@ -763,6 +763,7 @@ float: left;
 }
 
 .twitter-timeline{
+	float: none;
 	margin: 48px auto;
 	paddign-top: 56px;
 	width: 300px;
