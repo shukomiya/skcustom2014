@@ -22,7 +22,7 @@ if ( $g_is_localhost ) {
 }
 
 // for debug
-$g_ad_enabled = true;
+//$g_ad_enabled = true;
 //$g_category_nav = true;
 
 //記事の並び順
