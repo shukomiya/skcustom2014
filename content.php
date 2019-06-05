@@ -58,11 +58,7 @@
 			if ( is_single() ) {
 				if ( is_ad_enabled() ) {
 					if ( !is_no_adsense() ) {
-						if ( !is_mobile() ) {
-							sk_get_the_ad('adsense', 'mg_single_content_bottom_double');
-						} else {
-							sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
-						}
+						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 					}
 				}
 				if (!$g_category_nav){
