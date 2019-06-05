@@ -1,5 +1,4 @@
-<div style="margin: 48px 0;">
-<span style="float: left">
+<span style="float: left; margin:48px 0;">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mg_single_content_bottom_left -->
 <ins class="adsbygoogle"
@@ -10,7 +9,7 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </span>
-<span style="margin-left:10px; float: right">
+<span style="margin:48px 0 48px 10px; float: right">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mg_single_content_bottom_right -->
 <ins class="adsbygoogle"
