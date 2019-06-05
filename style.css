@@ -761,7 +761,13 @@ float: left;
 .line a {
 	background-color:#00b900;
 }
- 
+
+.twitter-timeline{
+	margin: 48px auto;
+	paddign-top: 56px;
+	width: 300px;
+	height: 400px:
+} 
 /* Minimum width of 320 pixels. */
 @media screen and (max-width: 480px) {
 	.site {
