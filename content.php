@@ -61,7 +61,6 @@
 						} else {
 							sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 						}
-						sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 					}
 				}
 				if (!$g_category_nav){
