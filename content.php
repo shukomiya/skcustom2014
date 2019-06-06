@@ -66,6 +66,7 @@
 				if ( is_ad_enabled() ) {
 					if ( !is_no_adsense() ) {
 						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
+						sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 					}
 				}
 				if ( is_ad_enabled() ) {
@@ -75,8 +76,6 @@
 						} else {
 							sk_get_the_ad('rakuten', 'content_bottom_300x160');
 						}
-					}else{
-						sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 					}
 				}
 				if (!$g_category_nav){
