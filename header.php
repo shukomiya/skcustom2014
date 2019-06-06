@@ -63,23 +63,6 @@
 			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
-		<div class="breadcrumbs">
-		    <?php 
-		    	if ((!is_mobile()) && function_exists('bcn_display')) {
-		        	bcn_display();
-		    	}
-		    ?>
-		</div>
-		<div class="head-banner">
-		<?php
-		if ( is_ad_enabled() ){
-			$atts = array('end' => '2019/05/06');
-			if ( is_limited_offer_campin($atts)){
-				sk_get_the_ad("", "mg_head");
-			}
-		}
-		?>
-		</div>
 	</header><!-- #masthead -->
 
 	<div id="main" class="wrapper">

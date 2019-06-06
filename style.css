@@ -226,7 +226,7 @@ footer.entry-meta {
 }
 
 .entry-header .entry-title {
-	font-size: 24px;
+	font-size: 28px;
 	line-height: 1.2;
 	font-weight: 900;
 }
@@ -780,8 +780,6 @@ float: left;
 	float: none;
 	margin: 48px auto;
 	paddign-top: 56px;
-	width: 300px;
-	height: 400px:
 } 
 /* Minimum width of 320 pixels. */
 @media screen and (max-width: 480px) {
