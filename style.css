@@ -597,7 +597,7 @@ input#a-button:active {
     border: solid 2px #d27d00;/*線色*/
 }
 
-.a-button {
+a.a-button {
     position: relative;
     display: inline-block;
     padding: 18px 18px;
@@ -606,19 +606,33 @@ input#a-button:active {
 	font-weight: bold;
     color: #fff;
     background: #fd9535;/*色*/
+    border-top: solid 1px gray;/*線色*/
+    border-left: solid 1px gray;/*線色*/
+    border-right: solid 3px gray;/*線色*/
+    border-bottom: solid 3px gray;/*線色*/
 }
 
-.a-button:hover {
+a.a-button:hover {
     text-decoration: underline;
-	border: solid 1px gray;
+    border-top: solid 2px gray;/*線色*/
+    border-left: solid 2px gray;/*線色*/
+    border-right: solid 4px gray;/*線色*/
+    border-bottom: solid 4px gray;/*線色*/
     color: #fff;
     background: #fd9535;/*色*/
 }
 
-.a-button:active {
-    border: solid 2px #d27d00;/*線色*/
+a.a-button:active {
+    color: #fff;
+    border-top: solid 4px gray;/*線色*/
+    border-left: solid 4px gray;/*線色*/
+    border-right: solid 2px gray;/*線色*/
+    border-bottom: solid 2px gray;/*線色*/
 }
 
+a.a-button:visited {
+    color: #fff;
+}
 .education nav {
 	margin: 48px 0;
 }
