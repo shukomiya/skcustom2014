@@ -21,7 +21,7 @@
 			<?php the_post_thumbnail('post_thumbnail'); ?>
 			<div class="breadcrumbs">
 			    <?php 
-			    	if ((!is_mobile()) && function_exists('bcn_display')) {
+			    	if (function_exists('bcn_display')) {
 			        	bcn_display();
 			    	}
 			    ?>
