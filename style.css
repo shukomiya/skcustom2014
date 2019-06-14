@@ -795,21 +795,21 @@ float: left;
 		padding: 0 0.714285714rem;
 	}
 	/* SNS */
-  .sns-share li {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 3px;
-  }
- 
-  .sns-share li i {
-    font-size: 1.3em;
-    padding-top: 3px;
-  }
- 
-  .sns-share li span {
-    display: none;
-  }
+	.sns-share li {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 3px;
+	}
+
+	.sns-share li i {
+		font-size: 1.3em;
+		padding-top: 3px;
+	}
+
+	.sns-share li span {
+		display: none;
+	}
 }
 /* Minimum width of 600 pixels. */
 @media screen and (min-width: 600px) {
