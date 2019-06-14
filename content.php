@@ -73,11 +73,17 @@
 					echo '<center><a class="twitter-timeline" href="https://twitter.com/shukomiya?ref_src=twsrc%5Etfw" data-lang="ja" data-width="80%" data-height="600">Tweets by shukomiya</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>';
 				}
 				if ( is_ad_enabled() ){
+					$adlist[0] = 'content_bottom_motion_travel';
+					$adlist[1] = 'content_bottom_336x280';
+					$adlist[2] = 'sp_content_bottom_motion_travel';
+					$adlist[3] = 'content_bottom_300x160';
+					
 					if ( !is_mobile() ) {
-						sk_get_the_ad('rakuten', 'content_bottom_336x280');
+						$adnum = mt_rand(0, 1);
 					} else {
-						sk_get_the_ad('rakuten', 'content_bottom_300x160');
+						$adnum = mt_rand(2, 3);
 					}
+					sk_get_the_ad('rakuten', $adlist[$adnum]);
 				}
 			}
 			
