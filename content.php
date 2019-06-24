@@ -19,13 +19,6 @@
 		<header class="entry-header">
 			<?php if ( is_single() ) : ?>
 			<?php the_post_thumbnail('post_thumbnail'); ?>
-			<div class="breadcrumbs">
-			    <?php 
-			    	if (function_exists('bcn_display')) {
-			        	bcn_display();
-			    	}
-			    ?>
-			</div>
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php else : ?>
 			<h1 class="entry-title">

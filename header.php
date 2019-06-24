@@ -63,6 +63,13 @@
 			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
+		<div class="breadcrumbs">
+		    <?php 
+		    	if (function_exists('bcn_display')) {
+		        	bcn_display();
+		    	}
+		    ?>
+		</div>
 	</header><!-- #masthead -->
 
 	<div id="main" class="wrapper">
