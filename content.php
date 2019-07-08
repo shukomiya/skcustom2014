@@ -57,23 +57,8 @@
 			
 			if ( is_single() ) {
 				if ( is_ad_enabled() ) {
-					$adlist[0] = 'content_bottom_motion_travel';
-					$adlist[1] = 'content_bottom_motion';
-					$adlist[2] = 'mg_sp_single_content_bottom';
-					$adlist[3] = 'sp_content_bottom_motion_travel';
-					$adlist[4] = 'sp_content_bottom_motion';
-					
-					if ( !is_mobile() ) {
-						$adnum = mt_rand(0, 2);
-					} else {
-						$adnum = mt_rand(2, 4);
-					}
-					if ($adnum === 2 && !is_no_adsense()){
-						sk_get_ad('adsense', $adlist[$adnum]);
-					}else{
-						sk_get_the_ad('rakuten', $adlist[$adnum]);
-					}
 					if ( !is_no_adsense() ) {
+						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom');
 						sk_get_the_ad('adsense', 'mg_single_content_bottom_rel_ad');
 					}
 				}

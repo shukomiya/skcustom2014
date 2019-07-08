@@ -660,7 +660,11 @@ float: left;
 	font-weight: 900;
 	font-size: 20px;
 }
-
+.sales-leffer-full .price {
+	font-weight: 900;
+	font-size: 24px;
+}
+	
 /**
  * カラーパレットの背景色を定義
  * https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#block-color-palettes
