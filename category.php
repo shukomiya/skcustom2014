@@ -22,6 +22,8 @@ if ($g_category_nav){
 
 get_header(); 
 
+var_dump($special_category);
+
 if ( $special_category > 0) :
 //指定したカテゴリに属する場合の処理
 ?>
@@ -50,7 +52,8 @@ if ( $special_category > 0) :
 			}
 			
 			$args = array(
-			    'category__in' => $parent
+				'category__in' => $parent,
+				'posts_per_page' => -1
 			);
 			$query = new WP_Query( $args );
 			if ( $query ->have_posts() ) {
@@ -64,6 +67,7 @@ if ( $special_category > 0) :
 			}
 			wp_reset_postdata();
 			echo '</ul>';
+
 			?>
 			</div><!-- .entry-summary -->
 		<?php else : ?>
