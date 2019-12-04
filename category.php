@@ -22,7 +22,7 @@ if ($g_category_nav){
 
 get_header(); 
 
-var_dump($special_category);
+//var_dump($special_category);
 
 if ( $special_category > 0) :
 //指定したカテゴリに属する場合の処理
