@@ -1,4 +1,4 @@
-<div style="margin: 54px 0;">
+<div style="margin: 48px 0;">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mg_single_contetn_bottom_rel_ad -->
 <ins class="adsbygoogle"

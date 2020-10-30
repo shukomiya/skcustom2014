@@ -22,7 +22,7 @@ blockquote {
      font-size: 100%;
      font-style: italic;
      font-weight: 300;
-     line-height: 1.5;
+     line-height: 1.9;
      margin-bottom: 0px;
      position:relative;
      padding:10px 10px 0px 10px;;
@@ -80,6 +80,14 @@ blockquote {
 	font-weight: 900;
 }
 
+.sales-letter-full .site-header h1 {
+	text-align: left;
+	font-size: 18px;
+	line-height: 1.846153846;
+	margin-bottom: 0;
+	font-weight: 900;
+}
+
 .law .site-header h1 {
 	text-align: left;
 	font-size: 18px;
@@ -115,12 +123,27 @@ blockquote {
 	padding: 24px 0 0px 0;
 	border-bottom: 1px #000 dotted;
 }
+.sales-letter-full .entry-title {
+	display: none;
+}
+.sales-letter-full .site-header {
+	padding: 24px 0 0px 0;
+	border-bottom: 1px #000 dotted;
+}
 .law .entry-title {
 	display: none;
 }
 .law .site-header {
 	padding: 24px 0 0px 0;
 	border-bottom: 1px #000 dotted;
+}
+
+footer.entry-meta {
+	margin-top: 24px;
+	margin-bottom: 24px;
+	font-size: 13px;
+	line-height: 1.846153846;
+	color: #757575;
 }
 
 /* Navigation Menu */
@@ -134,13 +157,12 @@ blockquote {
 .main-navigation li {
 	font-size: 14px;
 	font-size: 1rem;
-	line-height: 1.42857143;
 }
 
 .entry-content,
 .entry-summary,
 .mu_register {
-	line-height: 1.714285714;
+	line-height: 1.9;
 /*	padding-right: 10px;
 	padding-right: 0.714285714rem;
 	padding-left: 10px;
@@ -150,16 +172,30 @@ blockquote {
 .entry-content li {
 	margin-left: 32px;
 	margin-bottom: 6px;
+	line-height: 1.9;
 }
 
+.sales-letter .sales-letter-content dl {
+}
+
+.sales-letter .sales-letter-content dt {
+	font-weight: 900;
+	line-height: 1.9;
+}
+
+.sales-letter .sales-letter-content dd {
+	margin-left: 18px;
+	line-height: 1.9;
+}
 .checklist_red ul, .checklist_blue ul{
-list-style-type:none;
+	list-style-type:none;
 }
 
 .checklist_red li, .checklist_blue li{
 	padding-bottom: 20px;
 	padding-left: 32px;
 	margin-left: 16px;
+	line-height: 1.9;
 }
 .checklist_red li{
 	background-image:url("https://komish.com/wp-content/uploads//2017/09/checkred.gif");
@@ -174,6 +210,7 @@ list-style-type:none;
 
 .widelist li {
 	padding-bottom: 20px;
+	line-height: 1.9;
 }
 
 .entry-content a:hover,
@@ -189,7 +226,7 @@ list-style-type:none;
 }
 
 .entry-header .entry-title {
-	font-size: 24px;
+	font-size: 28px;
 	line-height: 1.2;
 	font-weight: 900;
 }
@@ -208,9 +245,15 @@ header .entry-meta {
 	color: #757575;
 }
 
-.searchform div {
+header .searchform div {
 	margin:12px 0 0 0;
 	text-align: right;
+}
+.up-5step-form {
+	border: 1px dotted gray;
+	padding: 8px;
+	margin: 5px;
+	width: 300px;
 }
 .sales-letter .sales-letter-content h1 {
 	border-style: none;
@@ -237,6 +280,33 @@ border-left-style: solid;
 border-left-width: 10px;
 }
 
+.sales-letter-full .sales-letter-full-content h1 {
+	border-style: none;
+}
+.sales-letter-full .sales-letter-full-content h1 {
+	text-align: left;
+font-size: 36px;
+font-weight: 900;
+/*border-bottom: 1px gray solid;*/
+}
+.sales-letter-full .sales-letter-full-content h2 {
+	text-align: left;
+	font-size: 32px;
+	padding: 0;
+	color: navy;
+	border-style: none;
+	font-weight: 900;
+}
+.sales-letter-full .sales-letter-full-content h3 {
+	text-align: left;
+	font-size: 24px;
+color: navy;
+font-weight: 900;
+border-left-color: navy;
+border-left-style: solid;
+border-left-width: 10px;
+}
+
 .entry-content h1,
 .comment-content h1 {
     font-size: 24px;
@@ -249,6 +319,15 @@ border-left-width: 10px;
 .entry-content h2,
 .comment-content h2,
 .mu_register h2 {
+	font-size: 22px;
+	margin: 40px 0 40px 0px;
+	line-height: 1.6;
+	padding: 8px 0 6px 16px;
+	border-left: 12px #804040 solid;
+	border-bottom: 1px #804040 dotted;
+	font-weight: bold;
+}
+.entry-content .add-section-title {
 	font-size: 22px;
 	margin: 40px 0 40px 0px;
 	line-height: 1.6;
@@ -420,14 +499,21 @@ list-style-type:disc;
 	display:inline-block;
 	width: 240px;
 }
-/* contact  form 7*/
+
 .userinfoform input[type=text],
 .userinfoform input[type=email]
  {width: 80% !important;}  /*名前orメールor題名*/
-.userinfoform textarea{width: 90% !important;} /*本文*/
+.userinfoform textarea{width: 100% !important;} /*本文*/
 .userinfoform .wpcf7-submit{width: 80px !important;} /*送信ボタン*/
 
 
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"]{
+    max-width: 80%;
+}
+.wpcf7 textarea{
+    max-width: 100%;
+}
 /********************************
 *	pagenavi
 ********************************/
@@ -511,6 +597,42 @@ input#a-button:active {
     border: solid 2px #d27d00;/*線色*/
 }
 
+a.a-button {
+    position: relative;
+    display: inline-block;
+    padding: 18px 18px;
+    text-decoration: none;
+    font-size: 120%;
+	font-weight: bold;
+    color: #fff;
+    background: #fd9535;/*色*/
+    border-top: solid 1px gray;/*線色*/
+    border-left: solid 1px gray;/*線色*/
+    border-right: solid 3px gray;/*線色*/
+    border-bottom: solid 3px gray;/*線色*/
+}
+
+a.a-button:hover {
+    text-decoration: underline;
+    border-top: solid 2px gray;/*線色*/
+    border-left: solid 2px gray;/*線色*/
+    border-right: solid 3px gray;/*線色*/
+    border-bottom: solid 3px gray;/*線色*/
+    color: #fff;
+    background: #fd9535;/*色*/
+}
+
+a.a-button:active {
+    color: #fff;
+    border-top: solid 4px gray;/*線色*/
+    border-left: solid 4px gray;/*線色*/
+    border-right: solid 2px gray;/*線色*/
+    border-bottom: solid 2px gray;/*線色*/
+}
+
+a.a-button:visited {
+    color: #fff;
+}
 .education nav {
 	margin: 48px 0;
 }
@@ -538,7 +660,131 @@ float: left;
 	font-weight: 900;
 	font-size: 20px;
 }
+.sales-leffer-full .price {
+	font-weight: 900;
+	font-size: 24px;
+}
+	
+/**
+ * カラーパレットの背景色を定義
+ * https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#block-color-palettes
+ */
 
+.has-blue-background-color {
+    background-color: #21759b;
+}
+
+.has-blue-color {
+    color: #21759b;
+}
+
+.has-orange-background-color {
+    background-color: #d54e21;
+}
+
+.has-orange-color {
+    color: #d54e21;
+}
+
+.has-gray-background-color {
+    background-color: #464646;
+}
+
+.has-gray-color {
+    color: #464646;
+}
+
+.has-white-background-color {
+    background-color: #ffffff;
+}
+
+.has-white-color {
+    color: #ffffff;
+}
+
+.optin-left {
+	float: none;
+	margin: 8px;
+}
+.optin-right {
+	float: none;
+	margin: 8px;
+}
+
+/* SNS */
+	
+.fa-hatena:before {
+  font-family: Verdana;
+  font-weight: bold;
+  content: 'B!';
+}
+ 
+.sns-share {
+	margin: 40px auto;
+}
+ 
+.sns-share ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+.sns-share ul:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+ 
+.sns-share li {
+  float: left;
+  width: 23%;
+  margin: 0;
+  margin-top: 15px;
+  padding: 4px;
+}
+ 
+.sns-share li a {
+  font-size: 14px;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+ 
+.sns-share li a:hover {
+  opacity: .8;
+}
+ 
+.sns-share li a:visited {
+  color: #fff;
+}
+ 
+.tweet a {
+  background-color: #55acee;
+}
+ 
+.facebook a {
+  background-color: #315096;
+}
+ 
+.pocket a {
+  background-color: #ee4056;
+}
+ 
+.hatena a {
+  background-color: #008fde;
+}
+
+.line a {
+	background-color:#00b900;
+}
+
+.twitter-timeline{
+	float: none;
+	margin: 48px auto;
+	paddign-top: 56px;
+} 
 /* Minimum width of 320 pixels. */
 @media screen and (max-width: 480px) {
 	.site {
@@ -552,6 +798,22 @@ float: left;
 	#main {
 		padding: 0 0.714285714rem;
 	}
+	/* SNS */
+	.sns-share li {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 3px;
+	}
+
+	.sns-share li i {
+		font-size: 1.3em;
+		padding-top: 3px;
+	}
+
+	.sns-share li span {
+		display: none;
+	}
 }
 /* Minimum width of 600 pixels. */
 @media screen and (min-width: 600px) {
@@ -562,11 +824,6 @@ float: left;
 	.site-content {
 		float: none;
 		width: 100%;
-/*		width: 41.97764%;*/
-	}
-
-	body.law .site-content {
-		width: 100%; 
 	}
 	.breadcrumbs {
 		font-size: 14px;
@@ -665,6 +922,11 @@ float: left;
 		margin: 0 auto;
 		width: 100%;
 	}
+	.sales-letter-full .wrapper{
+		margin: 0 auto;
+		width: 100%;
+	}
+	
 	.law .wrapper {
 		margin: 0 auto;
 		width: 100%;
@@ -675,19 +937,64 @@ float: left;
 	body.education .site-content {
 		width: 100%;
 	}
+	.template-front-page #content,
+	.sales-letter-full #content,
+	.full-width #content,
+	.education #content {
+		margin: 0 auto;
+		width: 90%;
+	}
+	body.sales-letter-full .site-content {
+		width: 100%;
+	}
 	.sales-letter .sales-letter-content h1 {
 		text-align: center;
 	}
 	.sales-letter .sales-letter-content h2 {
 		text-align: center;
 	}
-	
+	.sales-letter-full .sales-letter-full-content h1 {
+		text-align: center;
+	}
+	.sales-letter-full .sales-letter-full-content h2 {
+		text-align: center;
+	}
+
 }
 
-@media screen and (min-width: 780px) {
+/* Minimum width of 960 pixels. */
+@media screen and (min-width: 960px) {
+	body {
+		background-color: #e6e6e6;
+	}
+	body .site {
+		padding: 0 40px;
+		padding: 0 2.857142857rem;
+		margin-top: 0;
+		margin-top: 0rem;
+		margin-bottom: 0px;
+		margin-bottom: 0rem;
+		box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+	}
+	body.custom-background-empty {
+		background-color: #fff;
+	}
+	body.custom-background-empty .site,
+	body.custom-background-white .site {
+		padding: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		box-shadow: none;
+	}
+/*
 	.site-content {
 		float: left;
 		width: 54.42176%;
+	}
+*/	
+	.site-content article{
+		width: 100%;
+		margin: 0 auto;
 	}
 	.widget-area {
 		float: right;
@@ -725,44 +1032,28 @@ float: left;
 	}
 	.full-width .wrapper {
 		margin: 0 auto;
-		width: 660px;
 	}
 	.education .wrapper {
 		margin: 0 auto;
-		width: 720px; 
 	}
+/*
+	.sales-letter .wrapper {
+		margin: 0 auto;
+	}
+*/
+	.sales-letter-full .wrapper {
+		margin: 0 auto;
+	}
+	.template-front-page #content,
+	.sales-letter-full #content,
+	.full-width #content,
+	.education #content {
+		margin: 0 auto;
+		width: 75%;
+	}
+
 	.law .wrapper {
 		margin: 0 auto;
-		width: 720px; 
-	}
-	.template-front-page .site-content article {
-		margin: 0 15% 0 15%;
-	}
-}
-
-/* Minimum width of 960 pixels. */
-@media screen and (min-width: 960px) {
-	body {
-		background-color: #e6e6e6;
-	}
-	body .site {
-		padding: 0 40px;
-		padding: 0 2.857142857rem;
-		margin-top: 0;
-		margin-top: 0rem;
-		margin-bottom: 0px;
-		margin-bottom: 0rem;
-		box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
-	}
-	body.custom-background-empty {
-		background-color: #fff;
-	}
-	body.custom-background-empty .site,
-	body.custom-background-white .site {
-		padding: 0;
-		margin-top: 0;
-		margin-bottom: 0;
-		box-shadow: none;
 	}
 	.site-content {
 		float: left;
@@ -770,25 +1061,34 @@ float: left;
 	}
 	.full-width .wrapper {
 		margin: 0 auto;
-		width: 660px;
 	}
 	.education .wrapper {
 		margin: 0 auto;
-		width: 660px;
 	}
+/*	
 	.sales-letter .wrapper {
 		margin: 0 auto;
-/*		width: 720px;*/
+		width: 720px;
+	}
+*/
+	.sales-letter .wrapper {
+		margin: 0 auto;
 	}
 	.law .wrapper {
 		margin: 0 auto;
-		width: 720px;
+/*		width: 720px;*/
 	}
 	.entry-content p,
 	.entry-summary p,
 	.comment-content p,
 	.mu_register p {
 		line-height: 2.2;
+	}
+	.optin-left {
+		float: left;
+		width: 60%;
+	}
+	.optin-right {
 	}
 	
 }

@@ -7,6 +7,8 @@
  * @since Twenty Twelve 1.0
  */
 
+global $g_category_nav;
+
 get_header(); ?>
 
 	<div id="primary" class="site-content">
@@ -15,15 +17,12 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
-				<nav class="single-page-navi entry-content">
-					<h2>前後の記事</h2>
-					<ul>
-						<li><strong>【前の記事】&nbsp;</strong>
-							<?php global $g_category_nav; previous_post_link( '%link', '<span class="meta-nav">' . '</span> %title',  $g_category_nav , '' ); ?></span></li>
-						<li><strong>【次の記事】&nbsp;</strong>
-							<?php  global $g_category_nav; next_post_link( '%link', '%title <span class="meta-nav">' . '</span>', $g_category_nav, '' ); ?></span></li>
-					</ul>
-				</nav>
+
+				<nav class="nav-single">
+					<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
+					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title',  $g_category_nav  ); ?></span>
+					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>',  $g_category_nav  ); ?></span>
+				</nav><!-- .nav-single -->
 
 				<?php comments_template( '', true ); ?>
 
@@ -32,5 +31,7 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
+<?php if (!is_mobile()) : ?>
 <?php get_sidebar(); ?>
+<?php endif; ?>
 <?php get_footer(); ?>

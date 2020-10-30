@@ -24,51 +24,17 @@
 	<?php $this->load_parts( array( 'featured-image' ) ); ?>
 
 	<div class="amp-wp-article-content">
-		<div class="ad-top">
-		<amp-ad
-			layout="fixed-height"
-			height=100
-			type="adsense"
-			data-ad-client="ca-pub-7935009294964527"
-			data-ad-slot="4240646084">
-		</amp-ad>
-		</div>
 		<?php echo $this->get( 'post_amp_content' ); // amphtml content; no kses ?>
-		<h2>おすすめ記事</h2>
 		<div class="ad-bottom2">
-		<amp-ad
-			layout="responsive"
-		 	type="adsense"
+		<amp-ad width="100vw" height=320
+			type="adsense"
 		 	data-ad-client="ca-pub-7935009294964527"
 		 	data-ad-slot="5717379286"
-		 	width=300
-			height=250>
+			data-auto-format="rspv"
+			data-full-width>
+			<div overflow></div>
 		</amp-ad>
 		</div>
-		</div>
-		<?php 
-			if (function_exists('related_posts')){
-				echo '<h2>関連記事</h2>';
-				related_posts(); 
-			}
-			
-			/*
-			if ( function_exists( 'wpp_get_mostpopular' ) ) {
-				echo '<h2>このカテゴリの１週間の人気記事</h2>';
-				$cat = get_the_category();
-				$cat_id = $cat[0]->cat_ID;
-				$args = array(
-					'range' => 'weekly', // 週単位で集計
-					'post_type' => 'post', // ポストタイプを指定
-					'limit' => 5, // 表示件数を指定
-					'stats_views' => 0,
-					'pid' => "$post->ID",
-					'cat' => "$cat_id"
-				);
-				wpp_get_mostpopular( $args );
-			}				
-			*/
-			?>
 	<footer class="amp-wp-article-footer">
 		<?php $this->load_parts( apply_filters( 'amp_post_article_footer_meta', array( 'meta-taxonomy', 'meta-comments-link' ) ) ); ?>
 	</footer>

@@ -17,7 +17,7 @@
 		</header>
 
 		<div class="entry-content">
-			<?php if ( ! is_page_template( 'page-templates/front-page.php' ) ) : ?>
+			<?php if ( ! is_page_template( 'templates/front-page.php' ) ) : ?>
 			<?php the_post_thumbnail(); ?>
 			<?php endif; ?>
 			<?php the_content(); ?>

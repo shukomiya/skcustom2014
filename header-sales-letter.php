@@ -29,26 +29,12 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
 <?php sk_get_access_analy_google(); ?>
+</head>
+<?php if ($_SERVER["SERVER_NAME"] === 'plus.komish.com' && !current_user_can('administrator')) : ?>
+<body <?php body_class(); ?> oncopy="return false;">
+<?php else: ?>
+<body <?php body_class(); ?>>
+<?php endif; ?>
 <div id="page" class="hfeed site">
-	<header id="masthead" class="site-header" role="banner">
-		<hgroup>
-			<?php if ( is_mobile() ) : ?>
-				<?php if ( !function_exists( "wprmenu_menu" ) ) :  ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php endif; ?>
-			<?php else : ?>
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php endif; ?>
-			<aside class="topmenu">
-				<ul class="topmenu">
-					<li><a href="/profile">プロフィール</a>&nbsp;&nbsp;|</li>
-					<li><a href="/contact">問い合わせ</a></li>
-				</ul>
-			</aside>
-		</hgroup>
-	</header><!-- #masthead -->
-
 	<div id="main" class="wrapper">

@@ -19,18 +19,16 @@
 		</header>
 
 		<div class="entry-content">
-			<?php if ( ! is_page_template( 'page-templates/front-page.php' ) ) : ?>
+			<?php if ( ! is_page_template( 'templates/front-page.php' ) ) : ?>
 			<?php the_post_thumbnail(); ?>
 			<?php endif; ?>
 			<?php the_content(); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
 			<?php
-				if ( !is_noad() ) {
-					if ( !is_mobile() ) {
-						sk_get_the_ad('adsense', 'mg_single_content_bottom'); 
-					} else {
-						sk_get_the_ad('adsense', 'mg_sp_single_content_bottom'); 
-					}
+				if ( !is_mobile() ) {
+					sk_get_the_ad('adsense', 'mg_single_content_bottom'); 
+				} else {
+					sk_get_the_ad('adsense', 'mg_sp_single_content_bottom'); 
 				}
 			?>
 		</div><!-- .entry-content -->

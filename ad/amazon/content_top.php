@@ -1,6 +1,4 @@
-<div style="margin: 0px 0 24px 0; text-align:center;">
-<script type="text/javascript"><!--
-amazon_ad_tag = "missionmarket-22"; amazon_ad_width = "468"; amazon_ad_height = "60"; amazon_ad_link_target = "new"; amazon_ad_price = "retail";//--></script>
-<script type="text/javascript" src="https://www.assoc-amazon.jp/s/ads.js"></script>
+<div style="margin: 24px 0; text-align:center; line-height: 1.8;">
+<a href="https://amzn.to/2FQ6sFY">【プライム会員限定】音楽を聴くと500ポイントプレゼント<br>
+by AMAZON MUSIC</a>
 </div>
-<hr />

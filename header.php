@@ -29,8 +29,10 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <?php wp_head(); ?>
-<?php global $g_ad_enabled; if ( $g_ad_enabled ) : ?>
-<?php global $g_index_ad_count; $g_index_ad_count = 0; ?>
+<?php if (is_ad_enabled()) : ?>
+<script type="text/javascript" language="javascript">
+    var vc_pid = "885698706";
+</script><script type="text/javascript" src="//aml.valuecommerce.com/vcdal.js" async></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({
@@ -39,12 +41,15 @@
      });
 </script>
 <?php endif; ?>
+<?php sk_get_access_analy_google(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php sk_get_access_analy_google(); ?>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
+		<?php if ( get_header_image() ) : ?>
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php header_image(); ?>" class="header-image" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" /></a>
+		<?php endif; ?>
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 			<?php get_search_form() ?>
@@ -56,7 +61,7 @@
 		</nav><!-- #site-navigation -->
 		<div class="breadcrumbs">
 		    <?php 
-		    	if ((!is_mobile()) && function_exists('bcn_display')) {
+		    	if (function_exists('bcn_display')) {
 		        	bcn_display();
 		    	}
 		    ?>
