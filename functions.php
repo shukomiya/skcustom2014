@@ -38,21 +38,6 @@ function my_orderby_modified( $query ) {
 add_action( 'pre_get_posts', 'my_orderby_modified' );
 }
 
-function is_amp(){
-  //AMPチェック
-	$is_amp = false;
-	if ( empty($_GET['amp']) ) {
-		return false;
-	}
- 
-  //ampのパラメーターが1かつ投稿ページの
-  //かつsingleページのみ$is_ampをtrueにする
-	if(is_single() && $_GET['amp'] === '1'){
-		$is_amp = true;
-	}
-	return $is_amp;
-}
-
 function amp_template($file, $type, $post) {
     if ( 'single' === $type ) {
         $file = get_stylesheet_directory().'/amp/single.php';
