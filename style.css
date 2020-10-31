@@ -642,9 +642,11 @@ a.a-button:visited {
 	width: 33%;
 }
 .education .aligncenter{
+	float: left;
 	text-align: center;
-float: left;
-width: 33%;
+	width: 33%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .education .alignright{
 width: 33%;
