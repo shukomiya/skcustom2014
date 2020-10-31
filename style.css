@@ -637,18 +637,18 @@ a.a-button:visited {
 	margin: 48px 0;
 }
 
-.education .alignleft{
+.education .align-left{
 	float: left;
 	width: 33%;
 }
-.education .aligncenter{
+.education .align-center{
 	float: left;
 	text-align: center;
 	width: 33%;
     margin-left: auto;
     margin-right: auto;
 }
-.education .alignright{
+.education .align-right{
 width: 33%;
 text-align: right;
 float: left;
