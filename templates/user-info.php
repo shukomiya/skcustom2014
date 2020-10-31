@@ -51,7 +51,8 @@ if ($act == 1) {
 			$info_msg = '登録しました';
 		} else {
 			$user_id = wp_update_user( array( 'ID' => $user_id, 'password' => $password, 'display_name' => $nickname ));
-			header('Location: ' . home_url() . '/wp-login.php?action=login');
+			$login_url = wp_login_url( home_url() );
+			header('Location: ' . $login_url);
 			exit;
 		}
 	} else {
@@ -92,7 +93,7 @@ get_header(); ?>
 						</ul>
 					</div>
 					<?php } else if (!empty($info_msg )) { ?>
-					<p><strong>※変更しました</strong></p>
+					<p><span style="padding: 4px; border: 2px gray solid;"><strong>※変更しました</strong></span></p>
 					<?php } ?>
 				
 					<div class="userinfo">
@@ -105,7 +106,7 @@ get_header(); ?>
 						<div class="field">
 						<label>名前:</label><br>
 						<input type="text" name="user_info[nickname]" value="<?php echo htmlspecialchars($nickname); ?>"><br>
-						※ネットコンサルで質問するときにこの名前を表示します。変更しないとメールアドレスを表示してしまいます。<br>
+						※コメントすると名前欄に、この名前を表示します。変更しないとメールアドレスを表示してしまいます。<br>
 						名前は姓、名のどちらかを入力してください。表記は漢字でもカタカナでもひらがなでもローマ字でも結構です。
 						</div>
 
