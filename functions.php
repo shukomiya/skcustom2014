@@ -453,7 +453,7 @@ function getPrevNext(){
 	
 	echo '<nav class="education">';
 	
-	echo '<div class="alignleft">';
+	echo '<div class="align-left">';
 	if ($prevID != -1) {
 		echo '<a href="';
 		echo get_permalink($prevID);
@@ -467,7 +467,7 @@ function getPrevNext(){
 	}
 	echo "</div>";
 
-	echo '<div class="aligncenter">';
+	echo '<div class="align-center">';
 		echo '<a href="';
 		echo get_permalink($parent_id);
 		echo '" title="';
@@ -475,7 +475,7 @@ function getPrevNext(){
 		echo'">目次へ</a>';
 	echo '</div>';
 	
-	echo '<div class="alignright">';
+	echo '<div class="align-right">';
 	if ($nextID != -1) {
 		echo '<a href="';
 		echo get_permalink($nextID);
